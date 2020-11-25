@@ -1,0 +1,65 @@
+.container {
+    background-image: url(./img/poverty.jpg);
+    background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+   margin: 0 auto;
+   /* you use background position to have the image full content and not cut off 
+   remove background position to see the difference*/
+   height: 100vh;
+}
+ .start-btn{
+     height: 100px;
+     /* width: 150px; */  
+     border-radius: 30px;
+     /* background-color:#ffffff ; */
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     position: absolute;
+     font-size: 70px;
+    top:350px;
+    left: 550px;
+    opacity: 0.8;
+    padding-left: 15px;
+    padding-right: 15px;
+    animation: flash 1.5s linear infinite;
+    color: rgb(6, 66, 56);
+ }
+ @keyframes flash {
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+ .ranking-btn{
+     height: 70px;
+     width: 250px;
+     background-color: aliceblue; 
+     border-radius: 30px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-size: 40px;
+    position: absolute;
+    top: 50px;
+    left: 1100px;
+    opacity: 0.8;
+ }
+ .title{
+   font-size: 100px;
+     position: absolute;
+     left: 500px;
+     top: 100px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-display: inline-block;
+    /* text-shadow: rgb(255, 65, 32) 1px 1px 0px,  rgb(255, 65, 32) -1px 1px 0px,
+    rgb(255, 65, 32) 1px -1px 0px,  rgb(255, 65, 32) -1px -1px 0px; */
+    font-family: unset;
+    color: rgb(14, 11, 11);
+ }
+ 
+ 
+  
+  
+  
