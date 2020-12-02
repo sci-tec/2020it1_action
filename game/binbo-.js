@@ -26,9 +26,15 @@ var y = 300;
 var vy = 0;
 // ジャンプしたか否かのフラグ値
 var isJump = false;
-
+// ジャンプ回数
+var jp = 0;
+var jplimit = 2;
 // ゲームオーバーか否かのフラグ値
 var isGameOver = false;
+// ゴールか否かのフラグ値
+var goal = false;
+//キーが押されているか
+var isupkeyup = true;
 
 // ブロック要素の定義
 var blocks = [];
@@ -71,7 +77,7 @@ window.addEventListener("load", update);
 function update() {
   // 画面全体をクリア
   ctx.clearRect(0, 0, 1500, 735);
-
+  
   // 更新後の座標
   var updatedX = x;
   var updatedY = y;
@@ -92,14 +98,38 @@ function update() {
       updatedY = 300;
       vy = 0;
     }
+  } else if(goal){
+    if (blocks[97].x < 300){
+      alert("Goal");
+      goal = false;
+      vy = 0;
+    }
   } else {
     // 入力値の確認と反映
-    if (input_key_buffer[38]) {
-      vy = -7;
-      isJump = true;
+    const blockTargetIsOn = getBlockTargrtIsOn(x, y, updatedX, updatedY);
+    if(!input_key_buffer[32] && jp > 0) {
+      isupkeyup = true;
     }
-    
+    if (input_key_buffer[32] && jp < jplimit && isupkeyup) {
+      vy = -7.5;
+      isJump = true;
+      jp = jp + 1;
+      isupkeyup = false;
+    } else if (blockTargetIsOn !== null) {
+      jp = 0;
+      isupkeyup = true;
+    }
 
+    //左右への操作(A.D)
+    // if (input_key_buffer[65]) {
+    //   // 左が押されていればx座標を1減らす
+    //   updatedX = x - 4;
+    // }
+    // if (input_key_buffer[68]) {
+    //   // 右が押されていればx座標を1増やす
+    //   updatedX = x + 2;
+    // }
+      
     // ジャンプ中である場合のみ落下するように調整する
     if (isJump) {
       // 上下方向は速度分をたす
@@ -130,8 +160,16 @@ function update() {
       updatedY = 500;
       vy = -15;
     }
-  }
 
+    if (blocks[97].x < 300) {
+      goal = true;
+    }
+  }
+  
+  console.log(jp);
+  console.log(isupkeyup);
+  console.log(x);
+  
   x = updatedX;
   y = updatedY;
 
