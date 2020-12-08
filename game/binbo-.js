@@ -26,20 +26,26 @@ var y = 300;
 var vy = 0;
 // ジャンプしたか否かのフラグ値
 var isJump = false;
-
+// ジャンプ回数
+var jp = 0;
+var jplimit = 2;
 // ゲームオーバーか否かのフラグ値
 var isGameOver = false;
+// ゴールか否かのフラグ値
+var goal = false;
+//キーが押されているか
+var isupkeyup = true;
 
 // ブロック要素の定義
 var blocks = [];
 var bloksy = [];
 var coiny = [];
 var coinyy = [];
-for(let j=0; j<100; j++){
-  var blockyy = [562,562,562,562,462,562,1000];
+for(let j=0; j<200; j++){
+  var blockyy = [562,562,562,562,462,562,562,462];
   var coinhi = [1500,1500,1500,40,80];
-  var random = Math.floor( Math.random() * 7 );
-  var coin = Math.floor( Math.random() * 7 );
+  var random = Math.floor( Math.random() * 8 );
+  var coin = Math.floor( Math.random() * 5 );
   if(j<=6){
     bloksy.push(blockyy[0]);
     coinyy.push(-100);
@@ -48,16 +54,43 @@ for(let j=0; j<100; j++){
     coinyy.push(blockyy[random] -=coinhi[coin]);
   }
 }
+let sto = [0,0,0,0,0,0,0,0,1,2];
+var sake = [];
+var tabako = [];
 let blockx = 0;
 let coinxx = 30;
-for(let i=0; i<100; i++){
+for(let i=0; i<200; i++){
+  let ran = Math.floor(Math.random()*10);
   blocks.push({ x: blockx, y: bloksy[i], w: 100, h: 32 },)
-  coiny.push({ x: coinxx, y: coinyy[i], w: 35, h: 35 },)
+  if(sto[ran]==0){
+    coiny.push({ x: coinxx, y: coinyy[i],isShow:true },)
+  }else if(sto[ran]==1){
+    sake.push({ x: coinxx, y: coinyy[i], isShow:true},)
+  }
+  else if(sto[ran]==2){
+    tabako.push({ x: coinxx, y: coinyy[i],isShow:true},)
+  }
   blockx +=100;
   coinxx +=100;
 
 }
-
+　//お金変数
+　let okane = 0;
+  //速さ変数
+  let speed = 3;
+    //スピード変化
+    let time = 60;
+    let timeid = setInterval(function(){
+      if(time%6==0){
+        speed +=0.3;
+      }
+      if(time <= 0){
+       alert("終了"+okane);
+        clearInterval(timeid);
+      }
+      time--;
+    },1000);
+    timeid;
   // 背景の定義
   var bg1 = {x: 0, y: 0, w: 1500, h:735};
   var bg2 = {x: 1500, y: 0, w: 1500, h:735};
@@ -71,7 +104,7 @@ window.addEventListener("load", update);
 function update() {
   // 画面全体をクリア
   ctx.clearRect(0, 0, 1500, 735);
-
+  
   // 更新後の座標
   var updatedX = x;
   var updatedY = y;
@@ -85,21 +118,46 @@ function update() {
 
     if (y > 800) {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
-      alert("GAME OVER");
+      alert("GAME OVER"+okane);
       isGameOver = false;
       isJump = false;
       updatedX = 300;
       updatedY = 300;
       vy = 0;
     }
+  } else if(goal){
+    if (blocks[97].x < 300){
+      alert("Goal");
+      goal = false;
+      vy = 0;
+    }
   } else {
     // 入力値の確認と反映
-    if (input_key_buffer[38]) {
-      vy = -7;
-      isJump = true;
+    const blockTargetIsOn = getBlockTargrtIsOn(x, y, updatedX, updatedY);
+    if(!input_key_buffer[32] && jp > 0) {
+      isupkeyup = true;
     }
-    
+    if (input_key_buffer[32] && jp < jplimit && isupkeyup) {
+      vy = -7.5;
+      isJump = true;
+      jp = jp + 1;
+      isupkeyup = false;
+    } else if (blockTargetIsOn !== null) {
+      jp = 0;
+      isupkeyup = true;
+    }
 
+
+    //左右への操作(A.D)
+    // if (input_key_buffer[65]) {
+    //   // 左が押されていればx座標を1減らす
+    //   updatedX = x - 4;
+    // }
+    // if (input_key_buffer[68]) {
+    //   // 右が押されていればx座標を1増やす
+    //   updatedX = x + 2;
+    // }
+      
     // ジャンプ中である場合のみ落下するように調整する
     if (isJump) {
       // 上下方向は速度分をたす
@@ -127,11 +185,19 @@ function update() {
     if (y > 800) {
       // 下まで落ちてきたらゲームオーバーとし、上方向の初速度を与える
       isGameOver = true;
-      updatedY = 500;
+      updatedY = 750;
       vy = -15;
     }
-  }
 
+    if (blocks[97].x < 300) {
+      goal = true;
+    }
+  }
+  
+  console.log(jp);
+  console.log(isupkeyup);
+  console.log(x);
+  
   x = updatedX;
   y = updatedY;
 
@@ -148,10 +214,10 @@ function update() {
     }
 //背景の画像を表示
   var background1 = new Image();
-  background1.src = "20140108152220.png";
+  background1.src = "./img/20140108152220.png";
   ctx.drawImage(background1, bg1.x, bg1.y, 1500, 735);
   var background2 = new Image();
-  background2.src = "20140108152220.png";
+  background2.src = "./img/20140108152220.png";
   ctx.drawImage(background2, bg2.x, bg2.y, 1500, 735);
   // 主人公の画像を表示
   var image = new Image();
@@ -165,18 +231,53 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
 
   // 地面の画像を表示
   var groundImage = new Image();
-  groundImage.src = "20140108152220 (1).png";
-  for (const block of blocks) {block.x -=3;
+  groundImage.src = "./img/20140108152220 (1).png";
+  for (const block of blocks) {block.x -=speed;
     ctx.drawImage(groundImage, block.x, block.y, block.w, block.h);
   }
   // お金の画像を表示
   var coinImage = new Image();
-  coinImage.src = "coin.jpg";
-  
-    for (const coin of coiny) {coin.x -=3;
-    ctx.drawImage(coinImage, coin.x, coin.y, coin.w, coin.h);
+    coinImage.src ="./img/coin.jpg";
+    for (const coin of coiny) {coin.x -=speed;
+        if(coin.isShow){
+          ctx.drawImage(coinImage, coin.x, coin.y, 35, 35);
+        }
+      if((x<=coin.x+20&&x>=coin.x-20)&&(y<=coin.y+8 &&y>=coin.y-32)){
+        if(coin.isShow) {
+          okane+=100;
+          }
+          coin.isShow=false;
+      }
+    }
+  //酒の画像を表示
+  var sakeImage = new Image();
+    sakeImage.src ="./img/sake.jpg";
+    for (const sakey of sake) {sakey.x -=speed;
+      if(sakey.isShow){
+        ctx.drawImage(sakeImage, sakey.x, sakey.y, 35, 35);
+      }
+    if((x<=sakey.x+20&&x>=sakey.x-20)&&(y<=sakey.y+8 &&y>=sakey.y-32)){
+      if(sakey.isShow) {
+        okane-=100;
+        }
+        sakey.isShow=false;
+    }
+    }
+  //タバコの画像を表示
+  var tabakoImage = new Image();
+  tabakoImage.src ="./img/tabako.jpg";
+  for (const tabakoy of tabako) {tabakoy.x -=speed;
+    if(tabakoy.isShow){
+      ctx.drawImage(tabakoImage, tabakoy.x, tabakoy.y, 35, 35);
+    }
+  if((x<=tabakoy.x+20&&x>=tabakoy.x-20)&&(y<=tabakoy.y+8 &&y>=tabakoy.y-32)){
+    if(tabakoy.isShow) {
+      okane-=100;
+      }
+      tabakoy.isShow=false;
   }
   
+  }
   // 再描画
   window.requestAnimationFrame(update);
 }
