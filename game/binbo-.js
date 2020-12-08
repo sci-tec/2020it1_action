@@ -226,6 +226,7 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
     ctx.drawImage(groundImage, block.x, block.y, block.w, block.h);
   }
 
+
     //お金を表示
      mono("./img/coin.jpg",coiny,-100);
      //酒を表示
@@ -234,6 +235,7 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
      mono("./img/tabako.jpg",tabakoy,100);
 
   
+
   
   // 再描画
   window.requestAnimationFrame(update);

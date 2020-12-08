@@ -1,8 +1,16 @@
+
 $('.btn-1').click(function () {
     $(".btn-wrap").hide();
 })
 $('.btn-1-1').click(function () {
     alert('10000円借りました');
+
+    AlertMessage.alert(  
+        "処理を中断します。", // alert本文  
+        "エラー！", // alertタイトル  
+        "warning", // アラートの種類  
+       );  
+
     $(".btn-wrap").show();
 });
 $('.btn-1-2').click(function () {
