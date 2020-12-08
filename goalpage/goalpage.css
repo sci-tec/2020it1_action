@@ -129,6 +129,7 @@ body{
     float: none;
     position: absolute;
     z-index: 1;
+    display: none;
 
 }
 
@@ -263,7 +264,7 @@ body{
     z-index: 2;
 } */
 .btn_container{
-    display: none;
+    /* display: none; */
 }
 
 .roulette-container{
@@ -274,7 +275,7 @@ body{
     box-shadow:0px 0px 3px lightpink;margin:auto;
     border-radius: 10px;
     opacity: 80%;
-    display: none;
+    /* display: none; */
 }
 
 .roullete-inner{
@@ -287,7 +288,7 @@ display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: center;
-display: none;
+/* display: none; */
 
 }
 .img-money{

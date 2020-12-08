@@ -5,9 +5,12 @@ function hideBtn(){
     let x = document.getElementById("btn-wrap");
     x.style.display = "none"
 }
-// hideBtn();
+hideBtn();
 
 // ルーレットコード
+
+let sec = 3;
+
 
 function button(){
     let startBtn = document.getElementById("startBtn") ;
@@ -22,3 +25,9 @@ function button(){
 
 button();
 
+function loop(){
+  let $imgs = $('.')
+  for(let i = 0; i <= img.length; i++){
+      
+  }
+}
