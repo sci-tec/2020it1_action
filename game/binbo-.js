@@ -237,7 +237,7 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
   }
   // お金の画像を表示
   var coinImage = new Image();
-    coinImage.src ="./img/coin.jpg";
+    coinImage.src ="./img/コイン＄.png";
     for (const coin of coiny) {coin.x -=speed;
         if(coin.isShow){
           ctx.drawImage(coinImage, coin.x, coin.y, 35, 35);
@@ -251,10 +251,10 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
     }
   //酒の画像を表示
   var sakeImage = new Image();
-    sakeImage.src ="./img/sake.jpg";
+    sakeImage.src ="./img/お酒.png";
     for (const sakey of sake) {sakey.x -=speed;
       if(sakey.isShow){
-        ctx.drawImage(sakeImage, sakey.x, sakey.y, 35, 35);
+        ctx.drawImage(sakeImage, sakey.x, sakey.y, 10, 35);
       }
     if((x<=sakey.x+20&&x>=sakey.x-20)&&(y<=sakey.y+8 &&y>=sakey.y-32)){
       if(sakey.isShow) {
@@ -265,10 +265,10 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
     }
   //タバコの画像を表示
   var tabakoImage = new Image();
-  tabakoImage.src ="./img/tabako.jpg";
+  tabakoImage.src ="./img/タバコ.png";
   for (const tabakoy of tabako) {tabakoy.x -=speed;
     if(tabakoy.isShow){
-      ctx.drawImage(tabakoImage, tabakoy.x, tabakoy.y, 35, 35);
+      ctx.drawImage(tabakoImage, tabakoy.x, tabakoy.y, 25, 35);
     }
   if((x<=tabakoy.x+20&&x>=tabakoy.x-20)&&(y<=tabakoy.y+8 &&y>=tabakoy.y-32)){
     if(tabakoy.isShow) {
