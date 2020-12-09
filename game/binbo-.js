@@ -20,7 +20,7 @@ const ctx = canvas.getContext("2d");
 
 // 画像を表示するの座標の定義 & 初期化
 var x = 300;
-var y = 300;
+var y = 450;
 
 // 上下方向の速度
 var vy = 0;
@@ -41,22 +41,23 @@ var blocks = [];
 var bloksy = [];
 var coiny = [];
 var coinyy = [];
+let coinhi = [1500,1500,1500,1500,1500,40,80];
+let blockyy = [562,562,562,562,562,562,462,462,1000,462];
+
 for(let j=0; j<200; j++){
-  var blockyy = [562,562,562,562,462,562,562,462];
-  var coinhi = [1500,1500,1500,40,80];
-  var random = Math.floor( Math.random() * 8 );
-  var coin = Math.floor( Math.random() * 5 );
+  var random = Math.floor( Math.random() * 9 );
+  var coin = Math.floor( Math.random() * 7 );
   if(j<=6){
     bloksy.push(blockyy[0]);
     coinyy.push(-100);
   }else{
     bloksy.push(blockyy[random]);
-    coinyy.push(blockyy[random] -=coinhi[coin]);
+    coinyy.push(blockyy[random]-coinhi[coin]);
   }
 }
 let sto = [0,0,0,0,0,0,0,0,1,2];
-var sake = [];
-var tabako = [];
+var sakey = [];
+var tabakoy = [];
 let blockx = 0;
 let coinxx = 30;
 for(let i=0; i<200; i++){
@@ -65,10 +66,10 @@ for(let i=0; i<200; i++){
   if(sto[ran]==0){
     coiny.push({ x: coinxx, y: coinyy[i],isShow:true },)
   }else if(sto[ran]==1){
-    sake.push({ x: coinxx, y: coinyy[i], isShow:true},)
+    sakey.push({ x: coinxx, y: coinyy[i], isShow:true},)
   }
   else if(sto[ran]==2){
-    tabako.push({ x: coinxx, y: coinyy[i],isShow:true},)
+    tabakoy.push({ x: coinxx, y: coinyy[i],isShow:true},)
   }
   blockx +=100;
   coinxx +=100;
@@ -118,7 +119,7 @@ function update() {
 
     if (y > 800) {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
-      alert("GAME OVER"+okane);
+      alert("GAME OVER");
       isGameOver = false;
       isJump = false;
       updatedX = 300;
@@ -147,17 +148,6 @@ function update() {
       isupkeyup = true;
     }
 
-
-    //左右への操作(A.D)
-    // if (input_key_buffer[65]) {
-    //   // 左が押されていればx座標を1減らす
-    //   updatedX = x - 4;
-    // }
-    // if (input_key_buffer[68]) {
-    //   // 右が押されていればx座標を1増やす
-    //   updatedX = x + 2;
-    // }
-      
     // ジャンプ中である場合のみ落下するように調整する
     if (isJump) {
       // 上下方向は速度分をたす
@@ -235,49 +225,18 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
   for (const block of blocks) {block.x -=speed;
     ctx.drawImage(groundImage, block.x, block.y, block.w, block.h);
   }
-  // お金の画像を表示
-  var coinImage = new Image();
-    coinImage.src ="./img/コイン＄.png";
-    for (const coin of coiny) {coin.x -=speed;
-        if(coin.isShow){
-          ctx.drawImage(coinImage, coin.x, coin.y, 35, 35);
-        }
-      if((x<=coin.x+20&&x>=coin.x-20)&&(y<=coin.y+8 &&y>=coin.y-32)){
-        if(coin.isShow) {
-          okane+=100;
-          }
-          coin.isShow=false;
-      }
-    }
-  //酒の画像を表示
-  var sakeImage = new Image();
-    sakeImage.src ="./img/お酒.png";
-    for (const sakey of sake) {sakey.x -=speed;
-      if(sakey.isShow){
-        ctx.drawImage(sakeImage, sakey.x, sakey.y, 10, 35);
-      }
-    if((x<=sakey.x+20&&x>=sakey.x-20)&&(y<=sakey.y+8 &&y>=sakey.y-32)){
-      if(sakey.isShow) {
-        okane-=100;
-        }
-        sakey.isShow=false;
-    }
-    }
-  //タバコの画像を表示
-  var tabakoImage = new Image();
-  tabakoImage.src ="./img/タバコ.png";
-  for (const tabakoy of tabako) {tabakoy.x -=speed;
-    if(tabakoy.isShow){
-      ctx.drawImage(tabakoImage, tabakoy.x, tabakoy.y, 25, 35);
-    }
-  if((x<=tabakoy.x+20&&x>=tabakoy.x-20)&&(y<=tabakoy.y+8 &&y>=tabakoy.y-32)){
-    if(tabakoy.isShow) {
-      okane-=100;
-      }
-      tabakoy.isShow=false;
-  }
+
+
+    //お金を表示
+     mono("./img/coin.jpg",coiny,-100);
+     //酒を表示
+     mono("./img/sake.jpg",sakey,100);
+     //タバコを表示
+     mono("./img/tabako.jpg",tabakoy,100);
+
   
-  }
+
+  
   // 再描画
   window.requestAnimationFrame(update);
 }
@@ -300,4 +259,21 @@ function getBlockTargrtIsOn(x, y, updatedX, updatedY) {
   }
   // 最後までブロック要素を返さなかった場合はブロック要素の上にいないということなのでnullを返却する
   return null;
+}
+//画像の表示関数　引数➡（画像、配列、お金）
+function mono(gaz,hai,kane){
+  var ga = new Image();
+  ga.src =gaz;
+  for (let con of hai) {
+    con.x -=speed;
+    if(con.isShow){
+      ctx.drawImage(ga, con.x, con.y, 35, 35);
+    }
+  if((x<=con.x+20&&x>=con.x-20)&&(y<=con.y+8 &&y>=con.y-32)){
+     if(con.isShow) {
+       okane-=kane;
+       }
+      con.isShow=false;
+  }
+  }
 }
