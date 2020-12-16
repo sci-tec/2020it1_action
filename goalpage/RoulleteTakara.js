@@ -186,28 +186,28 @@ hideBtn();
 	}
 
 
-	 function result(){
+	//  function result(){
 
-		let bomb = getElementById("Bomb");
-		let daruma = getElementById("Daruma");
-		let darumaGold = getElementById("DarumaGold");
-		let coinTakara = getElementById("CoinTakara");
-		let luckyCat = getElementById("LuckyCat")
+	// 	let bomb = getElementById("Bomb");
+	// 	let daruma = getElementById("Daruma");
+	// 	let darumaGold = getElementById("DarumaGold");
+	// 	let coinTakara = getElementById("CoinTakara");
+	// 	let luckyCat = getElementById("LuckyCat")
 
 
-		 if (Roullete = bomb){
-			 alert('残念、ハズレです。');
-		 }else if (Roullete = daruma){
-			 alert('あたり！ルーレットあと１回廻ります。');
-		 }else if (Roulette = darumaGold){
-			 alert('あたり！ルーレットあと2回廻ります。');
-		 }else if (Roulette = coinTakara){
-			 alert('あたり！ルーレットあと2回廻ります。')
-		 }else if (Roulette = luckyCat){
-			 alert('あたり！次のステージコインが２倍！')
-		 }
-	 }
-	 result();
+	// 	 if (Roullete = bomb){
+	// 		 alert('残念、ハズレです。');
+	// 	 }else if (Roullete = daruma){
+	// 		 alert('あたり！ルーレットあと１回廻ります。');
+	// 	 }else if (Roulette = darumaGold){
+	// 		 alert('あたり！ルーレットあと2回廻ります。');
+	// 	 }else if (Roulette = coinTakara){
+	// 		 alert('あたり！ルーレットあと2回廻ります。')
+	// 	 }else if (Roulette = luckyCat){
+	// 		 alert('あたり！次のステージコインが２倍！')
+	// 	 }
+	//  }
+	//  result();
 
 	var pluginName = 'roulette';
 	$.fn[pluginName] = function(method, options) {
