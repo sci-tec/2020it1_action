@@ -128,8 +128,9 @@ body{
     border-radius: 10px;
     float: none;
     position: absolute;
-    z-index: 1;
     display: none;
+    z-index: 2;
+
 
 }
 
@@ -249,6 +250,85 @@ body{
     background-color: goldenrod;
  
 }
+.alret-wrap{
+    background-color: aliceblue;
+    width: 350px;
+    height: 250px;
+    z-index: 3;
+    margin-top: 110px;
+    margin-left: 125px;
+    float: none;
+    position: absolute;
+    border-radius: 10px;
+}
+.alret-btn1{
+    background-color: rgb(236, 170, 170);
+    width: 100px;
+    height: 50px;
+    margin-top: 150px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    border-radius: 15px;
+    z-index: 3;
+    border :solid;
+    border-color: #000000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.alret-btn1:hover{
+    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
+    background-color: rgb(253, 14, 14);
+ 
+}
+.alret-text1{
+    margin-top: 100px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    z-index: 3;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.alret-text2{
+    margin-top: 100px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    z-index: 3;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.alret-text3{
+    margin-top: 100px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    z-index: 3;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.alret-text4{
+    margin-top: 100px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    z-index: 3;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.alret-text5{
+    margin-top: 100px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    z-index: 3;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.alret-text6{
+    margin-top: 100px;
+    margin-left: 130px;
+    float: none;
+    position: absolute;
+    z-index: 3;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 
 /* 宝くじ */
   
@@ -342,3 +422,12 @@ div.roulette {
   div.ui-slider {
     width: 300px;
   }
+
+.btn_container {
+	margin:20px;
+	text-align:center;
+}
+.btn_container .start {
+	margin-right:20px;
+}
+
