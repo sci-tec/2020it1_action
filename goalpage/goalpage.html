@@ -7,17 +7,14 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css">
     <link rel="stylesheet" href="bootstrap-responsive.css"></link>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/ui-lightness/jquery-ui.css">
-    <link rel="stylesheet" href="demo.css"></link>
     <link rel="stylesheet" href="goalpage.css">
     <title>貧乏ゲーム</title>
 
-    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">  
   
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->  
-<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>  
-  
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>    
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>  
 
 </head>
@@ -35,23 +32,26 @@
          <div class="takara" id="takara">
              <div class="row">
                   <div class="span4">
-                      <div class="roulette-container">
-                           <div class="roulette" style="overflow: hidden; height: 300px; margin-top: 50px;">
-                               <div class="roullete-inner">  
-                                   <img class="img-money" src="./img/money.png" alt="money">
-                                   <img class="img-bomb" src="./img/BOMB.png" alt="bomb">
-                                   <img class="img-diamond" src="./img/diamond.png" alt="diamond">
-                                   <img class="img-coin" src="./img/coin.png" alt="coin">
-                               </div>
-                          </div>
-                      </div>
-
-                      <div class="btn_container">
-                          <p>
-                          <button id="startBtn" class="btn btn-large btn-primary start"> START </button>
-                          <button id="stopBtn" class="stop btn-large btn btn-warning" onclick="GetRandomNumber();"> STOP </button>
-                          </p>
-                      </div>
+                        <div class="roulette_container" >
+                            <div class="roulette" style="display:none;">
+                                
+                                <img id="Daruma" class="img" src="./img/Daruma.png"/>
+                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
+                                <img id="LuckyCat" class="img" src="./img/LuckyCat.png"/>
+                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
+                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="DarumaGold" class="img" src="./img/DarumaGold.png"/>
+                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
+                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                            </div>
+                        </div>
+                        <div class="btn_container">
+                            <p>
+                            <button class="btn btn-large btn-primary start"> START </button>
+                            <button class="stop btn-large btn btn-warning" onclick="GetRandomNumber();"> STOP </button>
+                            </p>
+                        </div>	
                   </div>
              </div>
          </div> 
@@ -69,10 +69,11 @@
    </div> 
        <!-- <div class="score">Score:</div> -->
   
-   　<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+    <script src="app.js"></script>
     <script src="RoulleteTakara.js"></script> 
-　 　<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
   　 <script src="goalpage.js"></script>
+  
 </body>
 </html>
