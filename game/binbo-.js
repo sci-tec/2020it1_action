@@ -227,12 +227,15 @@ function refleshImages(kane){
     ctx.drawImage(groundImage, block.x, block.y, block.w, block.h);
   }
 
+
     //お金を表示
      mono("./img/coin.jpg",coiny,-kane,0);
      //酒を表示
      mono("./img/sake.jpg",sakey,kane,5);
      //タバコを表示
+
      mono("./img/tabako.jpg",tabakoy,kane,5);
+
 
 }
 //画像の表示関数　引数➡（画像、配列、お金）
