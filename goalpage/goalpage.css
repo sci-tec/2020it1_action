@@ -140,6 +140,7 @@ body{
     height: 100vh;
     /* margin-left: -0px;
     background-color: #000000; */
+    display: none;
 }
 .yami-gamen-background{
 
@@ -404,19 +405,11 @@ body{
 
 
 
-/* 宝くじ */
+/* 宝くじ ----------*/
   
-/* .takara{
-    position: absolute;
-    background-color: rgb(241, 227, 19);
-    opacity: 60%;
-    margin-left: 50px;
-    margin-top: 30px;
-    width: 500px;
-    height:400px;
-    border-radius: 10px;
-    z-index: 2;
-} */
+ .takara{
+   display: none;
+} 
 div.roulette {
     margin-top: 35px;
   }
