@@ -16,6 +16,7 @@ function handleKeyup(e) {
 
 // canvas要素の取得
 const canvas = document.getElementById("sample");
+console.log(canvas);
 const ctx = canvas.getContext("2d");
 
 // 画像を表示するの座標の定義 & 初期化
@@ -126,10 +127,15 @@ function update() {
       vy = 0;
     }
   } else if(goal){
-    if (blocks[97].x < 300){
-      alert("Goal");
+    if (blocks[199].x < 300){
+      // alert("Goal");
       goal = false;
       vy = 0;
+      sessionStorage.setItem('score', okane);
+      // let score = document.getElementById('score');
+      // score.innerHTML = 'Score:' + okane;
+      // console.log(okane);
+      location.href = "../goalpage/goalpage.html";
     }
   } else {
     // 入力値の確認と反映
@@ -189,7 +195,7 @@ function update() {
       vy = -15;
     }
 
-    if (blocks[97].x < 300) {
+    if (blocks[199].x < 300) {
       goal = true;
     }
   }

@@ -6,7 +6,16 @@
     <link rel="stylesheet" href="goalpage.css">
     <title>貧乏ゲーム</title>
 </head>
-<body>
+<script>
+    function _load(){
+    var data = sessionStorage.getItem("score");
+    console.log(data);
+    let score = document.getElementById('score');
+    score.innerHTML = 'Score:' + data;
+    sessionStorage.removeItem("score");
+    }
+</script>
+<body onload="_load()">
    <div class="container">
        <div class="btn-wrap">
            <button class="btn-1"></button>
@@ -16,7 +25,8 @@
            <button class="btn-5"></button>
            <button class="btn-6"></button>
        </div>
-       <div class="score">Score:</div>
+       <div id="score">Score:</div>
    </div> 
+   <!-- <script src="../game/binbo-.js"></script> -->
 </body>
 </html>
