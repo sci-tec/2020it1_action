@@ -93,7 +93,12 @@ $('.btn-return').click(function () {
     $(".yami-gamen-background-img").hide();
 });
 $(".takara").hide();
+$('.takara-btn-return').click(function () {
+    $(".btn-wrap").show();
+    $(".yami-gamen-background-img").hide();
+});
 $('.btn-2').click(function(){
     $(".btn-wrap").hide();
+    $('.takara-btn-return').show();
     $('.takara').show();
 })
