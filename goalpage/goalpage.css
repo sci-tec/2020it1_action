@@ -1,25 +1,25 @@
 body{
-   background-color: black;
+   background-color: #F5BE36;
 
 }
 
 .btn-wrap{
-    background-color: white;
-    opacity: 60%;
-    margin-left: 50px;
+    background-color: #F5BE36;
+    opacity: 100%;
+    margin-left: -170px;
     margin-top: 30px;
-    width: 500px;
-    height:400px;
+    width: 1500px;
+    height:700px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     border-radius: 10px;
-/*     z-index: 1;
+    /* z-index: 1;
     position: absolute; */
 
-/*     position: absolute;
-    z-index: 2; */
+    position: absolute;
+    z-index: 4;
 }
 
 .btn-1{
@@ -108,6 +108,24 @@ body{
     background-color: white;
     background-image: url(./img/HouseBox黒.png);
 }
+.score-btn{
+    /* background-image: url(./img/rankings1.jpg); */
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-position-y: 0px;
+    background-size: 100%;
+    border-radius: 10px;
+    width: 800px;
+    height: 200px;
+    margin-top: -400px;
+    margin-left: 0px;
+    position: absolute;
+    float: none;
+    font-size: 100px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
 
 
 .score{
@@ -117,217 +135,273 @@ body{
 }
 
 /*闇金CSSセクション*/
+.yami-gamen-background-img{
+    width: 100vw;
+    height: 100vh;
+    /* margin-left: -0px;
+    background-color: #000000; */
+}
+.yami-gamen-background{
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  width: 980px;
+  height: 650px;
+  margin-top: 30px;
+  margin-left: 70px;
+  position: absolute;
+  float: none;
+  background-color: rgb(202, 199, 199);
+  z-index: 2;
+  border-radius: 20px;
+  border: 5px solid #000000;
+}
 .yami-gamen{
-    background-color: rgb(160, 199, 236);
+    background-color: rgb(252, 252, 252);
     /* opacity: 60%; */
-    margin-left: 55px;
-    margin-top: 55px;
-    width: 490px;
-    height:350px;
+    margin-left: 0px;
+    /* margin-top: 60px; */
+    width: 920px;
+    height:590px;
     border-radius: 10px;
     float: none;
     position: absolute;
     display: none;
     z-index: 2;
 
-
 }
-
-.btn-1-1{
-    background-color: rgb(0, 113, 188);
-    width: 70px;
-    height: 50px;
-    margin-top: 100px;
-    margin-left: 70px;
-    float: none;
-    position: absolute;
-    border-radius: 3px;
-    z-index: 2;
-    border :solid;
-    border-color: #000000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-}
-.btn-1-1:hover{
-    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: goldenrod;
- 
-}
-.btn-1-2{
-    background-color: rgb(0, 113, 188);
-    width: 70px;
-    height: 50px;
-    margin-top: 100px;
-    margin-left: 210px;
-    float: none;
-    position: absolute;
-    border-radius: 3px;
-    z-index: 2;
-    border :solid;
-    border-color: #000000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.btn-1-2:hover{
-    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: goldenrod;
-}
-  
-  .btn-1-3{
-    background-color: rgb(0, 113, 188);
-    width: 70px;
-    height: 50px;
-    margin-top: 100px;
-    margin-left: 350px;
-    float: none;
-    position: absolute;
-    border-radius: 3px;
-    z-index: 2;
-    border :solid;
-    border-color: #000000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.btn-1-3:hover{
-    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: goldenrod;
-}
-  
-.btn-1-4{
-    background-color: rgb(0, 113, 188);
-    width: 70px;
-    height: 50px;
-    margin-top: 250px;
-    margin-left: 70px;
-    float: none;
-    position: absolute;
-    border-radius: 3px;
-    z-index: 2;
-    border :solid;
-    border-color: #000000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.btn-1-4:hover{
-    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: goldenrod;
- 
-}
-.btn-1-5{
-    background-color: rgb(0, 113, 188);
-    width: 70px;
-    height: 50px;
-    margin-top: 250px;
-    margin-left: 210px;
-    float: none;
-    position: absolute;
-    border-radius: 3px;
-    z-index: 2;
-    border :solid;
-    border-color: #000000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.btn-1-5:hover{
-    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: goldenrod;
- 
-}
-.btn-1-6{
-    background-color: rgb(0, 113, 188);
-    width: 70px;
-    height: 50px;
-    margin-top: 250px;
-    margin-left: 350px;
-    float: none;
-    position: absolute;
-    border-radius: 3px;
-    z-index: 2;
-    border :solid;
-    border-color: #000000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.btn-1-6:hover{
-    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: goldenrod;
- 
-}
-.alret-wrap{
-    background-color: aliceblue;
-    width: 350px;
-    height: 250px;
-    z-index: 3;
-    margin-top: 110px;
-    margin-left: 125px;
-    float: none;
-    position: absolute;
-    border-radius: 10px;
-}
-.alret-btn1{
-    background-color: rgb(236, 170, 170);
+.yamikin-signboard{
+    background-color: #000000;
     width: 100px;
     height: 50px;
-    margin-top: 150px;
-    margin-left: 130px;
+    margin-top: 10px;
+    margin-left: -250px;
+}
+.btn-1-base{
+    background-color: rgb(22,105,122);
+    width: 260px;
+    height: 260px;
+    /* margin-top: 20px;
+    margin-left: 40px; */
+    /* float: none;
+    position: absolute; */
+    border-radius: 15px;
+    z-index: 2;
+    border :none;
+    border-color: #000000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 24px 0 0 33px;
+}
+.btn-1-base:hover{
+    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
+    background-color: goldenrod;
+ 
+}
+
+.btn-text{
+    /* margin-top: 95px;
+    margin-left: 60px; */
+    /* float: none; */
+    /* position: absolute;
+    border-radius: 3px;
+    z-index: 2;
+    border-color: #000000; */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 45px;
+    line-height:normal;
+}
+.img-coin{
+    width: 176px;
+    /* height: 200px; */
+    /* position: absolute; */
+    /* margin-top: -120px;
+    margin-left: -110px; */
+    z-index: 2;
+    border-radius: 10px;
+}
+
+.alret-wrap{
+    background-color: rgb(253, 251, 251);
+    width: 530px;
+    height: 500px;
+    z-index: 3;
+    margin-top: 0px;
+    margin-left: 0px;
     float: none;
     position: absolute;
+    border-radius: 20px;
+    border: 10px solid #050505;
+}
+.alret-btn1{
+    background-color: rgb(255, 253, 253);
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 170px;
+    /* float: none;
+    position: absolute; */
     border-radius: 15px;
     z-index: 3;
     border :solid;
     border-color: #000000;
+    color: rgb(2, 2, 2);
+    font-size: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 .alret-btn1:hover{
     box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
-    background-color: rgb(253, 14, 14);
- 
+    background-color: rgb(243,91,109);
+    color: rgb(255, 253, 253);
+}
+.alret-img-base{
+    width: 350px;
+    /* height: 400px; */
+    margin-top: 0px;
+    margin-left: 80px;
+    /* float: none;
+    position: absolute; */
+    z-index: 3;
+    border-radius: 5px;
+}
+.alret-img1{
+
+}
+.alret-img2{
+    /* width: 400px;
+    height: 400px;
+    margin-top: auto;
+    margin-left: 60px;
+    float: none;
+    position: absolute;
+    z-index: 3; */
+}
+.alret-img3{
+    /* width: 400px;
+    height: 400px;
+    margin-top: auto;
+    margin-left: 60px;
+    float: none;
+    position: absolute;
+    z-index: 3; */
+}
+.alret-img4{
+    /* width: 400px;
+    height: 400px;
+    margin-top: auto;
+    margin-left: 60px;
+    float: none;
+    position: absolute;
+    z-index: 3; */
+}
+.alret-img5{
+    /* width: 400px;
+    height: 400px;
+    margin-top: auto;
+    margin-left: 60px;
+    float: none;
+    position: absolute;
+    z-index: 3; */
+}
+.alret-img6{
+    /* width: 400px;
+    height: 400px;
+    margin-top: auto;
+    margin-left: 60px;
+    float: none;
+    position: absolute;
+    z-index: 3; */
+}
+.alret-text-base{
+    margin-top: -40px;
+    margin-left: 150px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
 }
 .alret-text1{
-    margin-top: 100px;
-    margin-left: 130px;
-    float: none;
+    /* margin-top: 330px;
+    margin-left: 150px; */
+    /* float: none;
     position: absolute;
-    z-index: 3;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    z-index: 3; */
+    
 }
+
 .alret-text2{
-    margin-top: 100px;
-    margin-left: 130px;
-    float: none;
+    /* margin-top: 330px;
+    margin-left: 150px; */
+    /* float: none;
     position: absolute;
     z-index: 3;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px; */
 }
+
 .alret-text3{
-    margin-top: 100px;
-    margin-left: 130px;
-    float: none;
+    /* margin-top: 330px;
+    margin-left: 150px; */
+    /* float: none;
     position: absolute;
     z-index: 3;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px; */
 }
 .alret-text4{
-    margin-top: 100px;
-    margin-left: 130px;
-    float: none;
+    /* margin-top: 330px;
+    margin-left: 150px; */
+    /* float: none;
     position: absolute;
     z-index: 3;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px; */
 }
 .alret-text5{
-    margin-top: 100px;
-    margin-left: 130px;
-    float: none;
+    /* margin-top: 330px;
+    margin-left: 150px; */
+    /* float: none;
     position: absolute;
     z-index: 3;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px; */
 }
 .alret-text6{
-    margin-top: 100px;
-    margin-left: 130px;
-    float: none;
+    /* margin-top: 330px;
+    margin-left: 150px; */
+    /* float: none;
     position: absolute;
     z-index: 3;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px; */
 }
+
+.yami-return{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    margin-top: 300px;
+    margin-left: 100px;
+}
+
+.btn-return{
+    background-image: url(./img/retrun-button.jpg);
+    background-position: -12.5px;
+    background-size: 120px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    /* margin-top: 50px;
+    margin-left: 50px; */
+    border-radius: 100px;
+    position: absolute;
+    z-index: 3;
+    float: none;
+    border: 3px solid #000000;
+}
+
+
 
 
 /* 宝くじ */
