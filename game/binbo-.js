@@ -1,14 +1,34 @@
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
+//URL　？あとの文字を取得
+var hurl = window.location.search;
+hurl = hurl.substring(1);
+//文字を＆で分けて配列に入れる
+var hhai = hurl.split('&');
 
-
+//変数定義
+//var goukei = parseInt(sessionStorage.getItem('score'));
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
-let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid;
-let blv = 8;
-let sotlv = 6;
-let kane = 100;
-let goukei =0;
+let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;
+function Stage(lv){
+if(lv=="1"){
+  blv = 8;
+  sotlv = 6;
+  kane = 100;
+}else if(lv=="2"){
+  blv = 9;
+  sotlv = 7;
+  kane = 200;
+}else if(lv=="3"){
+  blv = 10;
+  sotlv = 8;
+  kane = 300;
+}
+
+
+}
+Stage(hhai[0]);
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
@@ -60,16 +80,11 @@ function init(){
 
 }
 ///////////////////////////////////////////////////////////////
-function restart(){
-  console.log("restart")
   init();
   addEventListeners();
-  setYaxisBlockAndCoin(blv,sotlv);
+  setYaxisBlockAndCoin();
   createMap();
   start();
-}
-////////////////////////////////////////////////////////////////
-restart();
 // 画面を更新する関数を定義 (繰り返しここの処理が実行される)
 function update() {
   // 画面全体をクリア
@@ -88,27 +103,16 @@ function update() {
 
     if (y > 800) {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
-     // alert("GAME OVER"+time);
-      clearInterval(timeid);
-      restart();
       isGameOver = false;
-      isJump = false;
-      updatedX = 300;
-      updatedY = 300;
-      vy = 0;
+      clearInterval(timeid);
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
     }
   } else if(goal){
-    if (blocks[97].x < 300){
-      goukei += okane;
-      location.href = "../goalpage/goalpage.html" ;
-      //alert("Goal"+goukei);
-      kane +=100;
+    if (blocks[100].x < 300){
+      goal = false;
       clearInterval(timeid);
-      blv++;
-      sotlv++;
-      restart();
-      /*goal = false;
-      vy = 0;*/
+      sessionStorage.setItem('score',okane);
+      location.href = "../goalpage/goalpage.html?" + hhai[0];
     }
   } else {
     // 入力値の確認と反映
@@ -157,7 +161,7 @@ function update() {
       vy = -15;
     }
 
-    if (blocks[97].x < 300) {
+    if (blocks[100].x < 300) {
       goal = true;
     }
   }
@@ -233,7 +237,6 @@ function refleshImages(kane){
      //酒を表示
      mono("./img/sake.jpg",sakey,kane,5);
      //タバコを表示
-
      mono("./img/tabako.jpg",tabakoy,kane,5);
 
 
@@ -291,10 +294,10 @@ function addEventListeners(){
      }
 }
 //ステージレベルを変える関数　引数➡（ブロックのLv,コイン、酒、タバコのLv)
-function setYaxisBlockAndCoin (block,coins){
+function setYaxisBlockAndCoin (){
   for(let j=0; j<200; j++){
-  var random = Math.floor( Math.random() * block );
-  var coin = Math.floor( Math.random() * coins );
+  var random = Math.floor( Math.random() * blv );
+  var coin = Math.floor( Math.random() * sotlv );
   if(j<=6){
     bloksy.push(blockyy[0]);
     coinyy.push(-100);
@@ -314,15 +317,14 @@ function setYaxisBlockAndCoin (block,coins){
 }
 ///////////////////////////////////////////////
 function start(){
-  console.log('start')
    timeid = setInterval(function(){
     Time.innerHTML = 'タイマー:' + time + '秒';
     if(time%6==0){
       speed +=0.3;
     }
     if(time <= 0){
-     alert(time+"終了"+okane);
       clearInterval(timeid);
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
     }
     time--;
   },1000);

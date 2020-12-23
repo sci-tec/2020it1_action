@@ -5,7 +5,7 @@ function hideBtn(){
     let x = document.getElementById("btn-wrap");
     x.style.display = "none"
 }
-hideBtn();
+//hideBtn();
 
 
 
