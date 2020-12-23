@@ -18,7 +18,16 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>  
 
 </head>
-<body>
+<script>
+    function _load(){
+    var data = sessionStorage.getItem("score");
+    console.log(data);
+    let score = document.getElementById('score');
+    score.innerHTML = 'Score:' + data;
+    sessionStorage.removeItem("score");
+    }
+</script>
+<body onload="_load()">
    <div class="container">
          <div id="btn-wrap" class="btn-wrap">
              <div>
