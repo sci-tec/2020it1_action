@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css"></link>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="bootstrap-responsive.css"></link>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/ui-lightness/jquery-ui.css">
     <link rel="stylesheet" href="goalpage.css">
     <title>貧乏ゲーム</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">  
+  
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->  
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>  
+
 </head>
 <script>
     function _load(){
@@ -17,16 +29,86 @@
 </script>
 <body onload="_load()">
    <div class="container">
-       <div class="btn-wrap">
-           <button class="btn-1"></button>
-           <button class="btn-2"></button>
-           <button class="btn-3"></button>
-           <button class="btn-4"></button>
-           <button class="btn-5"></button>
-           <button class="btn-6"></button>
-       </div>
-       <div id="score">Score:</div>
+         <div id="btn-wrap" class="btn-wrap">
+             <button class="btn-1"></button>
+             <button class="btn-2"></button>
+             <button class="btn-3"></button>
+             <button class="btn-4"></button>
+             <button class="btn-5"></button>
+             <button class="btn-6"></button>
+             <button class="score-btn">score</button>
+         </div>
+<!--        宝セクション     -->
+         <div class="takara" id="takara">
+             <div class="row">
+                  <div class="span4">
+                        <div class="roulette_container" >
+                            <div class="roulette" style="display:none;">
+                                
+                                <img id="Daruma" class="img" src="./img/Daruma.png"/>
+                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
+                                <img id="LuckyCat" class="img" src="./img/LuckyCat.png"/>
+                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
+                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="DarumaGold" class="img" src="./img/DarumaGold.png"/>
+                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
+                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                            </div>
+                        </div>
+                        <div class="btn_container">
+                            <p>
+                            <button class="btn btn-large btn-primary start"> START </button>
+                            <button class="stop btn-large btn btn-warning" onclick="GetRandomNumber();"> STOP </button>
+                            </p>
+                        </div>	
+                  </div>
+             </div>
+         </div> 
+<!--          闇金セクション -->
+    <div class="yami-gamen-background-img">
+        <div class="yami-gamen-background">
+           <div class="yami-gamen" id="yami">
+                <div class="yami-btn">
+                    <button class="btn-1-base btn-1-1"><img class="img-coin" src="./img/Y-coin1.jpg"><div class="btn-text">¥10000</div></button>
+                    <button class="btn-1-base btn-1-2"><img class="img-coin" src="./img/Y-coin2.jpg"><div class="btn-text">¥15000</div></button>
+                    <button class="btn-1-base btn-1-3"><img class="img-coin" src="./img/Y-coin3.jpg"><div class="btn-text">¥20000</div></button>
+                    <button class="btn-1-base btn-1-4"><img class="img-coin" src="./img/Y-coin4.jpg"><div class="btn-text">¥25000</div></button>
+                    <button class="btn-1-base btn-1-5"><img class="img-coin" src="./img/Y-coin5.jpg"><div class="btn-text">¥30000</div></button>
+                    <button class="btn-1-base btn-1-6"><img class="img-coin" src="./img/Y-coin6.jpg"><div class="btn-text">¥35000</div></button>
+                </div>
+            </div>
+            <div class="yami-return">
+                <button class="btn-return"></button>
+            </div>
+            <div class="alret-wrap">
+                <div class="alret-text">
+                    <img class="alret-img-base alret-img1" src="./img/Y-coin1.jpg">
+                        <div class="alret-text-base alret-text1">¥10000借りました</div>
+                    <img class="alret-img-base alret-img2" src="./img/Y-coin2.jpg">
+                        <div class="alret-text-base alret-text2">¥15000借りました</div>
+                    <img class="alret-img-base alret-img3" src="./img/Y-coin3.jpg">
+                        <div class="alret-text-base alret-text3">¥20000借りました</div>
+                    <img class="alret-img-base alret-img4" src="./img/Y-coin4.jpg">   
+                        <div class="alret-text-base alret-text4">¥25000借りました</div>
+                    <img class="alret-img-base alret-img5" src="./img/Y-coin5.jpg">
+                        <div class="alret-text-base alret-text5">¥30000借りました</div>
+                    <img class="alret-img-base alret-img6" src="./img/Y-coin6.jpg">
+                        <div class="alret-text-base alret-text6">¥35000借りました</div>
+                       
+                </div>
+                <button class="alret-btn1">OK</button>
+            </div>
+        </div>
+    </div>
    </div> 
-   <!-- <script src="../game/binbo-.js"></script> -->
+       <!-- <div class="score">Score:</div> -->
+  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+    <script src="app.js"></script>
+    <script src="RoulleteTakara.js"></script> 
+  　 <script src="goalpage.js"></script>
+  
 </body>
 </html>
