@@ -129,6 +129,7 @@ function update() {
     }
   } else if(goal){
     if (blocks[199].x < 300){
+
       // alert("Goal");
       goal = false;
       vy = 0;
@@ -210,10 +211,10 @@ function update() {
     }
 //背景の画像を表示
   var background1 = new Image();
-  background1.src = "./img/20140108152220.png";
+  background1.src = "./img/背景画像.png";
   ctx.drawImage(background1, bg1.x, bg1.y, 1500, 735);
   var background2 = new Image();
-  background2.src = "./img/20140108152220.png";
+  background2.src = "./img/背景画像.png";
   ctx.drawImage(background2, bg2.x, bg2.y, 1500, 735);
   // 主人公の画像を表示
   var image = new Image();
@@ -234,11 +235,11 @@ image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLA
 
 
     //お金を表示
-     mono("./img/coin.jpg",coiny,-100);
+     mono("./img/コイン￥.png",coiny,-100);
      //酒を表示
-     mono("./img/sake.jpg",sakey,100);
+     mono("./img/お酒.png",sakey,100);
      //タバコを表示
-     mono("./img/tabako.jpg",tabakoy,100);
+     mono("./img/タバコ.png",tabakoy,100);
 
   
 
