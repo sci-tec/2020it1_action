@@ -1,5 +1,5 @@
-//闇金画面
-$(".alret-wrap").hide();
+    $(".yami-gamen-background-img").hide();
+    $(".alret-wrap").hide();
     $(".alret-text1").hide();
     $(".alret-text2").hide();
     $(".alret-text3").hide();
@@ -14,6 +14,7 @@ $(".alret-wrap").hide();
     $(".alret-img6").hide();
     $(".btn-return").hide();
 $('.btn-1').click(function () {
+    $(".yami-gamen-background-img").show();
     $(".btn-wrap").hide();
     $(".alret-wrap").hide();
     $(".alret-text1").hide();
@@ -37,6 +38,7 @@ $('.btn-1-1').click(function () {
 });
 $('.alret-btn1').click(function () {
     $(".btn-wrap").show();
+    $(".yami-gamen-background-img").hide();
 });
 
 $('.btn-1-2').click(function () {
@@ -88,6 +90,15 @@ $('.btn-1-6').click(function () {
 
 $('.btn-return').click(function () {
     $(".btn-wrap").show();
+    $(".yami-gamen-background-img").hide();
 });
-
-
+$(".takara").hide();
+$('.takara-btn-return').click(function () {
+    $(".btn-wrap").show();
+    $(".yami-gamen-background-img").hide();
+});
+$('.btn-2').click(function(){
+    $(".btn-wrap").hide();
+    $('.takara-btn-return').show();
+    $('.takara').show();
+})
