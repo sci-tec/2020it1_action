@@ -16,4 +16,4 @@ jQuery(function(){
           $('div.roulette').roulette('stop');	
       });
      });
-     
+
