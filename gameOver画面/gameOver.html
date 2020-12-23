@@ -7,17 +7,21 @@
     <title>貧乏ゲームGameOver</title>
 </head>
 <body>
-    <div id="bg"></div>
-        <div class="container">
 
+    <div class="container">
+        <h1>GAME OVER</h1>
+        <button class="back-to-start"onclick="OnButtonClick();" >スタートページに戻る</button>
+        <script>
+            //URL　?あとの文字を取得
+            var hurl = window.location.search;
+            hurl = hurl.substring(1);
+            //文字を＆で分けて配列に入れる
+            var hhai = hurl.split('&');
+            function OnButtonClick(){
+                location.href='../game/binbo-.html?' + hhai[0];
+            }
+        </script>
+    </div>
 
-            <h1>GAME OVER</h1>
-
-            <button class="back-to-start" >スタートページに戻る</button>
-
-
-        </div>
-    <script src="particles.min.js"></script>
-    <script src="custom.js"></script>
 </body>
 </html>
