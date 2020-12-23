@@ -8,9 +8,18 @@ body{
     align-items: center;
     flex-wrap: wrap;
     margin: 0 auto;
-
+    background-color: black;
+    opacity: 90%;
 }
 
+#bg{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: -1;
+}
 
 h1{
     color: white;
