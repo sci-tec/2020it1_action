@@ -30,21 +30,16 @@
 <body onload="_load()">
    <div class="container">
          <div id="btn-wrap" class="btn-wrap">
-             <div>
-                <button class="score-btn">score</button>
-            </div>
-            <div>
-                <button class="btn-1"></button>
-                <button class="btn-2"></button>
-                <button class="btn-3"></button>
-                <button class="btn-4"></button>
-                <button class="btn-5"></button>
-                <button class="btn-6"></button>
-            </div>
-             <div class="btn-container-next-ranking">
-                <button class="btn btn-large btn-primary start">RANKING</button>
-                <button class="stop btn-large btn btn-warning">NEXT</button>
-            </div>
+
+             <button class="btn-1"></button>
+             <button class="btn-2"></button>
+             <button class="btn-3"  onclick="Get3();"></button>
+             <button class="btn-4"onclick="Get4();"></button>
+             <button class="btn-5"onclick="Get5();"></button>
+             <button class="btn-6"onclick="Get6();"></button>
+             <button id="stg" onclick="Get7();">次</button>
+             <button class="score-btn" id="sca"></button>
+
          </div>
          
 <!--        宝セクション     -->
@@ -61,8 +56,6 @@
                                 <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
                                 <img id="Bomb" class="img" src="./img/BOMB.png"/>
                                 <img id="DarumaGold" class="img" src="./img/DarumaGold.png"/>
-                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
-                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
                             </div>
                         </div>
                         <div class="btn_container">
@@ -115,7 +108,25 @@
     </div>
    </div> 
        <!-- <div class="score">Score:</div> -->
-  
+   <script>
+    //URL　？あとの文字を取得
+    var hurl = window.location.search;
+    hurl = hurl.substring(1);
+    //文字を＆で分けて配列に入れる
+    var hhai = hurl.split('&');
+    var score = sessionStorage.getItem('score');
+    let Score = document.getElementById('sca');
+    Score.innerHTML = score;
+    function Get7(){
+        location.href='../game/binbo-.html?2&';
+        if(hhai[0]=="2"){
+            location.href='../game/binbo-.html?3&';
+        }else if(hhai[0]=="3"){
+            alert("終了");
+        }
+        
+    }
+   </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
     <script src="app.js"></script>

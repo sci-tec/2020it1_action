@@ -5,13 +5,22 @@ function hideBtn(){
     let x = document.getElementById("btn-wrap");
     x.style.display = "none"
 }
-// hideBtn();
+
+//hideBtn();
+
 
 function random(){
 	var a = Math.floor( Math.random() * 9);
 	return a;
 }
 // ルーレットコード
+
+function Random(){
+	let random = Math.floor(Math.random() * 7)
+	return random
+
+}
+
 (function($) {
 	var Roulette = function(options) {
 		var defaultSettings = {
@@ -73,6 +82,7 @@ function random(){
 						% p.totalHeight;
 			}
 		}
+		
 
 		var roll = function() {
 			var speed_ = p.speed;
@@ -111,6 +121,7 @@ function random(){
 			setTimeout(roll, 1);
 		}
 
+
 		var init = function($roulette) {
 			$roulette.css({ 'overflow' : 'hidden' });
 			defaultProperty.originalStopImageNumber = p.stopImageNumber;
@@ -128,7 +139,7 @@ function random(){
 						// set BLANK image
 						this.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 						this.src = src;
-					}  
+					} 
 				});
 			}
 			$roulette.find('div').remove();
@@ -143,6 +154,7 @@ function random(){
 			p.$rouletteTarget.append(p.$images);
 			p.$rouletteTarget.append(p.$images.eq(0).clone());
 			$roulette.show();
+			
 		}
 
 		var start = function() {
@@ -173,6 +185,21 @@ function random(){
 				}
 				slowDownSetup();
 			}
+			// function result(){
+
+			// 	if (stopImageNumber  == 3 || stopImageNumber  == 5){
+			// 		alert('残念、ハズレです。');
+			// 	}else if (stopImageNumber  == 0){
+			// 		alert('あたり！ルーレットあと１回廻ります。');
+			// 	}else if (stopImageNumber  == ){
+			// 		alert('あたり！ルーレットあと2回廻ります。');
+			// 	}else if (stopImageNumber  == 1 || stopImageNumber  == 4){
+			// 		alert('あたり！ルーレットあと2回廻ります。')
+			// 	}else if (stopImageNumber  == 2){
+			// 		alert('あたり！次のステージコインが２倍！')
+			// 	}
+			// }
+			// result();
 		}
 		var option = function(options) {
 			p = $.extend(p, options);
@@ -226,4 +253,6 @@ function random(){
 		});
 	}
 })(jQuery);
+
+
 
