@@ -92,13 +92,54 @@ $('.btn-return').click(function () {
     $(".btn-wrap").show();
     $(".yami-gamen-background-img").hide();
 });
+// -----------------------------宝セクション---------------------------------------------------
 $(".takara").hide();
+$(".takara-btn-return").hide();
+$(".takara-alret-text1").hide();
+$(".takara-alret-text2").hide();
+$(".takara-alret-text3").hide();
+$(".takara-alret-text4").hide();
+$(".takara-alret-text5").hide();
+$(".takara-alret-text6").hide();
+$(".takara-alret-img1").hide();
+$(".takara-alret-img2").hide();
+$(".takara-alret-img3").hide();
+$(".takara-alret-img4").hide();
+$(".takara-alret-img5").hide();
+$(".takara-alret-img6").hide();
+$(".takara-alret-btn1").hide();
+$(".takara-alret-wrap").hide();
+$(".btn btn-large btn-primary start").hide();
+
+
 $('.takara-btn-return').click(function () {
     $(".btn-wrap").show();
-    $(".yami-gamen-background-img").hide();
+    $(".takara").hide();
+    $(".btn btn-large btn-primary start").hide();
 });
 $('.btn-2').click(function(){
     $(".btn-wrap").hide();
     $('.takara-btn-return').show();
     $('.takara').show();
 })
+$(".btn btn-large btn-primary start").click(function () {
+    $(".btn_container").hide();
+    $(".takara-alret-btn1").hide();
+    $(".start").hide();
+    $(".takara-alret-wrap").show();
+    console.log("start");
+
+});
+// ------------------------------------------shop---------------------------------//
+$(".shop-wrap").hide();
+$(".shop-btn-return").hide();
+$('.btn-shop').click(function () {
+    $(".btn-wrap").hide();
+    $(".shop-wrap").show();
+    $(".shop-btn-return").show();
+});
+$(".shop-btn-return").click(function () {
+    $(".btn-wrap").show();
+    $(".shop-wrap").hide();
+    $(".shop-btn-return").hide();
+});
