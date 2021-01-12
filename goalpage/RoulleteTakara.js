@@ -7,15 +7,17 @@ function hideBtn(){
 }
 // hideBtn();
 
-
-
+function random(){
+	var a = Math.floor( Math.random() * 9);
+	return a;
+}
 // ルーレットコード
 (function($) {
 	var Roulette = function(options) {
 		var defaultSettings = {
 			maxPlayCount : null, // x >= 0 or null
 			speed : 10, // x > 0
-			stopImageNumber : null, // x >= 0 or null or -1
+			stopImageNumber : 0, // x >= 0 or null or -1
 			rollCount : 3, // x >= 0
 			duration : 3, //(x second)	
 			stopCallback : function() {
@@ -144,6 +146,10 @@ function hideBtn(){
 		}
 
 		var start = function() {
+			let n = random();
+			defaultProperty.originalStopImageNumber = n;
+			p.stopImageNumber = n;
+			console.log(n);
 			p.playCount++;
 			if (p.maxPlayCount && p.playCount > p.maxPlayCount) {
 				return;
@@ -185,29 +191,20 @@ function hideBtn(){
 		return ret;
 	}
 
-
-	//  function result(){
-
-	// 	let bomb = getElementById("Bomb");
-	// 	let daruma = getElementById("Daruma");
-	// 	let darumaGold = getElementById("DarumaGold");
-	// 	let coinTakara = getElementById("CoinTakara");
-	// 	let luckyCat = getElementById("LuckyCat")
-
-
-	// 	 if (Roullete = bomb){
-	// 		 alert('残念、ハズレです。');
-	// 	 }else if (Roullete = daruma){
-	// 		 alert('あたり！ルーレットあと１回廻ります。');
-	// 	 }else if (Roulette = darumaGold){
-	// 		 alert('あたり！ルーレットあと2回廻ります。');
-	// 	 }else if (Roulette = coinTakara){
-	// 		 alert('あたり！ルーレットあと2回廻ります。')
-	// 	 }else if (Roulette = luckyCat){
-	// 		 alert('あたり！次のステージコインが２倍！')
-	// 	 }
-	//  }
-	//  result();
+	// この関数の置き場所探してる 
+	function result(){
+		if (n == 3 || n == 5 || n == 8){
+			 alert('残念、ハズレです。');
+		}else if (n == 0){
+			 alert('あたり！ルーレットあと１回廻ります。');
+		}else if (n == 6){
+			 alert('あたり！ルーレットあと2回廻ります。');
+		}else if (n == 1 || n == 4 || n == 7){
+			 alert('あたり！ルーレットあと2回廻ります。')
+		}else if (n == 2){
+			 alert('あたり！次のステージコインが２倍！')
+		}
+	}	 
 
 	var pluginName = 'roulette';
 	$.fn[pluginName] = function(method, options) {
