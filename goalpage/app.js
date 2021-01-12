@@ -9,6 +9,10 @@ jQuery(function(){
       // START!
       $('.start').click(function(){
           $('div.roulette').roulette('start');	
+          $("btn btn-large btn-primary start").hide();
+          console.log("start2");
+          $(".start").hide();
+          
       });
 
       // STOP!
@@ -16,3 +20,7 @@ jQuery(function(){
           $('div.roulette').roulette('stop');	
       });
      });
+
+     function start_hide(){
+        //  display = none;
+     }
