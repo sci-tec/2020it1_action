@@ -5,17 +5,26 @@ function hideBtn(){
     let x = document.getElementById("btn-wrap");
     x.style.display = "none"
 }
-// hideBtn();
+
+//hideBtn();
+
 
 
 
 // ルーレットコード
+
+function Random(){
+	let random = Math.floor(Math.random() * 7)
+	return random
+
+}
+
 (function($) {
 	var Roulette = function(options) {
 		var defaultSettings = {
 			maxPlayCount : null, // x >= 0 or null
 			speed : 10, // x > 0
-			stopImageNumber : null, // x >= 0 or null or -1
+			stopImageNumber : 3, // x >= 0 or null or -1
 			rollCount : 3, // x >= 0
 			duration : 3, //(x second)	
 			stopCallback : function() {
@@ -71,6 +80,7 @@ function hideBtn(){
 						% p.totalHeight;
 			}
 		}
+		
 
 		var roll = function() {
 			var speed_ = p.speed;
@@ -109,6 +119,7 @@ function hideBtn(){
 			setTimeout(roll, 1);
 		}
 
+
 		var init = function($roulette) {
 			$roulette.css({ 'overflow' : 'hidden' });
 			defaultProperty.originalStopImageNumber = p.stopImageNumber;
@@ -126,7 +137,7 @@ function hideBtn(){
 						// set BLANK image
 						this.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 						this.src = src;
-					}  
+					} 
 				});
 			}
 			$roulette.find('div').remove();
@@ -141,6 +152,7 @@ function hideBtn(){
 			p.$rouletteTarget.append(p.$images);
 			p.$rouletteTarget.append(p.$images.eq(0).clone());
 			$roulette.show();
+			
 		}
 
 		var start = function() {
@@ -167,6 +179,21 @@ function hideBtn(){
 				}
 				slowDownSetup();
 			}
+			// function result(){
+
+			// 	if (stopImageNumber  == 3 || stopImageNumber  == 5){
+			// 		alert('残念、ハズレです。');
+			// 	}else if (stopImageNumber  == 0){
+			// 		alert('あたり！ルーレットあと１回廻ります。');
+			// 	}else if (stopImageNumber  == ){
+			// 		alert('あたり！ルーレットあと2回廻ります。');
+			// 	}else if (stopImageNumber  == 1 || stopImageNumber  == 4){
+			// 		alert('あたり！ルーレットあと2回廻ります。')
+			// 	}else if (stopImageNumber  == 2){
+			// 		alert('あたり！次のステージコインが２倍！')
+			// 	}
+			// }
+			// result();
 		}
 		var option = function(options) {
 			p = $.extend(p, options);
@@ -184,30 +211,6 @@ function hideBtn(){
 		}
 		return ret;
 	}
-
-
-	//  function result(){
-
-	// 	let bomb = getElementById("Bomb");
-	// 	let daruma = getElementById("Daruma");
-	// 	let darumaGold = getElementById("DarumaGold");
-	// 	let coinTakara = getElementById("CoinTakara");
-	// 	let luckyCat = getElementById("LuckyCat")
-
-
-	// 	 if (Roullete = bomb){
-	// 		 alert('残念、ハズレです。');
-	// 	 }else if (Roullete = daruma){
-	// 		 alert('あたり！ルーレットあと１回廻ります。');
-	// 	 }else if (Roulette = darumaGold){
-	// 		 alert('あたり！ルーレットあと2回廻ります。');
-	// 	 }else if (Roulette = coinTakara){
-	// 		 alert('あたり！ルーレットあと2回廻ります。')
-	// 	 }else if (Roulette = luckyCat){
-	// 		 alert('あたり！次のステージコインが２倍！')
-	// 	 }
-	//  }
-	//  result();
 
 	var pluginName = 'roulette';
 	$.fn[pluginName] = function(method, options) {
@@ -229,4 +232,6 @@ function hideBtn(){
 		});
 	}
 })(jQuery);
+
+
 

@@ -21,6 +21,4 @@ jQuery(function(){
       });
      });
 
-     function start_hide(){
-        //  display = none;
-     }
+
