@@ -30,6 +30,7 @@ $('.btn-1').click(function () {
     $(".alret-img5").hide();
     $(".alret-img6").hide();
     $(".btn-return").show();
+    $(".btn btn-large btn-primary").hide();
 })
 $('.btn-1-1').click(function () {
     $(".alret-wrap").show();
