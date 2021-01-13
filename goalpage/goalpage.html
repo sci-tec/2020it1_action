@@ -101,15 +101,15 @@
     hurl = hurl.substring(1);
     //文字を＆で分けて配列に入れる
     var hhai = hurl.split('&');
-    var score = sessionStorage.getItem('score');
+    var score = Number(sessionStorage.getItem('score'));
     let Score = document.getElementById('sca');
     Score.innerHTML = score;
     function Get7(){
-        location.href='../game/binbo-.html?2&';
+        location.href='../game/binbo-.html?2&' + hhai[1];
         if(hhai[0]=="2"){
-            location.href='../game/binbo-.html?3&';
+            location.href='../game/binbo-.html?3&' + hhai[1];
         }else if(hhai[0]=="3"){
-            alert("終了");
+            localStorage.setItem();
         }
         
     }
