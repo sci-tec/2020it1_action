@@ -20,7 +20,3 @@ jQuery(function(){
           $('div.roulette').roulette('stop');	
       });
      });
-
-     function start_hide(){
-        //  display = none;
-     }
