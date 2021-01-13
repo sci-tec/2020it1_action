@@ -241,13 +241,12 @@ function refleshImages(kane){
 
      mono("./img/コイン￥.png",coiny,-kane,0);
      //酒を表示
-     mono("./img/お酒.png",sakey,kane,5);
+     mono(sizeswich,sakey,kane,5);
      //タバコを表示
-     mono("./img/タバコ.png",tabakoy,kane,5);
-
-
-
+     mono(sizehenkou,tabakoy,kane,5);
 }
+var sizeswich = "./img/お酒.png";
+var sizehenkou = "./img/タバコ.png";
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
   score.innerHTML='所持金' + okane + '円';
@@ -256,7 +255,12 @@ function mono(gaz,hai,kane,TIME){
   for (let con of hai) {
     con.x -=speed;
     if(con.isShow){
-      ctx.drawImage(ga, con.x, con.y, 35, 35);
+      if(gaz == sizeswich || gaz == sizehenkou){
+        ctx.drawImage(ga, con.x, con.y, 20, 35);
+      }
+      else{
+        ctx.drawImage(ga, con.x, con.y, 35, 35);
+      }
     }
   if((x<=con.x+25&&x>=con.x-25)&&(y<=con.y+32 &&y>=con.y-32)){
      if(con.isShow) {
