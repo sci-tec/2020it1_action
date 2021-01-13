@@ -34,6 +34,7 @@ let Time = document.getElementById('Time');
 let score = document.getElementById('score');
 // canvas要素の取得
 const canvas = document.getElementById("sample");
+console.log(canvas);
 const ctx = canvas.getContext("2d");
 ///////////////////////////////////////////////////////////////
 function init(){
@@ -108,6 +109,7 @@ function update() {
       location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" + hhai[1];
     }
   } else if(goal){
+
     if (blocks[100].x < 300){
       goal = false;
       clearInterval(timeid);
@@ -162,7 +164,9 @@ function update() {
       vy = -15;
     }
 
+
     if (blocks[100].x < 300) {
+
       goal = true;
     }
   }
@@ -210,10 +214,10 @@ function refleshImages(kane){
   }
   //背景の画像を表示
   var background1 = new Image();
-  background1.src = "./img/20140108152220.png";
+  background1.src = "./img/背景画像.png";
   ctx.drawImage(background1, bg1.x, bg1.y, 1500, 735);
   var background2 = new Image();
-  background2.src = "./img/20140108152220.png";
+  background2.src = "./img/背景画像.png";
   ctx.drawImage(background2, bg2.x, bg2.y, 1500, 735);
   // 主人公の画像を表示
   var image = new Image();
@@ -234,11 +238,13 @@ function refleshImages(kane){
 
 
     //お金を表示
-     mono("./img/coin.jpg",coiny,-kane,0);
+
+     mono("./img/コイン￥.png",coiny,-kane,0);
      //酒を表示
-     mono("./img/sake.jpg",sakey,kane,5);
+     mono("./img/お酒.png",sakey,kane,5);
      //タバコを表示
-     mono("./img/tabako.jpg",tabakoy,kane,5);
+     mono("./img/タバコ.png",tabakoy,kane,5);
+
 
 
 }
