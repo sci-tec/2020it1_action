@@ -30,7 +30,8 @@ $('.btn-1').click(function () {
     $(".alret-img5").hide();
     $(".alret-img6").hide();
     $(".btn-return").show();
-    $(".btn btn-large btn-primary").hide();
+    $("#sca.btn.btn-large.btn-primary").hide();
+    $("#stg.stop.btn-large.btn-warning").hide();
 })
 $('.btn-1-1').click(function () {
     $(".alret-wrap").show();
@@ -40,6 +41,8 @@ $('.btn-1-1').click(function () {
 $('.alret-btn1').click(function () {
     $(".btn-wrap").show();
     $(".yami-gamen-background-img").hide();
+    $("#sca.btn.btn-large.btn-primary").show();
+    $("#stg.stop.btn-large.btn-warning").show();
 });
 
 $('.btn-1-2').click(function () {
@@ -92,6 +95,8 @@ $('.btn-1-6').click(function () {
 $('.btn-return').click(function () {
     $(".btn-wrap").show();
     $(".yami-gamen-background-img").hide();
+    $("#sca.btn.btn-large.btn-primary").show();
+    $("#stg.stop.btn-large.btn-warning").show();
 });
 // -----------------------------宝セクション---------------------------------------------------
 $(".takara").hide();
@@ -117,11 +122,15 @@ $('.takara-btn-return').click(function () {
     $(".btn-wrap").show();
     $(".takara").hide();
     $(".btn btn-large btn-primary start").hide();
+    $("#sca.btn.btn-large.btn-primary").show();
+    $("#stg.stop.btn-large.btn-warning").show();
 });
 $('.btn-2').click(function(){
     $(".btn-wrap").hide();
     $('.takara-btn-return').show();
     $('.takara').show();
+    $("#sca.btn.btn-large.btn-primary").hide();
+    $("#stg.stop.btn-large.btn-warning").hide();
 })
 $(".btn btn-large btn-primary start").click(function () {
     $(".btn_container").hide();
@@ -134,13 +143,25 @@ $(".btn btn-large btn-primary start").click(function () {
 // ------------------------------------------shop---------------------------------//
 $(".shop-wrap").hide();
 $(".shop-btn-return").hide();
+$(".caption1").hide();
+
 $('.btn-shop').click(function () {
     $(".btn-wrap").hide();
     $(".shop-wrap").show();
     $(".shop-btn-return").show();
+    $("#sca.btn.btn-large.btn-primary").hide();
+    $("#stg.stop.btn-large.btn-warning").hide();
 });
 $(".shop-btn-return").click(function () {
     $(".btn-wrap").show();
     $(".shop-wrap").hide();
     $(".shop-btn-return").hide();
+    $("#sca.btn.btn-large.btn-primary").show();
+    $("#stg.stop.btn-large.btn-warning").show();
+});
+
+$(document).ready(function () {
+$("btn-suit").mouseover(function (){
+    $(".caption1").show();
+})
 });

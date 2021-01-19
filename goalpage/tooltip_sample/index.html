@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>jQuery Globalliance Tooltip Demos</title>
+    <link rel="stylesheet" type='text/css' href="css/example.css">
+    <link rel="stylesheet" type='text/css' href="css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery.globalliance.tooltip.1.1.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('a,span').tooltip({
+          backgroundColor: '#e74c3c',
+          arrow: true,
+          position: 'right'
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+      <span data-tt="This is a tooltip with data-type">faucibus</span>
+  </body>
+</html>
