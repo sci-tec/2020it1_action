@@ -10,7 +10,7 @@ var hhai = hurl.split('&');
 //var goukei = parseInt(sessionStorage.getItem('score'));
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
-let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;
+let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
 function Stage(lv){
 if(lv=="1"){
   blv = 8;
@@ -29,6 +29,11 @@ if(lv=="1"){
 
 }
 Stage(hhai[0]);
+//音
+const jpSound = new Audio("./img/jump01.mp3");
+const conSound = new Audio("./img/coin07.mp3");
+const saketabakoSound = new Audio("./img/select08.mp3");
+const bgm = new Audio("./img/bgm.mp3");
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
@@ -106,7 +111,9 @@ function update() {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
       isGameOver = false;
       clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
+
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" + hhai[1];
+
     }
   } else if(goal){
 
@@ -114,7 +121,9 @@ function update() {
       goal = false;
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
-      location.href = "../goalpage/goalpage.html?" + hhai[0];
+
+      Sscore=Number(hhai[1])+okane;
+      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
 
     }
   } else {
@@ -128,6 +137,8 @@ function update() {
       isJump = true;
       jp = jp + 1;
       isupkeyup = false;
+      jpSound.currentTime = 0;
+      jpSound.play();
     } else if (blockTargetIsOn !== null) {
       jp = 0;
       isupkeyup = true;
@@ -225,7 +236,8 @@ function refleshImages(kane){
     // ゲームオーバーの場合にはゲームオーバーの画像が表示する
     image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAB1klEQVR42u3csRECIRAFULowsAgDm7AQUxtyLMRS7AbNNOJ09pAD3p/7KQfsi0mp8+TX17JJABAABAABQAAQAAQAeQ/oesmlbn3AtYFE7wcAAAAAAAAAAAAAAAAAAAAAAP45wGgP+12xi2s87uVG9xhcP3y+YAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgSwAbLwAAAAAAAAAAAAAAAAAAAAAA9ASg9gMOSxcUbe0Bhvc3+gMUAAAAAAAAAAAAAAAAAAAAAADwSxsPKAxs9ocoAQAAAAAAAAAAAAAAAAAAAABgRQCbLwAAAAAAAAAAAAAAAAAAAAAAAPB1T+dcbOsBL+4PAAAAAAAAAAAAAAAAAAAAAAAmAhAFsnTBtQdQ+/9p9gAAAAAAAAAAAAAAAAAAAAAgH4kOoHUBAAAAAAAAAAAAAAAAAAAAAGAkAMd0yzXbO4Da9wMAAAAAAAAAAAAAAAAAAAAAACMB2DqQ1ucHAAAAAAAAAAAAAAAAAAAAAICZAIQfogwWAAAAAAAAAAAAAAAAAAAAAABmAjA6EAMGAAAAAAAAAAAAAAAAAAAAAIB+gPQOGAAAAAAAAAAAAAAAAAAAAAAAVswT8IsWg8TZxVcAAAAASUVORK5CYII=";
   } else {
-  image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABsElEQVR42u3dvQ3CMBCAUVcsQMEYFCzBILQsxCSMwjYHZaoYZJ8x4X3iyihI96ooP6VMXrx+M08RAAJAAAgAASAABIA2s2DAAAAAAAAAAAAAAAAAAAAAAACgX8fDPjInbte2edzXp3K8Kz0ACAABIAAEgAAQAAJAAAgAAQAAAAAAAAAAAAAAwOcLTAfw5QEAAAAAAAAAAAAAAAAAAAAAAADmmewLWQAAAAAAAAAAAAAAAAAAAAAA4H6BcUCyz++OEAAEgAAQAAJAAAgAvd/5ErE2tRcx1o6vjQ0AIAAEgAAQAAJAAGjcglun9YMOgAAAAAAAAAAAAAAAAAAAAAAAQL+yL+Rkf/gREAAAAAAAAAAAAAAAAAAAAAAAWCy49vBEMoBmIF4UCQAAAAAAAAAAAAAAAAAAAAAA3QBkL7gZCAAAAAAAAAAAAAAAAAAAAAAAADDshpBfnyIABIAAEAACQAAIgD/qtItomewFAAAAAAAAAAAAAAAAAAAAAAAAAPMAqM3W/x8AAAAAAAAAAAAAAAAAAAAAAADSbwHZ5wcEAAAAAAAAAAAAAAAAAAAAgIEAnrQrn26JvN6oAAAAAElFTkSuQmCC";
+  // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABsElEQVR42u3dvQ3CMBCAUVcsQMEYFCzBILQsxCSMwjYHZaoYZJ8x4X3iyihI96ooP6VMXrx+M08RAAJAAAgAASAABIA2s2DAAAAAAAAAAAAAAAAAAAAAAACgX8fDPjInbte2edzXp3K8Kz0ACAABIAAEgAAQAAJAAAgAAQAAAAAAAAAAAAAAwOcLTAfw5QEAAAAAAAAAAAAAAAAAAAAAAADmmewLWQAAAAAAAAAAAAAAAAAAAAAA4H6BcUCyz++OEAAEgAAQAAJAAAgAvd/5ErE2tRcx1o6vjQ0AIAAEgAAQAAJAAGjcglun9YMOgAAAAAAAAAAAAAAAAAAAAAAAQL+yL+Rkf/gREAAAAAAAAAAAAAAAAAAAAAAAWCy49vBEMoBmIF4UCQAAAAAAAAAAAAAAAAAAAAAA3QBkL7gZCAAAAAAAAAAAAAAAAAAAAAAAADDshpBfnyIABIAAEAACQAAIgD/qtItomewFAAAAAAAAAAAAAAAAAAAAAAAAAPMAqM3W/x8AAAAAAAAAAAAAAAAAAAAAAADSbwHZ5wcEAAAAAAAAAAAAAAAAAAAAgIEAnrQrn26JvN6oAAAAAElFTkSuQmCC";
+    image.src = "./img/player_1.png";
   }
   ctx.drawImage(image, x, y, 32, 32);
 
@@ -239,15 +251,20 @@ function refleshImages(kane){
 
     //お金を表示
 
-     mono("./img/コイン￥.png",coiny,-kane,0);
+
+     mono(congaz,coiny,-kane,0);
+
      //酒を表示
-     mono("./img/お酒.png",sakey,kane,5);
+     mono(sizeswich,sakey,kane,5);
      //タバコを表示
-     mono("./img/タバコ.png",tabakoy,kane,5);
-
-
-
+     mono(sizehenkou,tabakoy,kane,5);
 }
+
+var sizeswich = "./img/お酒.png";
+var sizehenkou = "./img/タバコ.png";
+
+const congaz = "./img/coin.jpg";
+
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
   score.innerHTML='所持金' + okane + '円';
@@ -256,7 +273,12 @@ function mono(gaz,hai,kane,TIME){
   for (let con of hai) {
     con.x -=speed;
     if(con.isShow){
-      ctx.drawImage(ga, con.x, con.y, 35, 35);
+      if(gaz == sizeswich || gaz == sizehenkou){
+        ctx.drawImage(ga, con.x, con.y, 20, 35);
+      }
+      else{
+        ctx.drawImage(ga, con.x, con.y, 35, 35);
+      }
     }
   if((x<=con.x+25&&x>=con.x-25)&&(y<=con.y+32 &&y>=con.y-32)){
      if(con.isShow) {
@@ -264,7 +286,15 @@ function mono(gaz,hai,kane,TIME){
        time-=TIME;
        }
       con.isShow=false;
-  }
+      if(gaz == congaz) {
+        conSound.currentTime = 0;
+        conSound.play();
+      } else {
+        saketabakoSound.currentTime = 0;
+        saketabakoSound.play();
+      }
+      
+    }
   }
 }
 ///////////////////////////////////////////////////////////////
@@ -331,7 +361,7 @@ function start(){
     }
     if(time <= 0){
       clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" +  hhai[1];
     }
     time--;
   },1000);
