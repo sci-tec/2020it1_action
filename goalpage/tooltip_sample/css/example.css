@@ -1,0 +1,49 @@
+
+body {
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: #333;
+  background: #f0f0f0;
+}
+
+a,
+a:hover { color: #D43C10; }
+
+a { text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+.pageTitle {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.6em;
+  color: #D43C10;
+}
+
+.articleTitle {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.6em;
+  color: #666;
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 20px;
+  margin: 20px 0;
+  background: #fff;
+}
+
+span {
+  color: #2980b9;
+  cursor: help
+}

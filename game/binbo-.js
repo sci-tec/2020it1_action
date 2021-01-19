@@ -249,11 +249,13 @@ function refleshImages(kane){
 
     //お金を表示
 
+
      mono(congaz,coiny,-kane,0);
+
      //酒を表示
-     mono("./img/sake.jpg",sakey,kane,5);
+     mono("./img/お酒.png",sakey,kane,5);
      //タバコを表示
-     mono("./img/tabako.jpg",tabakoy,kane,5);
+     mono("./img/タバコ.png",tabakoy,kane,5);
 
 
 
