@@ -263,7 +263,7 @@ function refleshImages(kane){
 var sizeswich = "./img/お酒.png";
 var sizehenkou = "./img/タバコ.png";
 
-const congaz = "./img/coin.jpg";
+const congaz = "./img/コイン￥.png";
 
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
