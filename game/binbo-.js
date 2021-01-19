@@ -10,7 +10,7 @@ var hhai = hurl.split('&');
 //var goukei = parseInt(sessionStorage.getItem('score'));
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
-let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;
+let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
 function Stage(lv){
 if(lv=="1"){
   blv = 8;
@@ -29,6 +29,11 @@ if(lv=="1"){
 
 }
 Stage(hhai[0]);
+//音
+const jpSound = new Audio("./img/jump01.mp3");
+const conSound = new Audio("./img/coin07.mp3");
+const saketabakoSound = new Audio("./img/select08.mp3");
+const bgm = new Audio("./img/bgm.mp3");
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
@@ -106,7 +111,9 @@ function update() {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
       isGameOver = false;
       clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
+
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" + hhai[1];
+
     }
   } else if(goal){
 
@@ -114,7 +121,9 @@ function update() {
       goal = false;
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
-      location.href = "../goalpage/goalpage.html?" + hhai[0];
+
+      Sscore=Number(hhai[1])+okane;
+      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
 
     }
   } else {
@@ -128,6 +137,8 @@ function update() {
       isJump = true;
       jp = jp + 1;
       isupkeyup = false;
+      jpSound.currentTime = 0;
+      jpSound.play();
     } else if (blockTargetIsOn !== null) {
       jp = 0;
       isupkeyup = true;
@@ -240,14 +251,20 @@ function refleshImages(kane){
 
     //お金を表示
 
-     mono("./img/コイン￥.png",coiny,-kane,0);
+
+     mono(congaz,coiny,-kane,0);
+
      //酒を表示
      mono(sizeswich,sakey,kane,5);
      //タバコを表示
      mono(sizehenkou,tabakoy,kane,5);
 }
+
 var sizeswich = "./img/お酒.png";
 var sizehenkou = "./img/タバコ.png";
+
+const congaz = "./img/coin.jpg";
+
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
   score.innerHTML='所持金' + okane + '円';
@@ -269,7 +286,15 @@ function mono(gaz,hai,kane,TIME){
        time-=TIME;
        }
       con.isShow=false;
-  }
+      if(gaz == congaz) {
+        conSound.currentTime = 0;
+        conSound.play();
+      } else {
+        saketabakoSound.currentTime = 0;
+        saketabakoSound.play();
+      }
+      
+    }
   }
 }
 ///////////////////////////////////////////////////////////////
@@ -336,7 +361,7 @@ function start(){
     }
     if(time <= 0){
       clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" +  hhai[1];
     }
     time--;
   },1000);

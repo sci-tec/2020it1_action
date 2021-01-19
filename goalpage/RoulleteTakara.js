@@ -10,7 +10,6 @@ function hideBtn(){
 
 
 
-
 // ルーレットコード
 
 function Random(){
@@ -24,7 +23,7 @@ function Random(){
 		var defaultSettings = {
 			maxPlayCount : null, // x >= 0 or null
 			speed : 10, // x > 0
-			stopImageNumber : 3, // x >= 0 or null or -1
+			stopImageNumber : 0, // x >= 0 or null or -1
 			rollCount : 3, // x >= 0
 			duration : 3, //(x second)	
 			stopCallback : function() {
@@ -156,6 +155,10 @@ function Random(){
 		}
 
 		var start = function() {
+			let n = Random();
+			defaultProperty.originalStopImageNumber = n;
+			p.stopImageNumber = n;
+			console.log(n);
 			p.playCount++;
 			if (p.maxPlayCount && p.playCount > p.maxPlayCount) {
 				return;
@@ -179,21 +182,6 @@ function Random(){
 				}
 				slowDownSetup();
 			}
-			// function result(){
-
-			// 	if (stopImageNumber  == 3 || stopImageNumber  == 5){
-			// 		alert('残念、ハズレです。');
-			// 	}else if (stopImageNumber  == 0){
-			// 		alert('あたり！ルーレットあと１回廻ります。');
-			// 	}else if (stopImageNumber  == ){
-			// 		alert('あたり！ルーレットあと2回廻ります。');
-			// 	}else if (stopImageNumber  == 1 || stopImageNumber  == 4){
-			// 		alert('あたり！ルーレットあと2回廻ります。')
-			// 	}else if (stopImageNumber  == 2){
-			// 		alert('あたり！次のステージコインが２倍！')
-			// 	}
-			// }
-			// result();
 		}
 		var option = function(options) {
 			p = $.extend(p, options);
@@ -211,6 +199,21 @@ function Random(){
 		}
 		return ret;
 	}
+
+	// この関数の置き場所探してる 
+	function result(n){
+		if (n == 3 || n == 5){
+			 alert('残念、ハズレです。');
+		}else if (n == 0){
+			 alert('あたり！ルーレットあと１回廻ります。');
+		}else if (n == 6){
+			 alert('あたり！ルーレットあと2回廻ります。');
+		}else if (n == 1 || n == 4){
+			 alert('あたり！ルーレットあと2回廻ります。')
+		}else if (n == 2){
+			 alert('あたり！次のステージコインが２倍！')
+		}
+	}	 
 
 	var pluginName = 'roulette';
 	$.fn[pluginName] = function(method, options) {
@@ -231,6 +234,7 @@ function Random(){
 			}
 		});
 	}
+	result();
 })(jQuery);
 
 
