@@ -29,6 +29,11 @@ if(lv=="1"){
 
 }
 Stage(hhai[0]);
+//音
+const jpSound = new Audio("./img/jump01.mp3");
+const conSound = new Audio("./img/coin07.mp3");
+const saketabakoSound = new Audio("./img/select08.mp3");
+const bgm = new Audio("./img/bgm.mp3");
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
@@ -107,6 +112,8 @@ function update() {
       isGameOver = false;
       clearInterval(timeid);
       location.href = "../gameOver画面/gameOver.html?" + hhai[0];
+      bgm.pause();
+      bgm.currentTime = 0;
     }
   } else if(goal){
 
@@ -115,7 +122,8 @@ function update() {
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
       location.href = "../goalpage/goalpage.html?" + hhai[0];
-
+      bgm.pause();
+      bgm.currentTime = 0;
     }
   } else {
     // 入力値の確認と反映
@@ -128,6 +136,8 @@ function update() {
       isJump = true;
       jp = jp + 1;
       isupkeyup = false;
+      jpSound.currentTime = 0;
+      jpSound.play();
     } else if (blockTargetIsOn !== null) {
       jp = 0;
       isupkeyup = true;
@@ -239,7 +249,7 @@ function refleshImages(kane){
 
     //お金を表示
 
-     mono("./img/coin.jpg",coiny,-kane,0);
+     mono(congaz,coiny,-kane,0);
      //酒を表示
      mono("./img/sake.jpg",sakey,kane,5);
      //タバコを表示
@@ -248,6 +258,7 @@ function refleshImages(kane){
 
 
 }
+const congaz = "./img/coin.jpg";
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
   score.innerHTML='所持金' + okane + '円';
@@ -264,7 +275,15 @@ function mono(gaz,hai,kane,TIME){
        time-=TIME;
        }
       con.isShow=false;
-  }
+      if(gaz == congaz) {
+        conSound.currentTime = 0;
+        conSound.play();
+      } else {
+        saketabakoSound.currentTime = 0;
+        saketabakoSound.play();
+      }
+      
+    }
   }
 }
 ///////////////////////////////////////////////////////////////

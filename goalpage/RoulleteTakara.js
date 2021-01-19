@@ -9,10 +9,7 @@ function hideBtn(){
 //hideBtn();
 
 
-function random(){
-	var a = Math.floor( Math.random() * 9);
-	return a;
-}
+
 // ルーレットコード
 
 function Random(){
@@ -158,7 +155,7 @@ function Random(){
 		}
 
 		var start = function() {
-			let n = random();
+			let n = Random();
 			defaultProperty.originalStopImageNumber = n;
 			p.stopImageNumber = n;
 			console.log(n);
@@ -185,21 +182,6 @@ function Random(){
 				}
 				slowDownSetup();
 			}
-			// function result(){
-
-			// 	if (stopImageNumber  == 3 || stopImageNumber  == 5){
-			// 		alert('残念、ハズレです。');
-			// 	}else if (stopImageNumber  == 0){
-			// 		alert('あたり！ルーレットあと１回廻ります。');
-			// 	}else if (stopImageNumber  == ){
-			// 		alert('あたり！ルーレットあと2回廻ります。');
-			// 	}else if (stopImageNumber  == 1 || stopImageNumber  == 4){
-			// 		alert('あたり！ルーレットあと2回廻ります。')
-			// 	}else if (stopImageNumber  == 2){
-			// 		alert('あたり！次のステージコインが２倍！')
-			// 	}
-			// }
-			// result();
 		}
 		var option = function(options) {
 			p = $.extend(p, options);
@@ -219,14 +201,14 @@ function Random(){
 	}
 
 	// この関数の置き場所探してる 
-	function result(){
-		if (n == 3 || n == 5 || n == 8){
+	function result(n){
+		if (n == 3 || n == 5){
 			 alert('残念、ハズレです。');
 		}else if (n == 0){
 			 alert('あたり！ルーレットあと１回廻ります。');
 		}else if (n == 6){
 			 alert('あたり！ルーレットあと2回廻ります。');
-		}else if (n == 1 || n == 4 || n == 7){
+		}else if (n == 1 || n == 4){
 			 alert('あたり！ルーレットあと2回廻ります。')
 		}else if (n == 2){
 			 alert('あたり！次のステージコインが２倍！')
@@ -252,6 +234,7 @@ function Random(){
 			}
 		});
 	}
+	result();
 })(jQuery);
 
 
