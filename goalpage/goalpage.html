@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="goalpage.css">
     <title>貧乏ゲーム</title>
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">  
   
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->  
@@ -18,41 +17,28 @@
 
 </head>
 <body>
-   <div class="container">
+   <div class="container_goalpage">
          <div id="btn-wrap" class="btn-wrap">
 
              <div class="btn-wrap2">
-                <button class="score-btn">score</button>
+                <button class="score-btn"id="sca">score</button>
             </div>
             <div class="btn-wrap3">
                 <button class="btn-1"></button>
                 <button class="btn-2"></button>
                 <button class="btn-3" onclick="Get3();"></button>
                 <button class="btn-shop">SHOP</button>
-               <!-- --SHOP--------------------------------------------- -->
-                    <div class="shop-wrap">
-                        <div class="shop-btn-wrap">
-                            <button class="btn-suit" onclick="Get4();"></button>
-                            <button class="btn-car" onclick="Get5();"></button>
-                            <button class="btn-house" onclick="Get6();"></button>
-                        </div>
-                        <div class="shop-return">
-                            <button class="shop-btn-return"></button>
-                        </div>
-                    </div>
-                   </div> 
-                <!-- <button class="btn-4"></button>
-                <button class="btn-5"></button>
-                <button class="btn-6"></button> -->
             </div>
              <div class="btn-container-next-ranking">
-                <button class="btn btn-large btn-primary " class="score-btn" id="sca">RANKING</button>
+                <button class="btn btn-large btn-primary " class="score-btn" >RANKING</button>
                 <button class="stop btn-large btn btn-warning" id="stg" onclick="Get7();">NEXT</button>
             </div>
 
 
          </div>
-         
+    </div> 
+
+    <div class="popups">
 <!--        宝セクション     -->
          <div class="takara" id="takara">
              <div class="row">
