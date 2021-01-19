@@ -10,7 +10,7 @@ var hhai = hurl.split('&');
 //var goukei = parseInt(sessionStorage.getItem('score'));
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
-let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;
+let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
 function Stage(lv){
 if(lv=="1"){
   blv = 8;
@@ -111,9 +111,9 @@ function update() {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
       isGameOver = false;
       clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
-      bgm.pause();
-      bgm.currentTime = 0;
+
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" + hhai[1];
+
     }
   } else if(goal){
 
@@ -121,9 +121,10 @@ function update() {
       goal = false;
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
-      location.href = "../goalpage/goalpage.html?" + hhai[0];
-      bgm.pause();
-      bgm.currentTime = 0;
+
+      Sscore=Number(hhai[1])+okane;
+      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
+
     }
   } else {
     // 入力値の確認と反映
@@ -352,7 +353,7 @@ function start(){
     }
     if(time <= 0){
       clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0];
+      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" +  hhai[1];
     }
     time--;
   },1000);
