@@ -144,9 +144,42 @@ $(".shop-btn-return").click(function () {
     $("#stg.stop.btn-large.btn-warning").show();
 });
 
-$(document).ready(function () {
-$("btn-suit").mouseover(function (){
-    $(".caption1").show();
+$(".suit-text").hide();
+$('.car-text').hide();
+$('.house-text').hide();
+
+$(".btn-suit").mouseover(function (){
+    $(".suit-text").show();
+});
+$(".btn-suit").mouseout(function (){
+    $(".suit-text").hide();
 })
+
+$(".btn-car").mouseover(function (){
+    $(".car-text").show();
+});
+$(".btn-car").mouseout(function (){
+    $(".car-text").hide();
+})
+
+$(".btn-house").mouseover(function (){
+    $(".house-text").show();
+});
+$(".btn-house").mouseout(function (){
+    $(".house-text").hide();
+})
+// -------------------------RANKING-----------------------------------
+$('.ranking-wrap').hide();
+$('.ranking-text').hide();
+
+$('#ranking-btn').click(function () {
+    $('.ranking-wrap').show();
+    $('.container_goalpage').hide();
+    $('.ranking-text').show();
 });
 
+$('.ranking-btn-return').click(function () {
+    $('.ranking-wrap').hide();
+    $('.container_goalpage').show();
+    $('.ranking-text').hide();
+});

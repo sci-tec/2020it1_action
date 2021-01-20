@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="goalpage.css">
     <title>貧乏ゲーム</title>
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">  
   
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->  
@@ -18,41 +17,28 @@
 
 </head>
 <body>
-   <div class="container">
+   <div class="container_goalpage">
          <div id="btn-wrap" class="btn-wrap">
 
              <div class="btn-wrap2">
-                <button class="score-btn">score</button>
+                <button class="score-btn"id="sca">score</button>
             </div>
             <div class="btn-wrap3">
                 <button class="btn-1"></button>
                 <button class="btn-2"></button>
                 <button class="btn-3" onclick="Get3();"></button>
                 <button class="btn-shop">SHOP</button>
-               <!-- --SHOP--------------------------------------------- -->
-                    <div class="shop-wrap">
-                        <div class="shop-btn-wrap">
-                            <button class="btn-suit" onclick="Get4();"></button>
-                            <button class="btn-car" onclick="Get5();"></button>
-                            <button class="btn-house" onclick="Get6();"></button>
-                        </div>
-                        <div class="shop-return">
-                            <button class="shop-btn-return"></button>
-                        </div>
-                    </div>
-                   </div> 
-                <!-- <button class="btn-4"></button>
-                <button class="btn-5"></button>
-                <button class="btn-6"></button> -->
             </div>
              <div class="btn-container-next-ranking">
-                <button class="btn btn-large btn-primary " class="score-btn" id="sca">RANKING</button>
+                <button class="btn btn-large btn-primary " class="score-btn" id="ranking-btn">RANKING</button>
                 <button class="stop btn-large btn btn-warning" id="stg" onclick="Get7();">NEXT</button>
             </div>
 
 
          </div>
-         
+    </div> 
+
+    <div class="popups">
 <!--        宝セクション     -->
          <div class="takara" id="takara">
              <div class="row">
@@ -60,15 +46,13 @@
                         <div class="roulette_container" >
                             <div class="roulette" style="display:none;">
                                 
-                                <img id="Daruma" class="img" src="./img/Daruma.png"/>
-                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
-                                <img id="LuckyCat" class="img" src="./img/LuckyCat.png"/>
-                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
-                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
-                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
-                                <img id="DarumaGold" class="img" src="./img/DarumaGold.png"/>
-                                <img id="CoinTakara" class="img" src="./img/coinTakara.png"/>
-                                <img id="Bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="daruma-red" class="img" src="./img/Daruma.png"/>
+                                <img id="bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="daruma_gold" class="img" src="./img/DarumaGold.png"/>
+                                <img id="bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="daruma_gold" class="img" src="./img/DarumaGold.png"/>
+                                <img id="bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="lucky_cat" class="img" src="./img/LuckyCat.png"/>
                             </div>
                         </div>
                         <div class="btn_container">
@@ -123,14 +107,27 @@
     <!-- --SHOP--------------------------------------------- -->
     <div class="shop-wrap">
         <div class="shop-btn-wrap">
-            <button class="btn-suit" onclick="Get4();"></button>
-            <button class="btn-car" onclick="Get5();"></button>
-            <button class="btn-house" onclick="Get6();"></button>
+            <div class="item">
+                <button class="btn-suit" style="overflow: hidden;" onclick="Get4();">
+                    <div class="suit-text" style="height: 110%; width: 110%; margin-left: -5%; margin-top: -5%; background-color: rgba(14, 13, 13, 0.667);"><br>説明分説明分説明分説明分</br><br>このスーツを購入すると</br><br>コインが〇〇倍になる</br></div>
+                </button>
+            </div>
+            <div class="item">
+                <button class="btn-car" style="overflow: hidden;" onclick="Get5();">
+                    <div class="car-text" style="height: 110%; width: 110%; margin-left: -5%; margin-top: -5%; background-color: rgba(14, 13, 13, 0.667);"><br>説明分説明分説明分説明分</br><br>この車を購入すると</br><br>コインが〇〇倍になる</br>
+                </button>
+            </div>
+            <div class="item">
+                <button class="btn-house" style="overflow: hidden;" onclick="Get6();">
+                    <div class="house-text" style="height: 110%; width: 110%; margin-left: -5%; margin-top: -5%; background-color: rgba(14, 13, 13, 0.667);"><br>説明分説明分説明分説明分</br><br>この家を購入すると</br><br>コインが〇〇倍になる</br>
+                </button>
+            </div>
         </div>
         <div class="shop-return">
             <button class="shop-btn-return"></button>
         </div>
     </div>
+
     <script>
         function Get4(){
             if(score >= 1000){
@@ -197,6 +194,7 @@
         }
     </script>
    </div> 
+
        <!-- <div class="score">Score:</div> -->
   
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
@@ -214,7 +212,7 @@
     var hhai = hurl.split('&');
     var score = Number(sessionStorage.getItem('score'));
     let Score = document.getElementById('sca');
-    Score.innerHTML = score;
+    Score.innerHTML ="SCORE   <"+"<span>"+score+"</span>"+">";
     function Get7(){
         location.href='../game/binbo-.html?2&' + hhai[1];
         if(hhai[0]=="2"){

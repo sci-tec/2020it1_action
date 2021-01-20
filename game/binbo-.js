@@ -5,7 +5,9 @@ let on_off = 100;
 if(ON_OFF==true){
 on_off = 20;
 }
+
 $(function() {
+
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
 //URL　？あとの文字を取得
@@ -15,6 +17,7 @@ hurl = hurl.substring(1);
 var hhai = hurl.split('&');
 
 //変数定義
+
 var imgsPlayerSrc = [
   "./img/player_1.png",
   "./img/player_2.png",
@@ -41,6 +44,7 @@ var imgsCoinSrc = [
 ];
 
 //var goukei = parseInt(sessionStorage.getItem('score'));
+
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
 let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
@@ -170,17 +174,24 @@ function update() {
 
     }
   } else if(goal){
+
     if (blocks[on_off].x < 300){
       goal = false;
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
+
       if(hhai[0]==3){
         sessionStorage.removeItem('key');
         sessionStorage.removeItem('key2');
       }
-      Sscore=Number(hhai[1])+okane;
-      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
 
+      Sscore=Number(hhai[1])+okane;
+      
+    if(hhai[0]==3){
+        location.href = "../Rank/rank.html?" + hhai[0] + "&" + Sscore;
+    }else{
+      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
+    }
     }
   } else {
     // 入力値の確認と反映
