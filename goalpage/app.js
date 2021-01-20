@@ -6,9 +6,14 @@ jQuery(function(){
       }
       $('div.roulette').roulette(option);	
 
+      $('.stop').hide();
+      $('#stg').show();
+      
       // START!
       $('.start').click(function(){
-          $('div.roulette').roulette('start');	
+          $('div.roulette').roulette('start');
+          $('.start').hide();
+          $('.stop').show();
       });
 
       // STOP!
