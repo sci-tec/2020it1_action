@@ -11,6 +11,7 @@ function hideBtn(){
 
 
 // ルーレットコード
+let result_value; 
 
 function Random(){
 	let random = Math.floor(Math.random() * 7)
@@ -24,9 +25,10 @@ function Random(){
 			maxPlayCount : null, // x >= 0 or null
 			speed : 10, // x > 0
 			stopImageNumber : 0, // x >= 0 or null or -1
-			rollCount : 3, // x >= 0
-			duration : 3, //(x second)	
+			rollCount : 2, // x >= 0
+			duration : 1, //(x second)	
 			stopCallback : function() {
+				result(result_value)
 			},
 			startCallback : function() {
 			},
@@ -155,10 +157,10 @@ function Random(){
 		}
 
 		var start = function() {
-			let n = Random();
-			defaultProperty.originalStopImageNumber = n;
-			p.stopImageNumber = n;
-			console.log(n);
+			result_value = Random();
+			defaultProperty.originalStopImageNumber = result_value;
+			p.stopImageNumber = result_value;
+			console.log(result_value);
 			p.playCount++;
 			if (p.maxPlayCount && p.playCount > p.maxPlayCount) {
 				return;
@@ -202,19 +204,17 @@ function Random(){
 
 	// この関数の置き場所探してる 
 	function result(n){
-		if (n == 3 || n == 5){
+		if (n == 3 || n == 4 || n == 6){
 			 alert('残念、ハズレです。');
 		}else if (n == 0){
 			 alert('あたり！ルーレットあと１回廻ります。');
-		}else if (n == 6){
-			 alert('あたり！ルーレットあと2回廻ります。');
-		}else if (n == 1 || n == 4){
-			 alert('あたり！ルーレットあと2回廻ります。')
+		}else if (n == 1 || n == 5){
+			 alert('あたり！コイン1000円！。')
 		}else if (n == 2){
 			 alert('あたり！次のステージコインが２倍！')
 		}
-	}	 
-
+	}	
+	
 	var pluginName = 'roulette';
 	$.fn[pluginName] = function(method, options) {
 		return this.each(function() {

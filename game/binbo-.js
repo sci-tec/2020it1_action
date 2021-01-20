@@ -1,3 +1,13 @@
+
+//開発中はtrueにしてください。
+const ON_OFF = true;
+let on_off = 100;
+if(ON_OFF==true){
+on_off = 20;
+}
+
+$(function() {
+
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
 //URL　？あとの文字を取得
@@ -7,10 +17,59 @@ hurl = hurl.substring(1);
 var hhai = hurl.split('&');
 
 //変数定義
+
+var imgsPlayerSrc = [
+  "./img/player_1.png",
+  "./img/player_2.png",
+  "./img/player_3.png",
+];
+var frameCounter = 0;
+var imgsCoinSrc = [
+  './img/coin/coin0001.png',
+  './img/coin/coin0001.png',
+  './img/coin/coin0002.png',
+  './img/coin/coin0002.png',
+  './img/coin/coin0003.png',
+  './img/coin/coin0003.png',
+  './img/coin/coin0003.png',
+  './img/coin/coin0004.png',
+  './img/coin/coin0004.png',
+  './img/coin/coin0005.png',
+  './img/coin/coin0005.png',
+  './img/coin/coin0005.png',
+  './img/coin/coin0006.png',
+  './img/coin/coin0006.png',
+  './img/coin/coin0007.png',
+  './img/coin/coin0007.png',
+];
+
 //var goukei = parseInt(sessionStorage.getItem('score'));
+
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
 let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
+//倍率
+let btn = 0;
+let num = sessionStorage.getItem('key');
+let btn2 = 0;
+let num2 = sessionStorage.getItem('key2');
+if(num==2 || num==5 || num==10){
+  btn = num;
+}else{
+  btn = 1;
+}
+if(num2==2 || num2==5 || num2==10){
+  btn2 = num2;
+}else{
+  btn2 = 1;
+}
+// if(num==2){
+//   okane -= 1000;
+// }else if(num==5){
+//   okane -= 2000;
+// }else if(num==10){
+//   okane -= 3000;
+// }
 function Stage(lv){
 if(lv=="1"){
   blv = 8;
@@ -20,20 +79,25 @@ if(lv=="1"){
   blv = 9;
   sotlv = 7;
   kane = 200;
+  kane *= num;
 }else if(lv=="3"){
   blv = 10;
   sotlv = 8;
   kane = 300;
+  kane *= num * num2;
+}
 }
 
 
-}
 Stage(hhai[0]);
+
+
 //音
 const jpSound = new Audio("./img/jump01.mp3");
 const conSound = new Audio("./img/coin07.mp3");
 const saketabakoSound = new Audio("./img/select08.mp3");
 const bgm = new Audio("./img/bgm.mp3");
+
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
@@ -93,6 +157,7 @@ function init(){
   start();
 // 画面を更新する関数を定義 (繰り返しここの処理が実行される)
 function update() {
+  // console.log("update");
   // 画面全体をクリア
   ctx.clearRect(0, 0, 1500, 735);
   // 更新後の座標
@@ -117,14 +182,23 @@ function update() {
     }
   } else if(goal){
 
-    if (blocks[100].x < 300){
+    if (blocks[on_off].x < 300){
       goal = false;
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
 
-      Sscore=Number(hhai[1])+okane;
-      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
+      if(hhai[0]==3){
+        sessionStorage.removeItem('key');
+        sessionStorage.removeItem('key2');
+      }
 
+      Sscore=Number(hhai[1])+okane;
+      
+    if(hhai[0]==3){
+        location.href = "../Rank/rank.html?" + hhai[0] + "&" + Sscore;
+    }else{
+      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
+    }
     }
   } else {
     // 入力値の確認と反映
@@ -176,7 +250,7 @@ function update() {
     }
 
 
-    if (blocks[100].x < 300) {
+    if (blocks[on_off].x < 300) {
 
       goal = true;
     }
@@ -192,6 +266,7 @@ function update() {
 ///////////////////////////////////////////////////////////////
 // 変更前後のxy座標を受け取って、ブロック上に存在していればそのブロックの情報を、存在していなければnullを返す
 function getBlockTargrtIsOn(x, y, updatedX, updatedY) {
+  // console.log("getBlockTargrtIsOn");
   // 全てのブロックに対して繰り返し処理をする
   for (const block of blocks) {
     if (y + 32 <= block.y && updatedY + 32 >= block.y) {
@@ -212,6 +287,9 @@ function getBlockTargrtIsOn(x, y, updatedX, updatedY) {
 ///////////////////////////////////////////////////////////////
 //画像まとめ関数
 function refleshImages(kane){
+// console.log("refleshImages");
+  frameCounter++;
+
   //背景ループ
   if(bg1.x <= -1500){
     bg1.x = 1495;
@@ -238,10 +316,10 @@ function refleshImages(kane){
     image.src = "./img/playerGameover.png";
   } else {
   // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABsElEQVR42u3dvQ3CMBCAUVcsQMEYFCzBILQsxCSMwjYHZaoYZJ8x4X3iyihI96ooP6VMXrx+M08RAAJAAAgAASAABIA2s2DAAAAAAAAAAAAAAAAAAAAAAACgX8fDPjInbte2edzXp3K8Kz0ACAABIAAEgAAQAAJAAAgAAQAAAAAAAAAAAAAAwOcLTAfw5QEAAAAAAAAAAAAAAAAAAAAAAADmmewLWQAAAAAAAAAAAAAAAAAAAAAA4H6BcUCyz++OEAAEgAAQAAJAAAgAvd/5ErE2tRcx1o6vjQ0AIAAEgAAQAAJAAGjcglun9YMOgAAAAAAAAAAAAAAAAAAAAAAAQL+yL+Rkf/gREAAAAAAAAAAAAAAAAAAAAAAAWCy49vBEMoBmIF4UCQAAAAAAAAAAAAAAAAAAAAAA3QBkL7gZCAAAAAAAAAAAAAAAAAAAAAAAADDshpBfnyIABIAAEAACQAAIgD/qtItomewFAAAAAAAAAAAAAAAAAAAAAAAAAPMAqM3W/x8AAAAAAAAAAAAAAAAAAAAAAADSbwHZ5wcEAAAAAAAAAAAAAAAAAAAAgIEAnrQrn26JvN6oAAAAAElFTkSuQmCC";
-    image.src = "./img/player_1.png";
+    // image.src = "./img/player_1.png";
+    image.src = imgsPlayerSrc[Math.floor(frameCounter/5)%imgsPlayerSrc.length];
   }
   ctx.drawImage(image, x, y, 32, 32);
-
   // 地面の画像を表示
   var groundImage = new Image();
   groundImage.src = "./img/20140108152220 (1).png";
@@ -268,9 +346,11 @@ const congaz = "./img/コイン￥.png";
 
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
+  // console.log("mono");
   score.innerHTML='所持金' + okane + '円';
   var ga = new Image();
-  ga.src =gaz;
+  // ga.src =gaz;
+  ga.src = (gaz == congaz) ? imgsCoinSrc[frameCounter%imgsCoinSrc.length] : gaz;
   for (let con of hai) {
     con.x -=speed;
     if(con.isShow){
@@ -300,6 +380,7 @@ function mono(gaz,hai,kane,TIME){
 }
 ///////////////////////////////////////////////////////////////
 function  createMap(){
+  console.log("createMap")
     for(let i=0; i<200; i++){
       let ran = Math.floor(Math.random()*sto.length);
       blocks.push({ x: blockx, y: bloksy[i], w: 100, h: 32 },)
@@ -318,6 +399,7 @@ function  createMap(){
 }
 ////////////////////////////////////////////////////////////////
 function addEventListeners(){
+  console.log("addEventListeners");
     // キーボードの入力イベントをトリガーに配列のフラグ値を更新させる
     window.addEventListener("keydown", handleKeydown);
     function handleKeydown(e) {
@@ -333,6 +415,7 @@ function addEventListeners(){
 }
 //ステージレベルを変える関数　引数➡（ブロックのLv,コイン、酒、タバコのLv)
 function setYaxisBlockAndCoin (){
+  console.log("setYaxisBlockAndCoin");
   for(let j=0; j<200; j++){
   var random = Math.floor( Math.random() * blv );
   var coin = Math.floor( Math.random() * sotlv );
@@ -353,19 +436,30 @@ function setYaxisBlockAndCoin (){
   }
 }
 }
+function playBGM() {
+  var log = function(){
+    console.log("kita");
+    bgm.play();
+    clearTimeout(timer);
+  };
+  var timer = setTimeout(log, 500);
+}
 ///////////////////////////////////////////////
 function start(){
-   timeid = setInterval(function(){
-    Time.innerHTML = 'タイマー:' + time + '秒';
-    if(time%6==0){
-      speed +=0.3;
-    }
-    if(time <= 0){
-      clearInterval(timeid);
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" +  hhai[1];
-    }
-    time--;
+  console.log("start");
+  timeid = setInterval(function(){
+   Time.innerHTML = 'タイマー:' + time + '秒';
+   if(time%6==0){
+     speed +=0.3;
+   }
+   if(time <= 0){
+     clearInterval(timeid);
+     location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" +  hhai[1];
+   }
+   time--;
   },1000);
   // ロード時に画面描画の処理が実行されるようにする
   window.addEventListener("load", update);
+  playBGM();
 }
+});
