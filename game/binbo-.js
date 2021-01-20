@@ -25,22 +25,44 @@ var imgsPlayerSrc = [
 ];
 var frameCounter = 0;
 var imgsCoinSrc = [
-  './img/coin/coin0001.png',
-  './img/coin/coin0001.png',
-  './img/coin/coin0002.png',
-  './img/coin/coin0002.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0004.png',
-  './img/coin/coin0004.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0006.png',
-  './img/coin/coin0006.png',
-  './img/coin/coin0007.png',
-  './img/coin/coin0007.png',
+  // './img/coin/coin0001.png',
+  // './img/coin/coin0001.png',
+  // './img/coin/coin0002.png',
+  // './img/coin/coin0002.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0004.png',
+  // './img/coin/coin0004.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0006.png',
+  // './img/coin/coin0006.png',
+  // './img/coin/coin0007.png',
+  // './img/coin/coin0007.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+
 ];
 
 //var goukei = parseInt(sessionStorage.getItem('score'));
@@ -63,13 +85,6 @@ if(num2==2 || num2==5 || num2==10){
 }else{
   btn2 = 1;
 }
-// if(num==2){
-//   okane -= 1000;
-// }else if(num==5){
-//   okane -= 2000;
-// }else if(num==10){
-//   okane -= 3000;
-// }
 function Stage(lv){
 if(lv=="1"){
   blv = 8;
@@ -441,7 +456,7 @@ function playBGM() {
     bgm.play();
     clearTimeout(timer);
   };
-  var timer = setTimeout(log, 500);
+  var timer = setTimeout(log, 1000);
 }
 ///////////////////////////////////////////////
 function start(){
