@@ -24,6 +24,11 @@ html, body {
  .btn-wrap{
      z-index: 4;
  }
+
+ .btn-wrap3{
+     display: flex;
+     justify-content: center;
+ }
  
  .btn-1{
      border-radius: 20px;
@@ -134,18 +139,11 @@ html, body {
      background-image: url(./img/HouseBox黒.png);
  }
  .score-btn{
-     /* background-image: url(./img/rankings1.jpg); */
      background-repeat: no-repeat;
-     /* background-position: 0px; */
-     /* background-position-y: 0px; */
      background-size: 100%;
      border-radius: 10px;
      width: 800px;
      height: 200px;
-     /* margin-top: -400px;
-     margin-left: 0px;
-     position: absolute;
-     float: none; */
      font-size: 100px;
      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
      outline: none;
@@ -210,10 +208,6 @@ html, body {
      background-color: rgb(22,105,122);
      width: 260px;
      height: 260px;
-     /* margin-top: 20px;
-     margin-left: 40px; */
-     /* float: none;
-     position: absolute; */
      border-radius: 15px;
      z-index: 2;
      border :none;
@@ -229,23 +223,12 @@ html, body {
  }
  
  .btn-text{
-     /* margin-top: 95px;
-     margin-left: 60px; */
-     /* float: none; */
-     /* position: absolute;
-     border-radius: 3px;
-     z-index: 2;
-     border-color: #000000; */
      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
      font-size: 45px;
      line-height:normal;
  }
  .img-coin{
      width: 176px;
-     /* height: 200px; */
-     /* position: absolute; */
-     /* margin-top: -120px;
-     margin-left: -110px; */
      z-index: 2;
      border-radius: 10px;
  }
@@ -268,8 +251,6 @@ html, body {
      height: 100px;
      margin-top: 20px;
      margin-left: 170px;
-     /* float: none;
-     position: absolute; */
      border-radius: 15px;
      z-index: 3;
      border :solid;
@@ -287,122 +268,17 @@ html, body {
  }
  .alret-img-base{
      width: 350px;
-     /* height: 400px; */
      margin-top: 0px;
      margin-left: 80px;
-     /* float: none;
-     position: absolute; */
      z-index: 3;
      border-radius: 5px;
  }
- .alret-img1{
  
- }
- .alret-img2{
-     /* width: 400px;
-     height: 400px;
-     margin-top: auto;
-     margin-left: 60px;
-     float: none;
-     position: absolute;
-     z-index: 3; */
- }
- .alret-img3{
-     /* width: 400px;
-     height: 400px;
-     margin-top: auto;
-     margin-left: 60px;
-     float: none;
-     position: absolute;
-     z-index: 3; */
- }
- .alret-img4{
-     /* width: 400px;
-     height: 400px;
-     margin-top: auto;
-     margin-left: 60px;
-     float: none;
-     position: absolute;
-     z-index: 3; */
- }
- .alret-img5{
-     /* width: 400px;
-     height: 400px;
-     margin-top: auto;
-     margin-left: 60px;
-     float: none;
-     position: absolute;
-     z-index: 3; */
- }
- .alret-img6{
-     /* width: 400px;
-     height: 400px;
-     margin-top: auto;
-     margin-left: 60px;
-     float: none;
-     position: absolute;
-     z-index: 3; */
- }
  .alret-text-base{
      margin-top: -40px;
      margin-left: 150px;
      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
      font-size: 30px;
- }
- .alret-text1{
-     /* margin-top: 330px;
-     margin-left: 150px; */
-     /* float: none;
-     position: absolute;
-     z-index: 3; */
-     
- }
- 
- .alret-text2{
-     /* margin-top: 330px;
-     margin-left: 150px; */
-     /* float: none;
-     position: absolute;
-     z-index: 3;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-size: 30px; */
- }
- 
- .alret-text3{
-     /* margin-top: 330px;
-     margin-left: 150px; */
-     /* float: none;
-     position: absolute;
-     z-index: 3;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-size: 30px; */
- }
- .alret-text4{
-     /* margin-top: 330px;
-     margin-left: 150px; */
-     /* float: none;
-     position: absolute;
-     z-index: 3;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-size: 30px; */
- }
- .alret-text5{
-     /* margin-top: 330px;
-     margin-left: 150px; */
-     /* float: none;
-     position: absolute;
-     z-index: 3;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-size: 30px; */
- }
- .alret-text6{
-     /* margin-top: 330px;
-     margin-left: 150px; */
-     /* float: none;
-     position: absolute;
-     z-index: 3;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-size: 30px; */
  }
  
  .takara-return{
@@ -433,8 +309,6 @@ html, body {
      background-repeat: no-repeat;
      width: 100px;
      height: 100px;
-     /* margin-top: 50px;
-     margin-left: 50px; */
      border-radius: 100px;
      position: absolute;
      z-index: 3;
@@ -458,9 +332,6 @@ html, body {
  } 
  div.roulette {
      margin-top: 35px;
-   }
-   div.roulette-inner {
-     /* left: 33px; */
    }
    
    div.roulette {
@@ -620,17 +491,10 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-  /* width: 980px;
-  height: 650px;
-  margin-top: 30px;
-  margin-left: 280px;
-  position: absolute;
-  float: none; */
-  background-color: rgb(202, 199, 199);
-  z-index: 2;
-  border-radius: 20px;
-  border: 5px solid #000000;
+    background-color: rgb(202, 199, 199);
+    z-index: 2;
+    border-radius: 20px;
+    border: 5px solid #000000;
 }
 .shop-btn-wrap{
     margin-left: 0px;
@@ -642,11 +506,9 @@ html, body {
     width: 270px;
     height: 600px;
     margin-top: 50px;
-    /* overflow: hidden; */
     background-image: url(./img/suit.jpg);
     margin:20px;
     background-position: -40px;
-    /* border: 3px; */
     outline: none;
 }
 .btn-suit:hover{
