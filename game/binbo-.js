@@ -1,3 +1,9 @@
+//開発中はtrueにしてください。
+const ON_OFF = true;
+let on_off = 100;
+if(ON_OFF==true){
+on_off = 20;
+}
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
 //URL　？あとの文字を取得
@@ -7,7 +13,7 @@ hurl = hurl.substring(1);
 var hhai = hurl.split('&');
 
 //変数定義
-//var goukei = parseInt(sessionStorage.getItem('score'));
+
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
 let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
@@ -117,14 +123,17 @@ function update() {
     }
   } else if(goal){
 
-    if (blocks[100].x < 300){
+    if (blocks[on_off].x < 300){
       goal = false;
       clearInterval(timeid);
       sessionStorage.setItem('score',okane);
-
       Sscore=Number(hhai[1])+okane;
+      
+    if(hhai[0]==3){
+        location.href = "../Rank/rank.html?" + hhai[0] + "&" + Sscore;
+    }else{
       location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore;
-
+    }
     }
   } else {
     // 入力値の確認と反映
@@ -176,7 +185,7 @@ function update() {
     }
 
 
-    if (blocks[100].x < 300) {
+    if (blocks[on_off].x < 300) {
 
       goal = true;
     }
