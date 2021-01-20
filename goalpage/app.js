@@ -2,7 +2,7 @@ jQuery(function(){
     // initialize!
       var option = {
           speed : 10,
-          duration : 5,
+          duration : 1,
       }
       $('div.roulette').roulette(option);	
 
