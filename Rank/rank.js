@@ -1,4 +1,15 @@
+//URL　？あとの文字を取得
+var hurl = window.location.search;
+hurl = hurl.substring(1);
+//文字を＆で分けて配列に入れる
+var hhai = hurl.split('&');
 const LS_KEY = "score";
+
+let ran1 = document.getElementById('rn1');
+let ran2 = document.getElementById('rn2');
+let ran3 = document.getElementById('rn3');
+let ran4 = document.getElementById('rn4');
+let ran5 = document.getElementById('rn5');
 
 function getRankArr() {
     let arr = getLS(LS_KEY);
@@ -23,7 +34,7 @@ function setLS(arr) {
 function updateRank(user, score) {
   let rankItems = getRankArr();
   let newItems = [];
-  let newItem = { p: user, s: score };
+  let newItem = { n: user, s: score };
   let isAdded = false;
 
   if (rankItems.length == 0) {
@@ -32,6 +43,7 @@ function updateRank(user, score) {
     for (let i = 0; i < rankItems.length; i++) {
       if (rankItems[i].s <= score && !isAdded) {
         newItems.push(newItem);
+        isAdded = true;
       }
       newItems.push(rankItems[i]);
     }
@@ -45,6 +57,13 @@ function updateRank(user, score) {
 }
 function onclickname(){
     //localStorage.removeItem("score");
-    updateRank(input.value, 100);
-    console.log(getRankArr());
+    updateRank(input.value, Number(hhai[1]));
+    console.log(getLS("score"));
 }
+
+ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[1].n +"  "+ getLS("score")[1].s +  '</pre></font></p>';
+ran2.innerHTML = '<p><font size="10"><pre><b>２位</b>  ' + getLS("score")[2].n +"  "+ getLS("score")[2].s +  '</pre></font></p>';
+ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
+ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
+ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[5].n +"  "+ getLS("score")[5].s +  '</pre></font></p>';
+
