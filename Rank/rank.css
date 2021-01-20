@@ -1,0 +1,18 @@
+#Rank{
+    margin-top: 1%;
+    margin-left: 35%;
+    width: 400px;
+    height: 350px;
+    background-color: aqua;
+    position: absolute;
+}
+p{
+    margin-top: 25px;
+    margin-left: auto;
+    
+}
+#tui{
+    margin-top: 20%;
+    margin-left: 40%;
+    position: relative;
+}

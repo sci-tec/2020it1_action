@@ -24,3 +24,16 @@
   color: #000000;
   width: 201px;
 }
+#waku{
+    margin-top: -600px;
+    margin-left: 500px;
+    position: absolute;
+    height: 350px;
+    width: 500px;
+    background-color: rgb(255, 230, 0);
+}
+#input{
+    height: 100px;
+    width: 500px;
+    margin-top: 70px;
+}
