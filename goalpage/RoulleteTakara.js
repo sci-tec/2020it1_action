@@ -2,12 +2,11 @@
 // コンテを隠す
 function hideBtn(){
 
-    let x = document.getElementById("btn-wrap");
-    x.style.display = "none"
+    let x = document.getElementsByClassName("btn-2");
+    x.style.display=none;
 }
 
 //hideBtn();
-
 
 
 // ルーレットコード
@@ -18,6 +17,7 @@ function Random(){
 	return random
 
 }
+
 
 (function($) {
 	var Roulette = function(options) {
@@ -201,16 +201,16 @@ function Random(){
 		}
 		return ret;
 	}
-
+	
 	// この関数の置き場所探してる 
 	function result(n){
-		if (n == 3 || n == 4 || n == 6){
+		if (n == 1 || n == 3|| n == 5){
 			 alert('残念、ハズレです。');
 		}else if (n == 0){
 			 alert('あたり！ルーレットあと１回廻ります。');
-		}else if (n == 1 || n == 5){
+		}else if (n == 2 || n == 4){
 			 alert('あたり！コイン1000円！。')
-		}else if (n == 2){
+		}else if (n == 6){
 			 alert('あたり！次のステージコインが２倍！')
 		}
 	}	
