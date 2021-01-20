@@ -206,6 +206,7 @@ function Random(){
 	function result(n){
 		if (n == 1 || n == 3|| n == 5){
 			 alert('残念、ハズレです。');
+			 window.location.href="file:///Users/chantanamaebriones/Documents/Project/2020it1_action/goalpage/goalpage.html";
 		}else if (n == 0){
 			 alert('あたり！ルーレットあと１回廻ります。');
 		}else if (n == 2 || n == 4){
