@@ -59,13 +59,6 @@ if(num2==2 || num2==5 || num2==10){
 }else{
   btn2 = 1;
 }
-// if(num==2){
-//   okane -= 1000;
-// }else if(num==5){
-//   okane -= 2000;
-// }else if(num==10){
-//   okane -= 3000;
-// }
 function Stage(lv){
 if(lv=="1"){
   blv = 8;
@@ -430,7 +423,7 @@ function playBGM() {
     bgm.play();
     clearTimeout(timer);
   };
-  var timer = setTimeout(log, 500);
+  var timer = setTimeout(log, 1000);
 }
 ///////////////////////////////////////////////
 function start(){
