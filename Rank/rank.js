@@ -61,9 +61,9 @@ function onclickname(){
     console.log(getLS("score"));
 }
 
-ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[1].n +"  "+ getLS("score")[1].s +  '</pre></font></p>';
-ran2.innerHTML = '<p><font size="10"><pre><b>２位</b>  ' + getLS("score")[2].n +"  "+ getLS("score")[2].s +  '</pre></font></p>';
-ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
-ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
-ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[5].n +"  "+ getLS("score")[5].s +  '</pre></font></p>';
+ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[0].n +"  "+ getLS("score")[0].s +  '</pre></font></p>';
+ran2.innerHTML = '<p><font size="10"><pre><b>２位</b>  ' + getLS("score")[1].n +"  "+ getLS("score")[1].s +  '</pre></font></p>';
+ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[2].n +"  "+ getLS("score")[2].s +  '</pre></font></p>';
+ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
+ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
 

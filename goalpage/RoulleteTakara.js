@@ -204,14 +204,18 @@ function Random(){
 	
 	// この関数の置き場所探してる 
 	function result(n){
+		
 		if (n == 1 || n == 3|| n == 5){
 			 alert('残念、ハズレです。');
-			 window.location.href="file:///Users/chantanamaebriones/Documents/Project/2020it1_action/goalpage/goalpage.html";
+			 sessionStorage.setItem('true', 'b');
+			 location.href="../goalpage/goalpage.html";
 		}else if (n == 0){
 			 alert('あたり！ルーレットあと１回廻ります。');
 		}else if (n == 2 || n == 4){
+			sessionStorage.setItem('true', 'b');
 			 alert('あたり！コイン1000円！。')
 		}else if (n == 6){
+			sessionStorage.setItem('true', 'b');
 			 alert('あたり！次のステージコインが２倍！')
 		}
 	}	
