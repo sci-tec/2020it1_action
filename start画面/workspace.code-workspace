@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "..\\.."
+		},
+		{
+			"path": "..\\..\\..\\JS"
+		},
+		{
+			"path": "..\\..\\..\\GAME"
+		},
+		{
+			"path": "..\\..\\..\\500592_yasashiijs"
+		},
+		{
+			"path": "D:\\Webサイト課題\\Webサイト"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "gamepro"
+	}
+}

@@ -47,12 +47,12 @@
                             <div class="roulette" style="display:none;">
                                 
                                 <img id="daruma-red" class="img" src="./img/Daruma.png"/>
+                                <img id="bomb" class="img" src="./img/BOMB.png"/>
                                 <img id="daruma_gold" class="img" src="./img/DarumaGold.png"/>
+                                <img id="bomb" class="img" src="./img/BOMB.png"/>
+                                <img id="daruma_gold" class="img" src="./img/DarumaGold.png"/>
+                                <img id="bomb" class="img" src="./img/BOMB.png"/>
                                 <img id="lucky_cat" class="img" src="./img/LuckyCat.png"/>
-                                <img id="bomb" class="img" src="./img/BOMB.png"/>
-                                <img id="bomb" class="img" src="./img/BOMB.png"/>
-                                <img id="daruma_gold" class="img" src="./img/DarumaGold.png"/>
-                                <img id="bomb" class="img" src="./img/BOMB.png"/>
                             </div>
                         </div>
                         <div class="btn_container">
@@ -127,72 +127,6 @@
             <button class="shop-btn-return"></button>
         </div>
     </div>
-
-    <script>
-        function Get4(){
-            if(score >= 1000){
-                score -= 1000;
-                let btn = 2;
-                let btn2 = 2;
-                alert("次からコインが２倍になります");
-                if(hhai[0]==1){
-                    sessionStorage.setItem('key', btn);
-                }else{
-                    sessionStorage.setItem('key2', btn2);
-                }
-                location.href='../game/binbo-.html?2&' + hhai[1];
-                if(hhai[0]=="2"){
-                    location.href='../game/binbo-.html?3&' + hhai[1];
-                }else if(hhai[0]=="3"){
-                    localStorage.setItem();
-                }        
-            }else{
-                alert("お金が足りません");
-            }
-        }
-        function Get5(){
-            if(score >= 2000){
-                score -= 2000;
-                let btn = 5;
-                let btn1 = 5;
-                alert("次からコインが５倍になります");
-                if(hhai[0]==1){
-                    sessionStorage.setItem('key', btn);
-                }else{
-                    sessionStorage.setItem('key2', btn2);
-                }
-                location.href='../game/binbo-.html?2&' + hhai[1];
-                if(hhai[0]=="2"){
-                    location.href='../game/binbo-.html?3&' + hhai[1];
-                }else if(hhai[0]=="3"){
-                    localStorage.setItem();
-                }        
-            }else{
-                alert("お金が足りません");
-            }
-        }
-        function Get6(){
-            if(score >= 3000){
-                score -= 3000;
-                let btn = 10;
-                let btn1 = 10;
-                alert("次からコインが１０倍になります");
-                if(hhai[0]==1){
-                    sessionStorage.setItem('key', btn);
-                }else{
-                    sessionStorage.setItem('key2', btn2);
-                }
-                location.href='../game/binbo-.html?2&' + hhai[1];
-                if(hhai[0]=="2"){
-                    location.href='../game/binbo-.html?3&' + hhai[1];
-                }else if(hhai[0]=="3"){
-                    localStorage.setItem();
-                }        
-            }else{
-                alert("お金が足りません");
-            }
-        }
-    </script>
    </div> 
 
        <!-- <div class="score">Score:</div> -->
@@ -205,6 +139,18 @@
     <script src="../game/binbo-.js"></script>
   
   <script>
+      //getは倍数、sはマイナスされるコイン
+      function Get(get,s){
+          let ss = Number(hhai[1])-s;
+          get *=Number(hhai[2]);
+          let gets = String(get);
+        location.href='../game/binbo-.html?2&' + ss +'&' +  gets;
+        if(hhai[0]=="2"){
+            location.href='../game/binbo-.html?3&' + ss + '&' + gets;
+        }
+      }
+        
+
     //URL　？あとの文字を取得
     var hurl = window.location.search;
     hurl = hurl.substring(1);
@@ -214,12 +160,35 @@
     let score = document.getElementById('sca');
     score.innerHTML ="SCORE   <"+"<span>"+scorenum.toLocaleString()+"</span>"+">";
     function Get7(){
-        location.href='../game/binbo-.html?2&' + hhai[1];
-        if(hhai[0]=="2"){
-            location.href='../game/binbo-.html?3&' + hhai[1];
-        }else if(hhai[0]=="3"){
-            localStorage.setItem();
+       Get(1,0);
+    }
+    //スーツ
+    function Get4(){
+        if(Number(hhai[1]) >=200){
+            Get(2,200);
+        }else{
+            console.log("コインが足りません");
         }
+    }
+    //車
+    function Get5(){
+        if(Number(hhai[1]) >=1000){
+        Get(5,1000);
+        }else{
+            console.log("コインが足りません");
+        }
+    }
+    //家
+    function Get6(){
+        if(Number(hhai[1]) >=10000){
+        Get(10,10000);
+        }else{
+            console.log("コインが足りません");
+        }
+    }
+    //コイン数ＵＰ
+    function Get3(){
+　　
     }
    </script>
 </body>
