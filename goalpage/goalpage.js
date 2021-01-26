@@ -108,13 +108,24 @@ $('.takara-btn-return').click(function () {
     $("#stg.stop.btn-large.btn-warning").show();
 
 });
-$('.btn-2').click(function(){
-    $(".btn-wrap").hide();
-    $('.takara-btn-return').show();
-    $('.takara').show();
-    $("#sca.btn.btn-large.btn-primary").hide();
-    $("#stg.stop.btn-large.btn-warning").hide();
-})
+var True = sessionStorage.getItem('true'); 
+if(True == null){
+  sessionStorage.setItem('false', 'a');
+}else{
+  sessionStorage.setItem('false', True);
+}
+var False = sessionStorage.getItem('false');
+console.log(False);
+if(False == 'b'){
+    $('.btn-2').click(function(){
+        $(".btn-wrap").hide();
+        $('.takara-btn-return').show();
+        $('.takara').show();
+        $("#sca.btn.btn-large.btn-primary").hide();
+        $("#stg.stop.btn-large.btn-warning").hide();
+    })
+}
+
 
 $(".btn btn-large btn-primary start").click(function () {
     $(".btn_container").hide();
