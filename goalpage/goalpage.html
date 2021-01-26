@@ -139,14 +139,14 @@
     <script src="../game/binbo-.js"></script>
   
   <script>
-      //getは倍数、sはマイナスされるコイン
+     /* //getは倍数、sはマイナスされるコイン
       function Get(get,s){
           let ss = Number(hhai[1])-s;
           get *=Number(hhai[2]);
           let gets = String(get);
-        location.href='../game/binbo-.html?2&' + ss +'&' +  gets;
+        location.href='../game/binbo-.html?2&' + ss +'&' +  gets + "&" + hhai[3];
         if(hhai[0]=="2"){
-            location.href='../game/binbo-.html?3&' + ss + '&' + gets;
+            location.href='../game/binbo-.html?3&' + ss + '&' + gets + "&" + hhai[3];
         }
       }
         
@@ -189,8 +189,12 @@
     }
     //コイン数ＵＰ
     function Get3(){
-　　
+　　if(hhai[3] == "0"){
+    hhai[3] = "1";
+    }else{
+    hhai[3] ="2";
     }
+    }*/
    </script>
 </body>
 </html>

@@ -10,11 +10,11 @@ $(function() {
 
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
-//URL　？あとの文字を取得
+/*//URL　？あとの文字を取得
 var hurl = window.location.search;
 hurl = hurl.substring(1);
 //文字を＆で分けて配列に入れる
-var hhai = hurl.split('&');
+var hhai = hurl.split('&');*/
 
 //変数定義
 
@@ -25,31 +25,52 @@ var imgsPlayerSrc = [
 ];
 var frameCounter = 0;
 var imgsCoinSrc = [
-  './img/coin/coin0001.png',
-  './img/coin/coin0001.png',
-  './img/coin/coin0002.png',
-  './img/coin/coin0002.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0004.png',
-  './img/coin/coin0004.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0006.png',
-  './img/coin/coin0006.png',
-  './img/coin/coin0007.png',
-  './img/coin/coin0007.png',
+  // './img/coin/coin0001.png',
+  // './img/coin/coin0001.png',
+  // './img/coin/coin0002.png',
+  // './img/coin/coin0002.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0004.png',
+  // './img/coin/coin0004.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0006.png',
+  // './img/coin/coin0006.png',
+  // './img/coin/coin0007.png',
+  // './img/coin/coin0007.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+
 ];
 
 //var goukei = parseInt(sessionStorage.getItem('score'));
 
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
-let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
-
-function Stage(lv){
+let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;//,Sscore;
+/*function Stage(lv){
 if(lv=="1"){
   blv = 8;
   sotlv = 6;
@@ -57,16 +78,16 @@ if(lv=="1"){
 }else if(lv=="2"){
   blv = 9;
   sotlv = 7;
-  kane = 200 * Number(hhai[2]);
+  kane = 200 * //Number(hhai[2]);
 }else if(lv=="3"){
   blv = 10;
   sotlv = 8;
-  kane = 300 * Number(hhai[2]);
+  kane = 300 * //Number(hhai[2]);
 }
 }
 
 
-Stage(hhai[0]);
+Stage(/*hhai[0]);*/
 
 
 //音
@@ -113,6 +134,14 @@ function init(){
   coinxx = 30;//お金、酒、タバコのxの位置
   sto = [0,0,0,0,0,0,0,0,1,2];//お金、酒、タバコの出る確率
   coinhi = [1500,1500,1500,1500,40,80,40,80,40,80];//お金、酒、タバコの位置Ｙ座標
+  /*if(hhai[3] == "1"){
+    sto.push(0,0);
+    coinhi.push(40,80);
+  }
+  if(hhai[3] == "2"){
+    sto.push(0,0,0,0);
+    coinhi.push(40,80,40,80);
+  }*/
   blockyy = [562,562,562,562,562,562,462,462,1000,462.1];//ブッロクの位置座標
 
   //お金変数
@@ -153,8 +182,8 @@ function update() {
       // ゲームオーバーのキャラが更に下に落ちてきた時にダイアログを表示し、各種変数を初期化する
       isGameOver = false;
       clearInterval(timeid);
-
-      location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" + hhai[1] + "&" +hhai[2];
+      
+      location.href = "../gameOver画面/gameOver.html?" //+ hhai[0] + "&" + hhai[1] + "&" +hhai[2] + "&" + hhai[3];
 
     }
   } else if(goal){
@@ -163,15 +192,16 @@ function update() {
       speed = 0;
       goal = false;
       clearInterval(timeid);
-      sessionStorage.setItem('score',okane);
-
-      Sscore=Number(hhai[1])+okane;
+      //sessionStorage.setItem('score',okane);
+      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:0,lv:1,b:0,c:0}));
+      location.href = "../goalpage/goalpage.html?";
+      //Sscore=Number(hhai[1])+okane;
       
-    if(hhai[0]==3){
-        location.href = "../Rank/rank.html?" + hhai[0] + "&" + Sscore;
+    /*if(hhai[0]==3){
+        location.href = "../Rank/rank.html?"// + hhai[0] + "&" + Sscore;
     }else{
-      location.href = "../goalpage/goalpage.html?" + hhai[0] + "&" + Sscore + "&" +hhai[2];
-    }
+      location.href = "../goalpage/goalpage.html?"// + hhai[0] + "&" + Sscore + "&" +hhai[2] + "&" + hhai[3];
+    }*/
     }
   } else {
     // 入力値の確認と反映
@@ -285,7 +315,8 @@ function refleshImages(kane){
   var image = new Image();
   if (isGameOver) {
     // ゲームオーバーの場合にはゲームオーバーの画像が表示する
-    image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAB1klEQVR42u3csRECIRAFULowsAgDm7AQUxtyLMRS7AbNNOJ09pAD3p/7KQfsi0mp8+TX17JJABAABAABQAAQAAQAeQ/oesmlbn3AtYFE7wcAAAAAAAAAAAAAAAAAAAAAAP45wGgP+12xi2s87uVG9xhcP3y+YAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgSwAbLwAAAAAAAAAAAAAAAAAAAAAA9ASg9gMOSxcUbe0Bhvc3+gMUAAAAAAAAAAAAAAAAAAAAAADwSxsPKAxs9ocoAQAAAAAAAAAAAAAAAAAAAABgRQCbLwAAAAAAAAAAAAAAAAAAAAAAAPB1T+dcbOsBL+4PAAAAAAAAAAAAAAAAAAAAAAAmAhAFsnTBtQdQ+/9p9gAAAAAAAAAAAAAAAAAAAAAgH4kOoHUBAAAAAAAAAAAAAAAAAAAAAGAkAMd0yzXbO4Da9wMAAAAAAAAAAAAAAAAAAAAAACMB2DqQ1ucHAAAAAAAAAAAAAAAAAAAAAICZAIQfogwWAAAAAAAAAAAAAAAAAAAAAABmAjA6EAMGAAAAAAAAAAAAAAAAAAAAAIB+gPQOGAAAAAAAAAAAAAAAAAAAAAAAVswT8IsWg8TZxVcAAAAASUVORK5CYII=";
+    // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAB1klEQVR42u3csRECIRAFULowsAgDm7AQUxtyLMRS7AbNNOJ09pAD3p/7KQfsi0mp8+TX17JJABAABAABQAAQAAQAeQ/oesmlbn3AtYFE7wcAAAAAAAAAAAAAAAAAAAAAAP45wGgP+12xi2s87uVG9xhcP3y+YAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgSwAbLwAAAAAAAAAAAAAAAAAAAAAA9ASg9gMOSxcUbe0Bhvc3+gMUAAAAAAAAAAAAAAAAAAAAAADwSxsPKAxs9ocoAQAAAAAAAAAAAAAAAAAAAABgRQCbLwAAAAAAAAAAAAAAAAAAAAAAAPB1T+dcbOsBL+4PAAAAAAAAAAAAAAAAAAAAAAAmAhAFsnTBtQdQ+/9p9gAAAAAAAAAAAAAAAAAAAAAgH4kOoHUBAAAAAAAAAAAAAAAAAAAAAGAkAMd0yzXbO4Da9wMAAAAAAAAAAAAAAAAAAAAAACMB2DqQ1ucHAAAAAAAAAAAAAAAAAAAAAICZAIQfogwWAAAAAAAAAAAAAAAAAAAAAABmAjA6EAMGAAAAAAAAAAAAAAAAAAAAAIB+gPQOGAAAAAAAAAAAAAAAAAAAAAAAVswT8IsWg8TZxVcAAAAASUVORK5CYII=";
+    image.src = "./img/playerGameover.png";
   } else {
   // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABsElEQVR42u3dvQ3CMBCAUVcsQMEYFCzBILQsxCSMwjYHZaoYZJ8x4X3iyihI96ooP6VMXrx+M08RAAJAAAgAASAABIA2s2DAAAAAAAAAAAAAAAAAAAAAAACgX8fDPjInbte2edzXp3K8Kz0ACAABIAAEgAAQAAJAAAgAAQAAAAAAAAAAAAAAwOcLTAfw5QEAAAAAAAAAAAAAAAAAAAAAAADmmewLWQAAAAAAAAAAAAAAAAAAAAAA4H6BcUCyz++OEAAEgAAQAAJAAAgAvd/5ErE2tRcx1o6vjQ0AIAAEgAAQAAJAAGjcglun9YMOgAAAAAAAAAAAAAAAAAAAAAAAQL+yL+Rkf/gREAAAAAAAAAAAAAAAAAAAAAAAWCy49vBEMoBmIF4UCQAAAAAAAAAAAAAAAAAAAAAA3QBkL7gZCAAAAAAAAAAAAAAAAAAAAAAAADDshpBfnyIABIAAEAACQAAIgD/qtItomewFAAAAAAAAAAAAAAAAAAAAAAAAAPMAqM3W/x8AAAAAAAAAAAAAAAAAAAAAAADSbwHZ5wcEAAAAAAAAAAAAAAAAAAAAgIEAnrQrn26JvN6oAAAAAElFTkSuQmCC";
     // image.src = "./img/player_1.png";
@@ -414,7 +445,7 @@ function playBGM() {
     bgm.play();
     clearTimeout(timer);
   };
-  var timer = setTimeout(log, 500);
+  var timer = setTimeout(log, 1000);
 }
 ///////////////////////////////////////////////
 function start(){
@@ -426,7 +457,7 @@ function start(){
    }
    if(time <= 0){
      clearInterval(timeid);
-     location.href = "../gameOver画面/gameOver.html?" + hhai[0] + "&" +  hhai[1];
+     location.href = "../gameOver画面/gameOver.html?"// + hhai[0] + "&" +  hhai[1];
    }
    time--;
   },1000);
