@@ -71,19 +71,19 @@ var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
 let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane,Sscore;
 //倍率
-let btn = 0;
+let bai = 0;
 let num = sessionStorage.getItem('key');
-let btn2 = 0;
+let bai2 = 0;
 let num2 = sessionStorage.getItem('key2');
 if(num==2 || num==5 || num==10){
-  btn = num;
+  bai = num;
 }else{
-  btn = 1;
+  bai = 1;
 }
 if(num2==2 || num2==5 || num2==10){
-  btn2 = num2;
+  bai2 = num2;
 }else{
-  btn2 = 1;
+  bai2 = 1;
 }
 function Stage(lv){
 if(lv=="1"){
@@ -94,12 +94,12 @@ if(lv=="1"){
   blv = 9;
   sotlv = 7;
   kane = 200;
-  kane *= num;
+  kane *= bai;
 }else if(lv=="3"){
   blv = 10;
   sotlv = 8;
   kane = 300;
-  kane *= num * num2;
+  kane *= bai * bai2;
 }
 }
 
