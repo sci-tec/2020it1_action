@@ -25,22 +25,44 @@ var imgsPlayerSrc = [
 ];
 var frameCounter = 0;
 var imgsCoinSrc = [
-  './img/coin/coin0001.png',
-  './img/coin/coin0001.png',
-  './img/coin/coin0002.png',
-  './img/coin/coin0002.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0003.png',
-  './img/coin/coin0004.png',
-  './img/coin/coin0004.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0005.png',
-  './img/coin/coin0006.png',
-  './img/coin/coin0006.png',
-  './img/coin/coin0007.png',
-  './img/coin/coin0007.png',
+  // './img/coin/coin0001.png',
+  // './img/coin/coin0001.png',
+  // './img/coin/coin0002.png',
+  // './img/coin/coin0002.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0003.png',
+  // './img/coin/coin0004.png',
+  // './img/coin/coin0004.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0005.png',
+  // './img/coin/coin0006.png',
+  // './img/coin/coin0006.png',
+  // './img/coin/coin0007.png',
+  // './img/coin/coin0007.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 6.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 7.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 8.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+  './img/coin/アセット 9.png',
+
 ];
 
 //var goukei = parseInt(sessionStorage.getItem('score'));
@@ -57,11 +79,13 @@ if(lv=="1"){
 }else if(lv=="2"){
   blv = 9;
   sotlv = 7;
+
   kane = 200 * Number(hhai[2]);
 }else if(lv=="3"){
   blv = 10;
   sotlv = 8;
   kane = 300 * Number(hhai[2]);
+
 }
 }
 
@@ -285,7 +309,8 @@ function refleshImages(kane){
   var image = new Image();
   if (isGameOver) {
     // ゲームオーバーの場合にはゲームオーバーの画像が表示する
-    image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAB1klEQVR42u3csRECIRAFULowsAgDm7AQUxtyLMRS7AbNNOJ09pAD3p/7KQfsi0mp8+TX17JJABAABAABQAAQAAQAeQ/oesmlbn3AtYFE7wcAAAAAAAAAAAAAAAAAAAAAAP45wGgP+12xi2s87uVG9xhcP3y+YAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgSwAbLwAAAAAAAAAAAAAAAAAAAAAA9ASg9gMOSxcUbe0Bhvc3+gMUAAAAAAAAAAAAAAAAAAAAAADwSxsPKAxs9ocoAQAAAAAAAAAAAAAAAAAAAABgRQCbLwAAAAAAAAAAAAAAAAAAAAAAAPB1T+dcbOsBL+4PAAAAAAAAAAAAAAAAAAAAAAAmAhAFsnTBtQdQ+/9p9gAAAAAAAAAAAAAAAAAAAAAgH4kOoHUBAAAAAAAAAAAAAAAAAAAAAGAkAMd0yzXbO4Da9wMAAAAAAAAAAAAAAAAAAAAAACMB2DqQ1ucHAAAAAAAAAAAAAAAAAAAAAICZAIQfogwWAAAAAAAAAAAAAAAAAAAAAABmAjA6EAMGAAAAAAAAAAAAAAAAAAAAAIB+gPQOGAAAAAAAAAAAAAAAAAAAAAAAVswT8IsWg8TZxVcAAAAASUVORK5CYII=";
+    // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAB1klEQVR42u3csRECIRAFULowsAgDm7AQUxtyLMRS7AbNNOJ09pAD3p/7KQfsi0mp8+TX17JJABAABAABQAAQAAQAeQ/oesmlbn3AtYFE7wcAAAAAAAAAAAAAAAAAAAAAAP45wGgP+12xi2s87uVG9xhcP3y+YAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgSwAbLwAAAAAAAAAAAAAAAAAAAAAA9ASg9gMOSxcUbe0Bhvc3+gMUAAAAAAAAAAAAAAAAAAAAAADwSxsPKAxs9ocoAQAAAAAAAAAAAAAAAAAAAABgRQCbLwAAAAAAAAAAAAAAAAAAAAAAAPB1T+dcbOsBL+4PAAAAAAAAAAAAAAAAAAAAAAAmAhAFsnTBtQdQ+/9p9gAAAAAAAAAAAAAAAAAAAAAgH4kOoHUBAAAAAAAAAAAAAAAAAAAAAGAkAMd0yzXbO4Da9wMAAAAAAAAAAAAAAAAAAAAAACMB2DqQ1ucHAAAAAAAAAAAAAAAAAAAAAICZAIQfogwWAAAAAAAAAAAAAAAAAAAAAABmAjA6EAMGAAAAAAAAAAAAAAAAAAAAAIB+gPQOGAAAAAAAAAAAAAAAAAAAAAAAVswT8IsWg8TZxVcAAAAASUVORK5CYII=";
+    image.src = "./img/playerGameover.png";
   } else {
   // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABsElEQVR42u3dvQ3CMBCAUVcsQMEYFCzBILQsxCSMwjYHZaoYZJ8x4X3iyihI96ooP6VMXrx+M08RAAJAAAgAASAABIA2s2DAAAAAAAAAAAAAAAAAAAAAAACgX8fDPjInbte2edzXp3K8Kz0ACAABIAAEgAAQAAJAAAgAAQAAAAAAAAAAAAAAwOcLTAfw5QEAAAAAAAAAAAAAAAAAAAAAAADmmewLWQAAAAAAAAAAAAAAAAAAAAAA4H6BcUCyz++OEAAEgAAQAAJAAAgAvd/5ErE2tRcx1o6vjQ0AIAAEgAAQAAJAAGjcglun9YMOgAAAAAAAAAAAAAAAAAAAAAAAQL+yL+Rkf/gREAAAAAAAAAAAAAAAAAAAAAAAWCy49vBEMoBmIF4UCQAAAAAAAAAAAAAAAAAAAAAA3QBkL7gZCAAAAAAAAAAAAAAAAAAAAAAAADDshpBfnyIABIAAEAACQAAIgD/qtItomewFAAAAAAAAAAAAAAAAAAAAAAAAAPMAqM3W/x8AAAAAAAAAAAAAAAAAAAAAAADSbwHZ5wcEAAAAAAAAAAAAAAAAAAAAgIEAnrQrn26JvN6oAAAAAElFTkSuQmCC";
     // image.src = "./img/player_1.png";
@@ -414,7 +439,7 @@ function playBGM() {
     bgm.play();
     clearTimeout(timer);
   };
-  var timer = setTimeout(log, 500);
+  var timer = setTimeout(log, 1000);
 }
 ///////////////////////////////////////////////
 function start(){
