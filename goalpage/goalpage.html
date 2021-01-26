@@ -210,9 +210,9 @@
     hurl = hurl.substring(1);
     //文字を＆で分けて配列に入れる
     var hhai = hurl.split('&');
-    var score = Number(sessionStorage.getItem('score'));
-    let Score = document.getElementById('sca');
-    Score.innerHTML ="SCORE   <"+"<span>"+score+"</span>"+">";
+    var scorenum = Number(sessionStorage.getItem('score'));
+    let score = document.getElementById('sca');
+    score.innerHTML ="SCORE   <"+"<span>"+scorenum.toLocaleString()+"</span>"+">";
     function Get7(){
         location.href='../game/binbo-.html?2&' + hhai[1];
         if(hhai[0]=="2"){
