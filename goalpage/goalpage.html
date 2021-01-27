@@ -139,56 +139,34 @@
     <script src="../game/binbo-.js"></script>
   
   <script>
-      //getは倍数、sはマイナスされるコイン
-      function Get(get,s){
-          let ss = Number(hhai[1])-s;
-          get *=Number(hhai[2]);
-          let gets = String(get);
-        location.href='../game/binbo-.html?2&' + ss +'&' +  gets;
-        if(hhai[0]=="2"){
-            location.href='../game/binbo-.html?3&' + ss + '&' + gets;
-        }
-      }
-        
-
-    //URL　？あとの文字を取得
-    var hurl = window.location.search;
-    hurl = hurl.substring(1);
-    //文字を＆で分けて配列に入れる
-    var hhai = hurl.split('&');
-    var scorenum = Number(sessionStorage.getItem('score'));
-    let score = document.getElementById('sca');
-    score.innerHTML ="SCORE   <"+"<span>"+scorenum.toLocaleString()+"</span>"+">";
+      var data =JSON.parse(sessionStorage.getItem('Save'));
+      var wup =JSON.parse(sessionStorage.getItem('didWup'));
+      let Score = document.getElementById('sca');
+    Score.innerHTML ="SCORE   <"+"<span>"+data.s+"</span>"+">";
+    data.t += data.s;
     function Get7(){
-       Get(1,0);
+        sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
+    location.href='../game/binbo-.html'
     }
-    //スーツ
+      //スーツ
     function Get4(){
-        if(Number(hhai[1]) >=200){
-            Get(2,200);
-        }else{
-            console.log("コインが足りません");
-        }
+    data.t -= 100;
+    data.b *=2;
     }
-    //車
+       //車
     function Get5(){
-        if(Number(hhai[1]) >=1000){
-        Get(5,1000);
-        }else{
-            console.log("コインが足りません");
-        }
+    data.t -= 1000;
+    data.b *=5;
     }
     //家
     function Get6(){
-        if(Number(hhai[1]) >=10000){
-        Get(10,10000);
-        }else{
-            console.log("コインが足りません");
-        }
+    data.t -= 10000;
+    data.b *=10;
     }
     //コイン数ＵＰ
     function Get3(){
-　　
+    data.t -= 1000;
+    data.c += 1;
     }
    </script>
 </body>

@@ -37,6 +37,25 @@ $('.btn-1-1').click(function () {
     $(".alret-wrap").show();
     $(".alret-text1").show();
     $(".alret-img1").show();
+    $(".alret-btn1").click(function () {
+
+        console.log(data.t);
+
+        // let score = sessionStorage.getItem('data.t');
+        //      score += 10000;
+        //      sessionStorage.setItm('data.t', score);
+
+        // $(window).on('load',function(){
+        //     var url = location.href
+        //     var path = location.pathname
+        //     var param = location.search
+        //     var anc = location.hash
+
+        //     if (url =="file:///C:/Users/ryuta/Desktop/%E3%83%81%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/2020it1_action/goalpage/goalpage.html?1&500&1"){
+                
+        //     }
+        // })
+    });
 });
 $('.alret-btn1').click(function () {
     $(".btn-wrap").show();
@@ -50,6 +69,11 @@ $('.btn-1-2').click(function () {
     $(".alret-wrap").show();
     $(".alret-text2").show();
     $(".alret-img2").show();
+    $(".alret-btn1").click(function () {
+        let score = sessionStorage.getItem('data.t');
+             score += 15000;
+             sessionStorage.setItm('data.t', score);
+    });
 });
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
@@ -60,6 +84,11 @@ $('.btn-1-3').click(function () {
     $(".alret-wrap").show();
     $(".alret-text3").show();
     $(".alret-img3").show();
+    $(".alret-btn1").click(function () {
+        let score = sessionStorage.getItem('data.t');
+             score += 20000;
+             sessionStorage.setItm('data.t', score);
+    });
 });
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
@@ -70,6 +99,11 @@ $('.btn-1-4').click(function () {
     $(".alret-wrap").show();
     $(".alret-text4").show();
     $(".alret-img4").show();
+    $(".alret-btn1").click(function () {
+        let score = sessionStorage.getItem('data.t');
+             score += 25000;
+             sessionStorage.setItm('data.t', score);
+    });
 });
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
@@ -80,6 +114,11 @@ $('.btn-1-5').click(function () {
     $(".alret-wrap").show();
     $(".alret-text5").show();
     $(".alret-img5").show();
+    $(".alret-btn1").click(function () {
+        let score = sessionStorage.getItem('data.t');
+             score += 30000;
+             sessionStorage.setItm('data.t', score);
+    });
 });
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
@@ -90,6 +129,11 @@ $('.btn-1-6').click(function () {
     $(".alret-wrap").show();
     $(".alret-text6").show();
     $(".alret-img6").show();
+    $(".alret-btn1").click(function () {
+        let score = sessionStorage.getItem('data.t');
+             score += 35000;
+             sessionStorage.setItm('data.t', score);
+    });
 });
 
 $('.btn-return').click(function () {
@@ -108,7 +152,8 @@ $('.takara-btn-return').click(function () {
     $("#stg.stop.btn-large.btn-warning").show();
 
 });
-var True = sessionStorage.getItem('true'); 
+// 宝1回だけの処理
+var True = sessionStorage.getItem('didRoulette'); 
 if(True == null){
   sessionStorage.setItem('false', 'a');
 }else{
@@ -116,15 +161,22 @@ if(True == null){
 }
 var False = sessionStorage.getItem('false');
 console.log(False);
-if(False == 'b'){
-    $('.btn-2').click(function(){
+$('.btn-2').click(function(){
+    True = sessionStorage.getItem('didRoulette'); 
+    if(True == null){
+      sessionStorage.setItem('false', 'a');
+    }else{
+      sessionStorage.setItem('false', True);
+    }
+    False = sessionStorage.getItem('false');
+    if(False == 'a'){
         $(".btn-wrap").hide();
         $('.takara-btn-return').show();
         $('.takara').show();
         $("#sca.btn.btn-large.btn-primary").hide();
         $("#stg.stop.btn-large.btn-warning").hide();
-    })
-}
+    }
+})
 
 
 $(".btn btn-large btn-primary start").click(function () {
