@@ -108,7 +108,8 @@ $('.takara-btn-return').click(function () {
     $("#stg.stop.btn-large.btn-warning").show();
 
 });
-var True = sessionStorage.getItem('true'); 
+// 宝1回だけの処理
+var True = sessionStorage.getItem('didRoulette'); 
 if(True == null){
   sessionStorage.setItem('false', 'a');
 }else{
@@ -116,15 +117,22 @@ if(True == null){
 }
 var False = sessionStorage.getItem('false');
 console.log(False);
-if(False == 'b'){
-    $('.btn-2').click(function(){
+$('.btn-2').click(function(){
+    True = sessionStorage.getItem('didRoulette'); 
+    if(True == null){
+      sessionStorage.setItem('false', 'a');
+    }else{
+      sessionStorage.setItem('false', True);
+    }
+    False = sessionStorage.getItem('false');
+    if(False == 'a'){
         $(".btn-wrap").hide();
         $('.takara-btn-return').show();
         $('.takara').show();
         $("#sca.btn.btn-large.btn-primary").hide();
         $("#stg.stop.btn-large.btn-warning").hide();
-    })
-}
+    }
+})
 
 
 $(".btn btn-large btn-primary start").click(function () {
