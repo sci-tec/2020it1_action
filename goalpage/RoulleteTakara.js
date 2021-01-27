@@ -217,7 +217,6 @@ function Random(){
 	}
 	 
 	function result(n){
-		
 		if (n == 1 || n == 3|| n == 5){
 			 alert('残念、ハズレです。');
 			 sessionStorage.setItem('didRoulette', 'b');
@@ -230,7 +229,9 @@ function Random(){
 		}else if (n == 2 || n == 4){
 			sessionStorage.setItem('didRoulette', 'b');
 			 alert('あたり！コイン1000円！。');
+
 			 sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t+1000,lv:data.lv,b:data.b,c:data.c}));
+
 			 Return();
 			 location.href="../goalpage/goalpage.html";
 		}else if (n == 6){

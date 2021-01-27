@@ -1,0 +1,19 @@
+#img{
+    display: flex; /* 子要素をflexboxで揃える */
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+    width: 100%;
+    height: 100%;
+    border: 1px solid; /* 見た目用 */
+}
+.storyline-btn{
+    margin-bottom: 50px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    postion: fixed;
+    position: fixed;
+    right: 80px;
+    bottom: 50px;
+}
