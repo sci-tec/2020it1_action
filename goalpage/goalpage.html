@@ -140,10 +140,11 @@
   
   <script>
       var data =JSON.parse(sessionStorage.getItem('Save'));
-      var wup =JSON.parse(sessionStorage.getItem('didWup'));
+      var wup =sessionStorage.getItem('didWup');
       let Score = document.getElementById('sca');
     Score.innerHTML ="SCORE   <"+"<span>"+data.s+"</span>"+">";
     data.t += data.s;
+    console.log(data);
     function Get7(){
         sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
     location.href='../game/binbo-.html'
@@ -152,22 +153,34 @@
     function Get4(){
     data.t -= 100;
     data.b *=2;
+    console.log(data);
     }
        //車
     function Get5(){
     data.t -= 1000;
     data.b *=5;
+    console.log(data);
     }
     //家
     function Get6(){
     data.t -= 10000;
     data.b *=10;
+    console.log(data);
     }
     //コイン数ＵＰ
     function Get3(){
-    data.t -= 1000;
-    data.c += 1;
+        if(wup == "0"){
+            data.t -= 1000;
+            data.c += 1;
+            wup = "1";
+            sessionStorage.setItem('didWup',wup);
+            console.log(data);
+        }else{
+            console.log(data);
+            alert("一度しか押せません");
+        }
     }
+    
    </script>
 </body>
 </html>

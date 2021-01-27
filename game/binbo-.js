@@ -5,10 +5,10 @@ let on_off = 100;
 if(ON_OFF==true){
 on_off = 20;
 }
-
-$(function() {
 //データ呼び出し
 var data =JSON.parse(sessionStorage.getItem('Save'));
+
+$(function() {
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
 /*//URL　？あとの文字を取得
@@ -84,7 +84,6 @@ if(lv==1){
   sotlv = 8;
   kane = 300 * data.b;
 }
-data.lv++;
 }
 //ステージレベル関数data.lvは、１～３までの数字(レベル)が入る。
 Stage(data.lv);
@@ -179,7 +178,7 @@ function update() {
       isGameOver = false;
       clearInterval(timeid);
       
-      location.href = "../gameOver画面/gameOver.html?" //+ hhai[0] + "&" + hhai[1] + "&" +hhai[2] + "&" + hhai[3];
+      location.href = "../gameOver画面/gameOver.html?";
 
     }
   } else if(goal){
@@ -188,17 +187,14 @@ function update() {
       speed = 0;
       goal = false;
       clearInterval(timeid);
-      //sessionStorage.setItem('score',okane);
-      data.s = okane;
-      sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
-      location.href = "../goalpage/goalpage.html?";
-      //Sscore=Number(hhai[1])+okane;
+      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:data.t,lv:data.lv+1,b:data.b,c:data.c}));
+      if(data.lv == 3){
+        location.href = "../Rank/rank.html?";
+      }else{
+        location.href = "../goalpage/goalpage.html?";
+      }
+        
       
-    /*if(hhai[0]==3){
-        location.href = "../Rank/rank.html?"// + hhai[0] + "&" + Sscore;
-    }else{
-      location.href = "../goalpage/goalpage.html?"// + hhai[0] + "&" + Sscore + "&" +hhai[2] + "&" + hhai[3];
-    }*/
     }
   } else {
     // 入力値の確認と反映
