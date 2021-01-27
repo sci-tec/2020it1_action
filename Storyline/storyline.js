@@ -13,7 +13,7 @@
 
 let arr = [
     "./img/Storyline-1-1.png",
-    "./img/Storyline-1-2.png",
+    "./img/Storyline-1-7 2.png",
     "./img/Storyline-1-3.png",
     "./img/Storyline-1-4.png",
     "./img/Storyline-1-5.png",
