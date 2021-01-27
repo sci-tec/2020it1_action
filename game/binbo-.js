@@ -7,7 +7,8 @@ on_off = 20;
 }
 
 $(function() {
-
+//データ呼び出し
+var data =JSON.parse(sessionStorage.getItem('Save'));
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
 /*//URL　？あとの文字を取得
@@ -65,29 +66,28 @@ var imgsCoinSrc = [
 
 ];
 
-//var goukei = parseInt(sessionStorage.getItem('score'));
-
 var x, y, vy,isJump,jp,jplimit,isGameOver,goal,isupkeyup,blocks,
 bloksy,coiny,sakey,tabakoy,tabakoy,coinyy;
-let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;//,Sscore;
-/*function Stage(lv){
-if(lv=="1"){
+let blockx,coinxx,sto,coinhi,blockyy,okane,time,speed,bg1,bg2,timeid,blv,sotlv,kane;
+//ステージレベル関数
+function Stage(lv){
+if(lv==1){
   blv = 8;
   sotlv = 6;
   kane = 100;
-}else if(lv=="2"){
+}else if(lv==2){
   blv = 9;
   sotlv = 7;
-  kane = 200 * //Number(hhai[2]);
-}else if(lv=="3"){
+  kane = 200 * data.b;
+}else if(lv==3){
   blv = 10;
   sotlv = 8;
-  kane = 300 * //Number(hhai[2]);
+  kane = 300 * data.b;
 }
+data.lv++;
 }
-
-
-Stage(/*hhai[0]);*/
+//ステージレベル関数data.lvは、１～３までの数字(レベル)が入る。
+Stage(data.lv);
 
 
 //音
@@ -134,14 +134,10 @@ function init(){
   coinxx = 30;//お金、酒、タバコのxの位置
   sto = [0,0,0,0,0,0,0,0,1,2];//お金、酒、タバコの出る確率
   coinhi = [1500,1500,1500,1500,40,80,40,80,40,80];//お金、酒、タバコの位置Ｙ座標
-  /*if(hhai[3] == "1"){
-    sto.push(0,0);
-    coinhi.push(40,80);
-  }
-  if(hhai[3] == "2"){
+  for(let i=0; i<=data.c; i++){
     sto.push(0,0,0,0);
-    coinhi.push(40,80,40,80);
-  }*/
+    coinhi[i] = 40;
+  }
   blockyy = [562,562,562,562,562,562,462,462,1000,462.1];//ブッロクの位置座標
 
   //お金変数
@@ -193,7 +189,8 @@ function update() {
       goal = false;
       clearInterval(timeid);
       //sessionStorage.setItem('score',okane);
-      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:0,lv:1,b:0,c:0}));
+      data.s = okane;
+      sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
       location.href = "../goalpage/goalpage.html?";
       //Sscore=Number(hhai[1])+okane;
       
@@ -332,8 +329,6 @@ function refleshImages(kane){
 
 
     //お金を表示
-
-
      mono(congaz,coiny,-kane,0);
 
      //酒を表示
