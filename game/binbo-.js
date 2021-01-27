@@ -345,7 +345,7 @@ const congaz = "./img/コイン￥.png";
 //画像の表示関数　引数➡（画像、配列、お金）
 function mono(gaz,hai,kane,TIME){
   // console.log("mono");
-  score.innerHTML='所持金' + okane + '円';
+  score.innerHTML='所持金' + Number(okane).toLocaleString() + '円';
   var ga = new Image();
   // ga.src =gaz;
   ga.src = (gaz == congaz) ? imgsCoinSrc[frameCounter%imgsCoinSrc.length] : gaz;
