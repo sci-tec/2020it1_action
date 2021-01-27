@@ -1,8 +1,4 @@
-//URL　？あとの文字を取得
-var hurl = window.location.search;
-hurl = hurl.substring(1);
-//文字を＆で分けて配列に入れる
-var hhai = hurl.split('&');
+var data =JSON.parse(sessionStorage.getItem('Save'));
 const LS_KEY = "score";
 
 let ran1 = document.getElementById('rn1');
@@ -57,7 +53,7 @@ function updateRank(user, score) {
 }
 function onclickname(){
     //localStorage.removeItem("score");
-    updateRank(input.value, Number(hhai[1]));
+    updateRank(input.value, data.t);
     console.log(getLS("score"));
 }
 

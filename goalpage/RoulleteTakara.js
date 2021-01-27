@@ -229,13 +229,15 @@ function Random(){
 		}else if (n == 2 || n == 4){
 			sessionStorage.setItem('didRoulette', 'b');
 			 alert('あたり！コイン1000円！。');
-			 data.t += 1000;
-			 sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
+
+			 sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t+1000,lv:data.lv,b:data.b,c:data.c}));
+
 			 Return();
 			 location.href="../goalpage/goalpage.html";
 		}else if (n == 6){
 			sessionStorage.setItem('didRoulette', 'b');
 			 alert('あたり！次のステージコインが２倍！');
+			 sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c*2}));
 			 Return();
 			 location.href="../goalpage/goalpage.html";
 		}

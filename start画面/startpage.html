@@ -11,7 +11,6 @@
     <div class="container">
 
           <h1 class="title">貧乏ゲーム</h1>
-                                                                                       //1&0&1&0
             <button class="start-btn"id="btn1" onclick="location.href='../game/binbo-.html?'">START GAME</button>
             <button class="ranking-btn"id="btn2">RANKING</button>
 
@@ -21,6 +20,7 @@
       </div>
       <script>
           sessionStorage.setItem('Save', JSON.stringify({s:0,t:0,lv:1,b:1,c:0}));
+          sessionStorage.setItem('didWup',"0");
       </script>
       <script type="text/javascript" src="start.js"></script>
 </body>
