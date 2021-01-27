@@ -201,22 +201,43 @@ function Random(){
 		}
 		return ret;
 	}
-	
-	// この関数の置き場所探してる 
+
+	function Return(){
+		// $(".btn-wrap").show();
+		// $(".takara").hide();
+		// $(".btn btn-large btn-primary start").hide();
+		// $("#sca.btn.btn-large.btn-primary").show();
+		// $("#stg.stop.btn-large.btn-warning").show();
+		var True = sessionStorage.getItem('didRoulette'); 
+		if(True == null){
+		  sessionStorage.setItem('false', 'a');
+		}else{
+		  sessionStorage.setItem('false', True);
+		}
+	}
+	 
 	function result(n){
 		
 		if (n == 1 || n == 3|| n == 5){
 			 alert('残念、ハズレです。');
-			 sessionStorage.setItem('true', 'b');
-			 location.href="../goalpage/goalpage.html";
+			 sessionStorage.setItem('didRoulette', 'b');
+			Return();
+			location.href="../goalpage/goalpage.html";
 		}else if (n == 0){
 			 alert('あたり！ルーレットあと１回廻ります。');
+			 $('.btn_container .start').show();
+			 $('.btn_container .stop').hide();
 		}else if (n == 2 || n == 4){
-			sessionStorage.setItem('true', 'b');
-			 alert('あたり！コイン1000円！。')
+			sessionStorage.setItem('didRoulette', 'b');
+			 alert('あたり！コイン1000円！。');
+			 data.t += 1000;
+			 Return();
+			 location.href="../goalpage/goalpage.html";
 		}else if (n == 6){
-			sessionStorage.setItem('true', 'b');
-			 alert('あたり！次のステージコインが２倍！')
+			sessionStorage.setItem('didRoulette', 'b');
+			 alert('あたり！次のステージコインが２倍！');
+			 Return();
+			 location.href="../goalpage/goalpage.html";
 		}
 	}	
 	

@@ -182,7 +182,7 @@ function update() {
 
     }
   } else if(goal){
-
+    sessionStorage.removeItem('didRoulette');
     if (blocks[on_off].x < 300){
       speed = 0;
       goal = false;
