@@ -7,8 +7,10 @@ on_off = 20;
 }
 //データ呼び出し
 var data =JSON.parse(sessionStorage.getItem('Save'));
+var Gdata =JSON.parse(sessionStorage.getItem('gz'));
 
 $(function() {
+  console.log(data);
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
 /*//URL　？あとの文字を取得
@@ -133,10 +135,13 @@ function init(){
   coinxx = 30;//お金、酒、タバコのxの位置
   sto = [0,0,0,0,0,0,0,0,1,2];//お金、酒、タバコの出る確率
   coinhi = [1500,1500,1500,1500,40,80,40,80,40,80];//お金、酒、タバコの位置Ｙ座標
-  for(let i=0; i<=data.c; i++){
-    sto.push(0,0,0,0);
-    coinhi[i] = 40;
+  if(1 <= data.c){
+    for(let i=0; i<data.c; i++){
+      sto.push(0,0,0,0);
+      coinhi[i] = 40;
+    }
   }
+  
   blockyy = [562,562,562,562,562,562,462,462,1000,462.1];//ブッロクの位置座標
 
   //お金変数
@@ -187,7 +192,7 @@ function update() {
       speed = 0;
       goal = false;
       clearInterval(timeid);
-      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:data.t,lv:data.lv+1,b:data.b,c:data.c}));
+      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:data.t,lv:data.lv+1,b:data.b,c:data.c,suit:data.suit,car:data.car,home:data.home}));
       if(data.lv == 3){
         location.href = "../Rank/rank.html?";
       }else{
