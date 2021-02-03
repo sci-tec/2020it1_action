@@ -61,3 +61,8 @@ ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[2].n
 ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
 ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
 
+$(function(){
+  $('.ranking-btn-return').click(function () {
+    history.back();
+  });
+});
