@@ -100,6 +100,9 @@ const bgm = new Audio("./img/bgm.mp3");
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
+let Total = document.getElementById('total');
+let StageLv = document.getElementById('stageLv');
+let Bai = document.getElementById('bai');
 // canvas要素の取得
 const canvas = document.getElementById("sample");
 console.log(canvas);
@@ -446,6 +449,10 @@ function playBGM() {
 ///////////////////////////////////////////////
 function start(){
   console.log("start");
+  let d = sessionStorage.getItem('Save');
+  Total.innerHTML = 'トータルスコア:' + data.t;
+  StageLv.innerHTML = 'ステージレベル:' + data.lv;
+  Bai.innerHTML = '倍率:' + data.b　+ '倍';
   timeid = setInterval(function(){
    Time.innerHTML = 'タイマー:' + time + '秒';
    if(time%6==0){
