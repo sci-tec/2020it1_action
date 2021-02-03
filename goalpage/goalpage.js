@@ -37,31 +37,9 @@ $('.btn-1-1').click(function () {
     $(".alret-wrap").show();
     $(".alret-text1").show();
     $(".alret-img1").show();
-    $(".alret-btn1").click(function () {
-
-        console.log(data.t);
-
-        // let score = sessionStorage.getItem('data.t');
-        //      score += 10000;
-        //      sessionStorage.setItm('data.t', score);
-
-        // $(window).on('load',function(){
-        //     var url = location.href
-        //     var path = location.pathname
-        //     var param = location.search
-        //     var anc = location.hash
-
-        //     if (url =="file:///C:/Users/ryuta/Desktop/%E3%83%81%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/2020it1_action/goalpage/goalpage.html?1&500&1"){
-                
-        //     }
-        // })
+    $('.alret-btn1').click(function () {
+        addScoreToSS(10000);
     });
-});
-$('.alret-btn1').click(function () {
-    $(".btn-wrap").show();
-    $(".yami-gamen-background-img").hide();
-    $("#sca.btn.btn-large.btn-primary").show();
-    $("#stg.stop.btn-large.btn-warning").show();
 });
 
 $('.btn-1-2').click(function () {
@@ -70,11 +48,10 @@ $('.btn-1-2').click(function () {
     $(".alret-text2").show();
     $(".alret-img2").show();
     $(".alret-btn1").click(function () {
-        let score = sessionStorage.getItem('data.t');
-             score += 15000;
-             sessionStorage.setItm('data.t', score);
+        addScoreToSS(15000); 
     });
 });
+
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
 // });
@@ -85,11 +62,10 @@ $('.btn-1-3').click(function () {
     $(".alret-text3").show();
     $(".alret-img3").show();
     $(".alret-btn1").click(function () {
-        let score = sessionStorage.getItem('data.t');
-             score += 20000;
-             sessionStorage.setItm('data.t', score);
+        addScoreToSS(20000);
     });
 });
+
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
 // });
@@ -100,11 +76,10 @@ $('.btn-1-4').click(function () {
     $(".alret-text4").show();
     $(".alret-img4").show();
     $(".alret-btn1").click(function () {
-        let score = sessionStorage.getItem('data.t');
-             score += 25000;
-             sessionStorage.setItm('data.t', score);
+        addScoreToSS(25000);
     });
 });
+
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
 // });
@@ -115,11 +90,10 @@ $('.btn-1-5').click(function () {
     $(".alret-text5").show();
     $(".alret-img5").show();
     $(".alret-btn1").click(function () {
-        let score = sessionStorage.getItem('data.t');
-             score += 30000;
-             sessionStorage.setItm('data.t', score);
+        addScoreToSS(30000);
     });
 });
+
 // $('.alret-btn1').click(function () {
 //     $(".btn-wrap").show();
 // });
@@ -130,9 +104,7 @@ $('.btn-1-6').click(function () {
     $(".alret-text6").show();
     $(".alret-img6").show();
     $(".alret-btn1").click(function () {
-        let score = sessionStorage.getItem('data.t');
-             score += 35000;
-             sessionStorage.setItm('data.t', score);
+        addScoreToSS(35000);
     });
 });
 
@@ -246,3 +218,9 @@ $('.ranking-btn-return').click(function () {
     $('.container_goalpage').show();
     $('.ranking-text').hide();
 });
+
+function addScoreToSS(num) {
+    data.t += num;
+    sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
+    location.href='./goalpage.html';
+}

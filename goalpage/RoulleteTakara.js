@@ -217,7 +217,6 @@ function Random(){
 	}
 	 
 	function result(n){
-		
 		if (n == 1 || n == 3|| n == 5){
 			 alert('残念、ハズレです。');
 			 sessionStorage.setItem('Save', JSON.stringify({s:0,t:data.t,lv:data.lv,b:data.b,c:data.c}));
