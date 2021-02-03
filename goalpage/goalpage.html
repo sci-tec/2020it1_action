@@ -142,7 +142,7 @@
       var data =JSON.parse(sessionStorage.getItem('Save'));
       var wup =sessionStorage.getItem('didWup');
       let Score = document.getElementById('sca');
-    Score.innerHTML ="SCORE   <"+"<span>"+data.s+"</span>"+">";
+    Score.innerHTML ="SCORE   <"+"<span>"+data.s.toLocaleString()+"</span>"+">";
     data.t += data.s;
     console.log(data);
     function Get7(){
