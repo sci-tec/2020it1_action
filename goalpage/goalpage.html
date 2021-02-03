@@ -140,32 +140,33 @@
   
   <script>
       var data =JSON.parse(sessionStorage.getItem('Save'));
+      var Gdata =JSON.parse(sessionStorage.getItem('gz'));
       var wup =sessionStorage.getItem('didWup');
       let Score = document.getElementById('sca');
-    Score.innerHTML ="SCORE   <"+"<span>"+data.s.toLocaleString()+"</span>"+">";
-    data.t += data.s;
+      data.t += data.s;
+    Score.innerHTML ="SCORE   <"+"<span>"+data.t+"</span>"+">";
+    console.log(Gdata);
     console.log(data);
     function Get7(){
+        sessionStorage.setItem('didWup',"0");
         sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
+        sessionStorage.setItem('gz',JSON.stringify({suit:Gdata.suit,car:Gdata.car,home:Gdata.home}));
     location.href='../game/binbo-.html'
     }
       //スーツ
     function Get4(){
-    data.t -= 100;
-    data.b *=2;
-    console.log(data);
+        GetS(100,2);
+        Gdata.suit++;
     }
        //車
     function Get5(){
-    data.t -= 1000;
-    data.b *=5;
-    console.log(data);
+        GetS(100,5);
+        Gdata.car++;
     }
     //家
     function Get6(){
-    data.t -= 10000;
-    data.b *=10;
-    console.log(data);
+        GetS(1000,10);
+        Gdata.home++;
     }
     //コイン数ＵＰ
     function Get3(){
@@ -180,7 +181,16 @@
             alert("一度しか押せません");
         }
     }
-    
+    function GetS(t,b){
+        if(data.t >= t){
+            data.t -= t;
+            data.b *=b;
+            console.log(data);
+        }else{
+            alert("所持金が足りません");
+        }
+
+    }
    </script>
 </body>
 </html>

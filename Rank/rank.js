@@ -17,14 +17,12 @@ function getRankArr() {
   }
 
 function getLS(KEY) {
-  let str = localStorage.getItem(KEY);
-  let arr = JSON.parse(str);
+  let arr = JSON.parse(localStorage.getItem(KEY));
   return arr;
 }
 
 function setLS(arr) {
-  let strArr = JSON.stringify(arr);
-  localStorage.setItem(LS_KEY, strArr);
+  let strArr = JSON.stringify(localStorage.setItem(LS_KEY, arr));
 }
 
 function updateRank(user, score) {
@@ -53,7 +51,7 @@ function updateRank(user, score) {
 }
 function onclickname(){
     //localStorage.removeItem("score");
-    updateRank(input.value, data.t);
+    //updateRank(input.value, 1000);
     console.log(getLS("score"));
 }
 
