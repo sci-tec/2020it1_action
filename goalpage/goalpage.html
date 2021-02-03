@@ -157,16 +157,22 @@
     function Get4(){
         GetS(100,2);
         Gdata.suit++;
+        let b = sessionStorage.getItem('Save');
+        alert('現在' + data.b + '倍です。');
     }
        //車
     function Get5(){
         GetS(100,5);
         Gdata.car++;
+        let b = sessionStorage.getItem('Save');
+        alert('現在' + data.b + '倍です。');
     }
     //家
     function Get6(){
         GetS(1000,10);
         Gdata.home++;
+        let b = sessionStorage.getItem('Save');
+        alert('現在' + data.b + '倍です。');
     }
     //コイン数ＵＰ
     function Get3(){
@@ -175,6 +181,7 @@
             data.c += 1;
             wup = "1";
             sessionStorage.setItem('didWup',wup);
+            alert("ステージのコインが２倍になりました。");
             console.log(data);
         }else{
             console.log(data);
