@@ -24,6 +24,21 @@
   color: #000000;
   width: 201px;
 }
+#total{
+    
+  font-size: 20px;
+  color: #000000;
+}
+#stageLv{
+    
+  font-size: 20px;
+  color: #000000;
+}
+#bai{
+    
+  font-size: 20px;
+  color: #000000;
+}
 #waku{
     margin-top: -600px;
     margin-left: 500px;
