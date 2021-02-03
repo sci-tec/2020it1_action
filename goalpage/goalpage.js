@@ -208,6 +208,7 @@ $('.ranking-wrap').hide();
 $('.ranking-text').hide();
 
 $('#ranking-btn').click(function () {
+    location.href='../Rank/rank.html';
     $('.ranking-wrap').show();
     $('.container_goalpage').hide();
     $('.ranking-text').show();

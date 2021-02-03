@@ -575,8 +575,8 @@ html, body {
     align-items: center;  /* 子要素をflexboxにより中央に配置する */
     width: 980px;
     height: 650px;
-    background-color: rgb(196, 172, 163);
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    border: 5px solid rgb(54, 17, 2);
+    border: 5px solid rgb(12, 12, 12);
 }
 

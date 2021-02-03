@@ -1,18 +1,53 @@
+body{
+    background-color: #F5BE36;
+ 
+ }
 #Rank{
-    margin-top: -200px;
-    margin-left: 35%;
-    width: 400px;
-    height: 350px;
-    background-color: aqua;
-    position: absolute;
+    display: flex; /* 子要素をflexboxで揃える */
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+    width: 980px;
+    height: 650px;
+    margin-left: 18%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 5px solid rgb(12, 12, 12);
 }
 p{
     margin-top: 25px;
-    margin-left: auto;
+    margin-left: 0px;
     
 }
 #tui{
-    margin-top: 20%;
-    margin-left: 40%;
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+    margin-left: 45%;
+    height: 50px;
     position: relative;
+}
+.ranking-return{
+    position: absolute;
+    margin-top: -750px;
+    margin-left: -1085px;
+}
+ 
+.ranking-btn-return{
+     background-image: url(./img/retrun-button.jpg);
+     background-position: -48px;
+     background-size: 190px;
+     background-repeat: no-repeat;
+     width: 100px;
+     height: 100px;
+     border-radius: 100px;
+     position: absolute;
+     z-index: 3;
+     float: none;
+     border: 3px solid #000000;
+     outline: none;
+ }
+.ranking-btn-return:hover{
+    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
+    background-color: white; 
 }

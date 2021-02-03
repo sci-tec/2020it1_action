@@ -6,14 +6,16 @@ let ran2 = document.getElementById('rn2');
 let ran3 = document.getElementById('rn3');
 let ran4 = document.getElementById('rn4');
 let ran5 = document.getElementById('rn5');
-// 要素を取得
-let ele = document.getElementById('Rank');
-// 現在の display プロパティの値を保持
-const displayOriginal = ele.style.display;
-// none に設定して非表示
-ele.style.display = 'none';
+function tui(){
+  // 要素を取得
+  let ele = document.getElementById('tui');
+  // 現在の display プロパティの値を保持
+  const displayOriginal = ele.style.display;
+  // none に設定して非表示
+  ele.style.display = 'none';
+}
 if(data.lv < 3){
-  rank();
+tui();
 }
 
 function getRankArr() {
@@ -63,12 +65,11 @@ function updateRank(user, score) {
 }
 function onclickname(){
    //localStorage.removeItem("score");
-   updateRank(input.value, 100);
+   updateRank(input.value, data.t);
    rank();
+   tui();
 }
 function rank(){
-   // 元に戻して表示
-   ele.style.display = displayOriginal;
    console.log(getLS("score"));
    if(getLS("score").length>0){
      ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[0].n +"  "+ getLS("score")[0].s +  '</pre></font></p>';
@@ -86,9 +87,14 @@ function rank(){
      ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
    }
 }
+rank();
 
 
 
 
 
-
+$(function(){
+  $('.ranking-btn-return').click(function () {
+    history.back();
+  });
+});
