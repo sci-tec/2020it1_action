@@ -14,12 +14,13 @@
 let arr = [
     "./img/Storyline-1-1.png",
     "./img/Storyline-1-7 2.png",
-    "./img/Storyline-1-3.png",
-    "./img/Storyline-1-4.png",
+    "./img/Storyline-1-2 2.png",
+    "./img/Storyline-1-8 2.png",
     "./img/Storyline-1-5.png",
     "./img/Storyline-1-6.png",
     "./img/Storyline-1-7.png",
-    "./img/Storyline-1-8.png"
+    // "./img/Storyline-1-8.png"
+    
 ];
 
 let currentImgIdx = 0;
