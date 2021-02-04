@@ -188,6 +188,7 @@ function update() {
       clearInterval(timeid);
       sessionStorage.setItem('Save', JSON.stringify({s:okane,t:data.t,lv:data.lv+1,b:data.b,c:data.c}));
       if(data.lv == 3){
+        sessionStorage.setItem('Save', JSON.stringify({s:okane+data.s,t:data.t,lv:data.lv+1,b:data.b,c:data.c}));
         location.href = "../Rank/rank.html?";
       }else{
         location.href = "../goalpage/goalpage.html?";
@@ -304,19 +305,28 @@ function refleshImages(kane){
   background2.src = "./img/背景画像.png";
   ctx.drawImage(background2, bg2.x, bg2.y, 1500, 735);
   //家lv画像
-  if(Gdata.ie >=1){
+  function ie(ielv){
     var ie = new Image();
-    ie.src = "./img/ie.png";
+    ie.src = "./img/ie"+ielv+".png";
     ctx.drawImage(ie, blocks[on_off-1].x, blocks[on_off-1].y-260, 300,300);
+    }
+  if(Gdata.home >=1){
+    if(Gdata.home >= 3){
+      ie(3);
+    }else{
+      ie(Gdata.home);
+    }
+    
   }
-  
   //車lv画像
-  if(Gdata.car >= 1){
+  function car(){
     var car = new Image();
     car.src = "./img/car.png";
     ctx.drawImage(car, blocks[on_off+1].x, blocks[on_off+1].y-70, 150,100);
   }
-  
+  if(Gdata.car >= 1){
+    car();
+  }
   // 主人公の画像を表示
   var image = new Image();
 //プレイヤーの服を変える関数
