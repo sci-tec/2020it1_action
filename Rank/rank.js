@@ -103,5 +103,3 @@ if(data.lv != 4){
   const displayOriginal = ele.style.display;
   ele.style.display = 'none';
 }
-
-
