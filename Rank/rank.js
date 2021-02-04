@@ -104,3 +104,4 @@ if(data.lv != 4){
   ele.style.display = 'none';
 }
 
+
