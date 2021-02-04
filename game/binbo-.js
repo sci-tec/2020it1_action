@@ -13,19 +13,10 @@ $(function() {
   console.log(data);
 // キーボードの入力状態を記録する配列の定義
 var input_key_buffer = new Array();
-/*//URL　？あとの文字を取得
-var hurl = window.location.search;
-hurl = hurl.substring(1);
-//文字を＆で分けて配列に入れる
-var hhai = hurl.split('&');*/
 
 //変数定義
 
-var imgsPlayerSrc = [
-  "./img/player_1.png",
-  "./img/player_2.png",
-  "./img/player_3.png",
-];
+
 var frameCounter = 0;
 var imgsCoinSrc = [
   // './img/coin/coin0001.png',
@@ -100,6 +91,9 @@ const bgm = new Audio("./img/bgm.mp3");
 //文字を表示
 let Time = document.getElementById('Time');
 let score = document.getElementById('score');
+let Total = document.getElementById('total');
+let StageLv = document.getElementById('stageLv');
+let Bai = document.getElementById('bai');
 // canvas要素の取得
 const canvas = document.getElementById("sample");
 console.log(canvas);
@@ -309,18 +303,29 @@ function refleshImages(kane){
   var background2 = new Image();
   background2.src = "./img/背景画像.png";
   ctx.drawImage(background2, bg2.x, bg2.y, 1500, 735);
+  //車lv画像
+  var car = new Image();
+  car.src = "./img/ie.png";
+  ctx.drawImage(car, blocks[20].x, blocks[20].y, 300,300);
   // 主人公の画像を表示
   var image = new Image();
-  if (isGameOver) {
-    // ゲームオーバーの場合にはゲームオーバーの画像が表示する
-    // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAB1klEQVR42u3csRECIRAFULowsAgDm7AQUxtyLMRS7AbNNOJ09pAD3p/7KQfsi0mp8+TX17JJABAABAABQAAQAAQAeQ/oesmlbn3AtYFE7wcAAAAAAAAAAAAAAAAAAAAAAP45wGgP+12xi2s87uVG9xhcP3y+YAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgSwAbLwAAAAAAAAAAAAAAAAAAAAAA9ASg9gMOSxcUbe0Bhvc3+gMUAAAAAAAAAAAAAAAAAAAAAADwSxsPKAxs9ocoAQAAAAAAAAAAAAAAAAAAAABgRQCbLwAAAAAAAAAAAAAAAAAAAAAAAPB1T+dcbOsBL+4PAAAAAAAAAAAAAAAAAAAAAAAmAhAFsnTBtQdQ+/9p9gAAAAAAAAAAAAAAAAAAAAAgH4kOoHUBAAAAAAAAAAAAAAAAAAAAAGAkAMd0yzXbO4Da9wMAAAAAAAAAAAAAAAAAAAAAACMB2DqQ1ucHAAAAAAAAAAAAAAAAAAAAAICZAIQfogwWAAAAAAAAAAAAAAAAAAAAAABmAjA6EAMGAAAAAAAAAAAAAAAAAAAAAIB+gPQOGAAAAAAAAAAAAAAAAAAAAAAAVswT8IsWg8TZxVcAAAAASUVORK5CYII=";
-    image.src = "./img/playerGameover.png";
-  } else {
-  // image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABsElEQVR42u3dvQ3CMBCAUVcsQMEYFCzBILQsxCSMwjYHZaoYZJ8x4X3iyihI96ooP6VMXrx+M08RAAJAAAgAASAABIA2s2DAAAAAAAAAAAAAAAAAAAAAAACgX8fDPjInbte2edzXp3K8Kz0ACAABIAAEgAAQAAJAAAgAAQAAAAAAAAAAAAAAwOcLTAfw5QEAAAAAAAAAAAAAAAAAAAAAAADmmewLWQAAAAAAAAAAAAAAAAAAAAAA4H6BcUCyz++OEAAEgAAQAAJAAAgAvd/5ErE2tRcx1o6vjQ0AIAAEgAAQAAJAAGjcglun9YMOgAAAAAAAAAAAAAAAAAAAAAAAQL+yL+Rkf/gREAAAAAAAAAAAAAAAAAAAAAAAWCy49vBEMoBmIF4UCQAAAAAAAAAAAAAAAAAAAAAA3QBkL7gZCAAAAAAAAAAAAAAAAAAAAAAAADDshpBfnyIABIAAEAACQAAIgD/qtItomewFAAAAAAAAAAAAAAAAAAAAAAAAAPMAqM3W/x8AAAAAAAAAAAAAAAAAAAAAAADSbwHZ5wcEAAAAAAAAAAAAAAAAAAAAgIEAnrQrn26JvN6oAAAAAElFTkSuQmCC";
-    // image.src = "./img/player_1.png";
-    image.src = imgsPlayerSrc[Math.floor(frameCounter/5)%imgsPlayerSrc.length];
-  }
+//プレイヤーの服を変える関数
+    playerlv(data.lv);
   ctx.drawImage(image, x, y, 32, 32);
+  //プレイヤーの服を変える画像
+  function playerlv(lv){
+    if (isGameOver) {
+      // ゲームオーバーの場合にはゲームオーバーの画像が表示する
+      image.src = "./img/player/lv"+lv+"/playerGameover.png";
+    } else {
+    var imgsPlayerSrc = [
+      "./img/player/lv"+lv+"/player_1.png",
+      "./img/player/lv"+lv+"/player_2.png",
+      "./img/player/lv"+lv+"/player_3.png",
+    ];
+    image.src = imgsPlayerSrc[Math.floor(frameCounter/5)%imgsPlayerSrc.length];
+    }
+  }
   // 地面の画像を表示
   var groundImage = new Image();
   groundImage.src = "./img/20140108152220 (1).png";
@@ -446,6 +451,10 @@ function playBGM() {
 ///////////////////////////////////////////////
 function start(){
   console.log("start");
+  let d = sessionStorage.getItem('Save');
+  Total.innerHTML = 'トータルスコア:' + data.t;
+  StageLv.innerHTML = 'ステージレベル:' + data.lv;
+  Bai.innerHTML = '倍率:' + data.b　+ '倍';
   timeid = setInterval(function(){
    Time.innerHTML = 'タイマー:' + time + '秒';
    if(time%6==0){

@@ -6,6 +6,17 @@ let ran2 = document.getElementById('rn2');
 let ran3 = document.getElementById('rn3');
 let ran4 = document.getElementById('rn4');
 let ran5 = document.getElementById('rn5');
+function tui(){
+  // 要素を取得
+  let ele = document.getElementById('tui');
+  // 現在の display プロパティの値を保持
+  const displayOriginal = ele.style.display;
+  // none に設定して非表示
+  ele.style.display = 'none';
+}
+if(data.lv < 3){
+tui();
+}
 
 function getRankArr() {
     let arr = getLS(LS_KEY);
@@ -17,12 +28,15 @@ function getRankArr() {
   }
 
 function getLS(KEY) {
-  let arr = JSON.parse(localStorage.getItem(KEY));
+  let str = localStorage.getItem(LS_KEY);
+  console.log(str);
+  let arr = JSON.parse(str);
   return arr;
 }
 
 function setLS(arr) {
-  let strArr = JSON.stringify(localStorage.setItem(LS_KEY, arr));
+  let strArr = JSON.stringify(arr);
+  localStorage.setItem(LS_KEY, strArr);
 }
 
 function updateRank(user, score) {
@@ -50,16 +64,34 @@ function updateRank(user, score) {
   newItems =[];
 }
 function onclickname(){
-    //localStorage.removeItem("score");
-    //updateRank(input.value, 1000);
-    console.log(getLS("score"));
+   //localStorage.removeItem("score");
+   updateRank(input.value, data.t);
+   rank();
+   tui();
 }
+function rank(){
+   console.log(getLS("score"));
+   if(getLS("score").length>0){
+     ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[0].n +"  "+ getLS("score")[0].s +  '</pre></font></p>';
+   }
+   if(getLS("score").length>1){
+     ran2.innerHTML = '<p><font size="10"><pre><b>２位</b>  ' + getLS("score")[1].n +"  "+ getLS("score")[1].s +  '</pre></font></p>';
+   }
+   if(getLS("score").length>2){
+     ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[2].n +"  "+ getLS("score")[2].s +  '</pre></font></p>';
+   }
+   if(getLS("score").length>3){
+     ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
+   }
+   if(getLS("score").length>4){
+     ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
+   }
+}
+rank();
 
-ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[0].n +"  "+ getLS("score")[0].s +  '</pre></font></p>';
-ran2.innerHTML = '<p><font size="10"><pre><b>２位</b>  ' + getLS("score")[1].n +"  "+ getLS("score")[1].s +  '</pre></font></p>';
-ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[2].n +"  "+ getLS("score")[2].s +  '</pre></font></p>';
-ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
-ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
+
+
+
 
 $(function(){
   $('.ranking-btn-return').click(function () {
