@@ -13,29 +13,29 @@
 
 #score {
     margin-top: 0px;
+    margin-bottom: 0px;
     margin-left: 25px;
     font-size: 60px;
     color: #000000;
 }
 #Time {
-    margin-top: -80px;
     margin-left: 25px;
   font-size: 20px;
   color: #000000;
   width: 201px;
 }
 #total{
-    
+    margin-left: 25px;
   font-size: 20px;
   color: #000000;
 }
 #stageLv{
-    
+    margin-left: 25px;
   font-size: 20px;
   color: #000000;
 }
 #bai{
-    
+    margin-left: 25px;
   font-size: 20px;
   color: #000000;
 }
