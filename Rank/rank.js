@@ -14,7 +14,7 @@ function tui(){
   // none に設定して非表示
   ele.style.display = 'none';
 }
-if(data.lv < 3){
+if(data.lv <= 3){
 tui();
 }
 
@@ -92,9 +92,15 @@ rank();
 
 
 
-
-$(function(){
-  $('.ranking-btn-return').click(function () {
-    history.back();
+if(data.lv != 4){
+  $(function(){
+    $('.ranking-btn-return').click(function () {
+      history.back();
+    });
   });
-});
+}else{
+  let ele = document.getElementById('ranking1');
+  const displayOriginal = ele.style.display;
+  ele.style.display = 'none';
+}
+

@@ -186,7 +186,7 @@ function update() {
       speed = 0;
       goal = false;
       clearInterval(timeid);
-      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:data.t,lv:data.lv+1,b:data.b,c:data.c,suit:data.suit,car:data.car,home:data.home}));
+      sessionStorage.setItem('Save', JSON.stringify({s:okane,t:data.t,lv:data.lv+1,b:data.b,c:data.c}));
       if(data.lv == 3){
         location.href = "../Rank/rank.html?";
       }else{
@@ -303,10 +303,20 @@ function refleshImages(kane){
   var background2 = new Image();
   background2.src = "./img/背景画像.png";
   ctx.drawImage(background2, bg2.x, bg2.y, 1500, 735);
+  //家lv画像
+  if(Gdata.ie >=1){
+    var ie = new Image();
+    ie.src = "./img/ie.png";
+    ctx.drawImage(ie, blocks[on_off-1].x, blocks[on_off-1].y-260, 300,300);
+  }
+  
   //車lv画像
-  var car = new Image();
-  car.src = "./img/ie.png";
-  ctx.drawImage(car, blocks[20].x, blocks[20].y, 300,300);
+  if(Gdata.car >= 1){
+    var car = new Image();
+    car.src = "./img/car.png";
+    ctx.drawImage(car, blocks[on_off+1].x, blocks[on_off+1].y-70, 150,100);
+  }
+  
   // 主人公の画像を表示
   var image = new Image();
 //プレイヤーの服を変える関数
@@ -424,6 +434,9 @@ function setYaxisBlockAndCoin (){
   var random = Math.floor( Math.random() * blv );
   var coin = Math.floor( Math.random() * sotlv );
   if(j<=6){
+    bloksy.push(blockyy[0]);
+    coinyy.push(-100);
+  }else if(j>=(on_off-1)){
     bloksy.push(blockyy[0]);
     coinyy.push(-100);
   }else{
