@@ -27,6 +27,12 @@ p{
     height: 50px;
     position: relative;
 }
+#restart{
+    margin-top: 3%;
+    margin-left: 85%;
+    position: absolute; top:630px; left:50px;
+}
+
 .ranking-return{
     position: absolute;
     margin-top: -750px;
