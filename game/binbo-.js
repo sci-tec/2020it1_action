@@ -15,8 +15,8 @@ $(function() {
 var input_key_buffer = new Array();
 
 //変数定義
-
-
+let a = data.t;
+Number(a);
 var frameCounter = 0;
 var imgsCoinSrc = [
   // './img/coin/coin0001.png',
@@ -378,6 +378,7 @@ function mono(gaz,hai,kane,TIME){
   if((x<=con.x+25&&x>=con.x-25)&&(y<=con.y+32 &&y>=con.y-32)){
      if(con.isShow) {
        okane-=kane;
+       a -= kane;
        time-=TIME;
        }
       con.isShow=false;
@@ -465,11 +466,12 @@ function playBGM() {
 function start(){
   console.log("start");
   let d = sessionStorage.getItem('Save');
-  Total.innerHTML = 'トータルスコア:' + data.t;
+  // Total.innerHTML = 'トータルスコア:' + a;
   StageLv.innerHTML = 'ステージレベル:' + data.lv;
   Bai.innerHTML = '倍率:' + data.b　+ '倍';
   timeid = setInterval(function(){
    Time.innerHTML = 'タイマー:' + time + '秒';
+   Total.innerHTML = 'トータルスコア:' + a;
    if(time%6==0){
      speed +=0.3;
    }
