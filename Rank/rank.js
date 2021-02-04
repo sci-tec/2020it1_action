@@ -94,7 +94,10 @@ rank();
 
 
 $(function(){
+  if(data.lv <= 3) {
   $('.ranking-btn-return').click(function () {
     history.back();
   });
+  };
 });
+
