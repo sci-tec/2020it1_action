@@ -159,33 +159,55 @@
         sessionStorage.setItem('gz',JSON.stringify({s:Gdata.s,car:Gdata.car,home:Gdata.home}));
     location.href='../game/binbo-.html'
     }
+    // let limit = 0;
       //スーツ
+      sessionStorage.setItem('suti',limit);
+      sessionStorage.setItem('car',limit);
+      sessionStorage.setItem('home',limit);
     function Get4(){
-        GetS(100,2);
-        if(data.t >= 100){
-            Gdata.s++;
+
+        let limit = sessionStorage.getItem('suti');
+        limit++;
+        sessionStorage.setItem('suti',limit);
+        if(limit<=3){
+            GetS(100,2);
+            Gdata.suit++;
+            let b = sessionStorage.getItem('Save');
+            alert('現在' + data.b + '倍です。');
+        }else{
+            alert('これ以上購入できません。');
         }
-        let b = sessionStorage.getItem('Save');
-        alert('現在' + data.b + '倍です。');
+        
     }
        //車
     function Get5(){
-        GetS(100,5);
-        if(data.t >= 100){
+        let limit = sessionStorage.getItem('car');
+        limit++;
+        sessionStorage.setItem('car',limit);
+        if(limit<=1){
+            GetS(100,5);
             Gdata.car++;
+            let b = sessionStorage.getItem('Save');
+            alert('現在' + data.b + '倍です。');
+        }else{
+            alert('これ以上購入できません。');
         }
-        Gdata.car++;
-        let b = sessionStorage.getItem('Save');
-        alert('現在' + data.b + '倍です。');
     }
     //家
     function Get6(){
-        GetS(1000,10);
-        if(data.t >= 1000){
-            Gdata.home++;
-        }
+        let limit = sessionStorage.getItem('home');
+        limit++;
+        sessionStorage.setItem('home',limit);
+        if(limit<=3){
+            GetS(1000,10);
+        Gdata.home++;
+
         let b = sessionStorage.getItem('Save');
         alert('現在' + data.b + '倍です。');
+        }else{
+            alert('これ以上購入できません。');
+        }
+        
     }
     //コイン数ＵＰ
     function Get3(){
