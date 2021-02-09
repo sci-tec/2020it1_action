@@ -129,13 +129,14 @@ function init(){
   coinxx = 30;//お金、酒、タバコのxの位置
   sto = [0,0,0,0,0,0,0,0,1,2];//お金、酒、タバコの出る確率
   coinhi = [1500,1500,1500,1500,40,80,40,80,40,80];//お金、酒、タバコの位置Ｙ座標
-  if(1 <= data.c){
+  if(0 < data.c){
     for(let i=0; i<data.c; i++){
       sto.push(0,0,0,0);
-      coinhi[i] = 40;
+      coinhi.push(40,80);
     }
   }
-  
+  console.log(sto);
+  console.log(coinhi);
   blockyy = [562,562,562,562,562,562,462,462,1000,462.1];//ブッロクの位置座標
 
   //お金変数
@@ -308,7 +309,7 @@ function refleshImages(kane){
   function ie(ielv){
     var ie = new Image();
     ie.src = "./img/ie"+ielv+".png";
-    ctx.drawImage(ie, blocks[on_off-1].x, blocks[on_off-1].y-260, 300,300);
+    ctx.drawImage(ie, blocks[on_off-1].x, blocks[on_off-1].y-270, 300,300);
     }
   if(Gdata.home >=1){
     if(Gdata.home >= 3){
@@ -330,7 +331,14 @@ function refleshImages(kane){
   // 主人公の画像を表示
   var image = new Image();
 //プレイヤーの服を変える関数
-    playerlv(data.lv);
+    if(Gdata.s==0){
+      playerlv(1);
+    }else if(Gdata.s==1){
+      playerlv(2);
+    }else if(Gdata.s>=2){
+      playerlv(3);
+    }
+    
   ctx.drawImage(image, x, y, 32, 32);
   //プレイヤーの服を変える画像
   function playerlv(lv){

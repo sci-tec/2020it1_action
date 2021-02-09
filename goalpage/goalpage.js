@@ -1,3 +1,4 @@
+var yami = sessionStorage.getItem("yami");
     $(".yami-gamen-background-img").hide();
     $(".alret-wrap").hide();
     $(".alret-text1").hide();
@@ -13,26 +14,35 @@
     $(".alret-img5").hide();
     $(".alret-img6").hide();
     $(".btn-return").hide();
-$('.btn-1').click(function () {
-    $(".yami-gamen-background-img").show();
-    $(".btn-wrap").hide();
-    $(".alret-wrap").hide();
-    $(".alret-text1").hide();
-    $(".alret-text2").hide();
-    $(".alret-text3").hide();
-    $(".alret-text4").hide();
-    $(".alret-text5").hide();
-    $(".alret-text6").hide();
-    $(".alret-img1").hide();
-    $(".alret-img2").hide();
-    $(".alret-img3").hide();
-    $(".alret-img4").hide();
-    $(".alret-img5").hide();
-    $(".alret-img6").hide();
-    $(".btn-return").show();
-    $("#sca.btn.btn-large.btn-primary").hide();
-    $("#stg.stop.btn-large.btn-warning").hide();
-})
+    
+        $('.btn-1').click(function () {
+            if(yami == "0"){
+            $(".yami-gamen-background-img").show();
+            $(".btn-wrap").hide();
+            $(".alret-wrap").hide();
+            $(".alret-text1").hide();
+            $(".alret-text2").hide();
+            $(".alret-text3").hide();
+            $(".alret-text4").hide();
+            $(".alret-text5").hide();
+            $(".alret-text6").hide();
+            $(".alret-img1").hide();
+            $(".alret-img2").hide();
+            $(".alret-img3").hide();
+            $(".alret-img4").hide();
+            $(".alret-img5").hide();
+            $(".alret-img6").hide();
+            $(".btn-return").show();
+            $("#sca.btn.btn-large.btn-primary").hide();
+            $("#stg.stop.btn-large.btn-warning").hide();
+        }else{
+            alert("一度しか借りれません");
+        }
+        })
+    
+
+
+   
 $('.btn-1-1').click(function () {
     $(".alret-wrap").show();
     $(".alret-text1").show();
@@ -221,7 +231,9 @@ $('.ranking-btn-return').click(function () {
 });
 
 function addScoreToSS(num) {
-    data.t += num;
+    data.s = num;
     sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
+    sessionStorage.setItem('gz',JSON.stringify({s:Gdata.s,car:Gdata.car,home:Gdata.home}));
+    sessionStorage.setItem('yami','1');
     location.href='./goalpage.html';
 }

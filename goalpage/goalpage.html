@@ -156,19 +156,24 @@
     function Get7(){
         sessionStorage.setItem('didWup',"0");
         sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
-        sessionStorage.setItem('gz',JSON.stringify({car:Gdata.car,home:Gdata.home}));
+        sessionStorage.setItem('gz',JSON.stringify({s:Gdata.s,car:Gdata.car,home:Gdata.home}));
     location.href='../game/binbo-.html'
     }
       //スーツ
     function Get4(){
         GetS(100,2);
-        Gdata.suit++;
+        if(data.t >= 100){
+            Gdata.s++;
+        }
         let b = sessionStorage.getItem('Save');
         alert('現在' + data.b + '倍です。');
     }
        //車
     function Get5(){
         GetS(100,5);
+        if(data.t >= 100){
+            Gdata.car++;
+        }
         Gdata.car++;
         let b = sessionStorage.getItem('Save');
         alert('現在' + data.b + '倍です。');
@@ -176,12 +181,15 @@
     //家
     function Get6(){
         GetS(1000,10);
-        Gdata.home++;
+        if(data.t >= 1000){
+            Gdata.home++;
+        }
         let b = sessionStorage.getItem('Save');
         alert('現在' + data.b + '倍です。');
     }
     //コイン数ＵＰ
     function Get3(){
+        if(data.t >= 1000){
         if(wup == "0"){
             data.t -= 1000;
             data.c += 1;
@@ -192,6 +200,9 @@
         }else{
             console.log(data);
             alert("一度しか押せません");
+        }
+        }else{
+            alert("所持金が足りません");
         }
     }
     function GetS(t,b){
