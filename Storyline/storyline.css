@@ -8,12 +8,19 @@
     border: 1px solid; /* 見た目用 */
 }
 .storyline-btn{
+    background-color: rgb(216, 91, 91);
     margin-bottom: 50px;
     width: 100px;
-    height: 100px;
+    height: 60px;
     position: absolute;
     postion: fixed;
     position: fixed;
     right: 80px;
-    bottom: 50px;
+    bottom: 20px;
+    border-radius: 10px;
+    font-size: large;
+    outline: none
+}
+.storyline-btn:hover{
+    box-shadow: 0 20px 20px rgba(10, 10, 10, 0.2);
 }

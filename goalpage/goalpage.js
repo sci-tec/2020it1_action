@@ -160,14 +160,15 @@ $('.btn-2').click(function(){
     }
 })
 
-
-$(".btn btn-large btn-primary start").click(function () {
-    $(".btn_container").hide();
+$(function(){
+$(".btn_container .start").click(function () {
+    
+    $(".takara-btn-return").hide();
+    // $(".btn_container").hide();
     $(".takara-alret-btn1").hide();
     $(".start").hide();
     $(".takara-alret-wrap").show();
-    console.log("start");
-
+});
 });
 // ------------------------------------------shop---------------------------------//
 $(".shop-wrap").hide();
