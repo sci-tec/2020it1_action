@@ -1,4 +1,7 @@
 var data =JSON.parse(sessionStorage.getItem('Save'));
+data.t += data.s;
+sessionStorage.setItem('Save', JSON.stringify({s:data.s,t:data.t,lv:data.lv,b:data.b,c:data.c}));
+var data =JSON.parse(sessionStorage.getItem('Save'));
 const LS_KEY = "score1";
 
 let ran1 = document.getElementById('rn1');
