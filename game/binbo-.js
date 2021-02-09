@@ -2,7 +2,7 @@
 //開発中はtrueにしてください。
 const ON_OFF = true;
 let on_off = 100;
-if(ON_OFF==true){
+if(ON_OFF==false){
 on_off = 20;
 }
 //データ呼び出し
