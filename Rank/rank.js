@@ -1,5 +1,5 @@
 var data =JSON.parse(sessionStorage.getItem('Save'));
-const LS_KEY = "score";
+const LS_KEY = "score1";
 
 let ran1 = document.getElementById('rn1');
 let ran2 = document.getElementById('rn2');
@@ -70,20 +70,20 @@ function onclickname(){
    tui();
 }
 function rank(){
-   console.log(getLS("score"));
-   if(getLS("score").length>0){
+   console.log(getLS(LS_KEY));
+   if(getLS(LS_KEY).length>0){
      ran1.innerHTML = '<p><font size="10"><pre><b>１位</b>  ' + getLS("score")[0].n +"  "+ getLS("score")[0].s +  '</pre></font></p>';
    }
-   if(getLS("score").length>1){
+   if(getLS(LS_KEY).length>1){
      ran2.innerHTML = '<p><font size="10"><pre><b>２位</b>  ' + getLS("score")[1].n +"  "+ getLS("score")[1].s +  '</pre></font></p>';
    }
-   if(getLS("score").length>2){
+   if(getLS(LS_KEY).length>2){
      ran3.innerHTML = '<p><font size="10"><pre><b>３位</b>  ' + getLS("score")[2].n +"  "+ getLS("score")[2].s +  '</pre></font></p>';
    }
-   if(getLS("score").length>3){
+   if(getLS(LS_KEY).length>3){
      ran4.innerHTML = '<p><font size="10"><pre><b>４位</b>  ' + getLS("score")[3].n +"  "+ getLS("score")[3].s +  '</pre></font></p>';
    }
-   if(getLS("score").length>4){
+   if(getLS(LS_KEY).length>4){
      ran5.innerHTML = '<p><font size="10"><pre><b>５位</b>  ' + getLS("score")[4].n +"  "+ getLS("score")[4].s +  '</pre></font></p>';
    }
 }
